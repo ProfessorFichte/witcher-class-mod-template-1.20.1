@@ -1,0 +1,76 @@
+{
+  "school": "LIGHTNING",
+  "group": "aard",
+  "range": 7.5,
+  "learn": {
+    "tier": 1
+  },
+  "cast": {
+    "duration": 0,
+    "particles": [
+      {
+        "particle_id": "sweep_attack",
+        "angle": 90.0,
+        "rotation": "LOOK",
+        "shape": "CONE",
+        "origin": "LAUNCH_POINT",
+        "count": 1.0
+      }
+    ]
+  },
+  "release": {
+    "target": {
+      "type": "AREA",
+      "area": {
+        "distance_dropoff": "SQUARED",
+        "angle_degrees": 90
+      }
+    },
+    "animation": "more_rpg_classes:sign_cast_short",
+    "sound": {
+      "id": "more_rpg_classes:aard_sign"
+    },
+    "particles": [
+      {
+        "particle_id": "witcher_rpg:aard_sign_cast",
+        "shape": "PIPE",
+        "origin": "LAUNCH_POINT",
+        "count": 4.0,
+        "min_speed": 0.01,
+        "max_speed": 0.1
+      },
+      {
+        "particle_id": "sonic_boom",
+        "shape": "SPHERE",
+        "origin": "LAUNCH_POINT",
+        "count": 1.0,
+        "min_speed": 0.01,
+        "max_speed": 0.2
+      }
+    ]
+  },
+  "impact": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "spell_power_coefficient": 0.7,
+          "knockback": 6.0
+        }
+      },
+      "particles": [
+        {
+          "particle_id": "explosion",
+          "shape": "CIRCLE",
+          "origin": "CENTER",
+          "count": 1.0
+        }
+      ]
+    }
+  ],
+  "cost": {
+    "exhaust": 6.0,
+    "cooldown_duration": 12,
+    "cooldown_haste_affected": "true"
+  }
+}

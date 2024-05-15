@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "R R",
+    "WRW",
+    "WZW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:leather"
+    },
+    "R": {
+      "tag": "minecraft:wool"
+    },
+    "Z": {
+      "item": "minecraft:chain"
+    }
+  },
+  "result": {
+    "item": "witcher_rpg:adept_chest",
+    "count": 1
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "witcher_rpg:adept_feet",
+    "witcher_rpg:adept_head",
+    "witcher_rpg:adept_legs",
+    "witcher_rpg:adept_chest"
+  ]
+}

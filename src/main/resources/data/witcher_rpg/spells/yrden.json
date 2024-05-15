@@ -1,0 +1,114 @@
+{
+  "school": "ARCANE",
+  "group": "yrden",
+  "range": 0,
+  "learn": {
+    "tier": 1
+  },
+  "cast": {
+    "duration": 0.5,
+    "animation": "more_rpg_classes:sign_cast_ground",
+    "particles": [
+      {
+        "particle_id": "witcher_rpg:yrden_sign_cast",
+        "shape": "CIRCLE",
+        "origin": "CENTER",
+        "count": 1.0,
+        "min_speed": 0.001,
+        "max_speed": 0.006
+      },
+      {
+        "particle_id": "witcher_rpg:yrden_sign_cast",
+        "shape": "PILLAR",
+        "origin": "CENTER",
+        "count": 1.0,
+        "min_speed": 0.001,
+        "max_speed": 0.006
+      }
+    ]
+  },
+  "release": {
+    "target": {
+      "type": "CLOUD",
+      "cloud": {
+        "volume": {
+          "radius": 3.0,
+          "area": {
+            "vertical_range_multiplier": 2.5
+          }
+        },
+        "impact_tick_interval": 10,
+        "time_to_live_seconds": 10,
+        "client_data": {
+          "light_level": 14,
+          "model": {
+            "model_id": "witcher_rpg:effect/yrden_circle",
+            "scale": 3,
+            "rotate_degrees_per_tick": 0,
+            "light_emission": "RADIATE"
+          },
+          "particles": [
+            {
+              "particle_id": "witcher_rpg:yrden_cloud",
+              "shape": "PILLAR",
+              "origin": "FEET",
+              "count": 5.0,
+              "min_speed": 0.0,
+              "max_speed": 0.0
+            }
+          ]
+        },
+        "placement": {
+          "force_onto_ground": true,
+          "location_offset_y": 0
+        }
+      }
+    }
+  },
+  "impact": [
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "witcher_rpg:magical_trap",
+          "duration": 1,
+          "apply_mode": "ADD",
+          "amplifier": 0,
+          "amplifier_power_multiplier": 0.3,
+          "apply_limit": {
+            "health_base": 50,
+            "spell_power_multiplier": 2
+          },
+          "show_particles": false
+        }
+      },
+      "particles": [
+        {
+          "particle_id": "witcher_rpg:yrden_sign_cast",
+          "shape": "SPHERE",
+          "origin": "CENTER",
+          "count": 4.0,
+          "min_speed": 0.05,
+          "max_speed": 0.15
+        },
+        {
+          "particle_id": "witcher_rpg:yrden_cloud",
+          "shape": "SPHERE",
+          "origin": "CENTER",
+          "count": 2.0,
+          "min_speed": 0.05,
+          "max_speed": 0.15
+        }
+      ],
+      "sound": {
+        "id": "more_rpg_classes:yrden_sign",
+        "randomness": 0.1
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 8.0,
+    "cooldown_duration": 18,
+    "cooldown_haste_affected": true
+  }
+}

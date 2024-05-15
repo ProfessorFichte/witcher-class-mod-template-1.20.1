@@ -1,0 +1,66 @@
+{
+  "school": "HEALING",
+  "group": "quen",
+  "range": 0,
+  "learn": {
+    "tier": 1
+  },
+  "cast": {
+    "duration": 0
+  },
+  "release": {
+    "target": {
+      "type": "SELF"
+    },
+    "animation": "more_rpg_classes:sign_cast_short",
+    "sound": {
+      "id": "more_rpg_classes:quen_sign"
+    },
+    "particles": [
+      {
+        "particle_id": "glow_squid_ink",
+        "shape": "CIRCLE",
+        "origin": "CENTER",
+        "count": 5.0,
+        "min_speed": 0.1,
+        "max_speed": 0.5
+      },
+      {
+        "particle_id": "witcher_rpg:quen_sign_cast",
+        "shape": "PIPE",
+        "origin": "LAUNCH_POINT",
+        "count": 3.0,
+        "min_speed": 0.01,
+        "max_speed": 0.1
+      },
+      {
+        "particle_id": "witcher_rpg:quen_sign_cast",
+        "shape": "SPHERE",
+        "origin": "LAUNCH_POINT",
+        "count": 1.0,
+        "min_speed": 0.01,
+        "max_speed": 0.2
+      }
+    ]
+  },
+  "impact": [
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "witcher_rpg:quen_shield",
+          "duration": 10,
+          "apply_mode": "SET",
+          "amplifier": 0,
+          "amplifier_power_multiplier": 0.5,
+          "show_particles": false
+        }
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 8.0,
+    "cooldown_duration": 36,
+    "cooldown_haste_affected": true
+  }
+}
