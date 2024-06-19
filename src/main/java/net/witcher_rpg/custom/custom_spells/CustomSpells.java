@@ -63,23 +63,18 @@ public class CustomSpells {
         });
         /// REND
         CustomSpellHandler.register(new Identifier(MOD_ID, "rend"), (data) -> {
-            //MagicSchool actualSchool = MagicSchool.PHYSICAL_MELEE;
             CustomSpellHandler.Data data1 = (CustomSpellHandler.Data) data;
-            float adrenaline_damage_multiplier = (float) ((data1.caster().getAttributeValue(MRPGCEntityAttributes.ADRENALINE_MODIFIER)-100)/10);
+            float adrenaline_damage_multiplier = (float) ((data1.caster().getAttributeValue(MRPGCEntityAttributes.ADRENALINE_MODIFIER)-100));
             var actualSchool = data1.caster().getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
             for (Entity entity : data1.targets()) {
 
-                //SpellPower.Result power = SpellPower.getSpellPower(actualSchool,data1.caster());
-                //SpellPower.Vulnerability vulnerability;
+
                 if (entity instanceof LivingEntity living) {
-                    //vulnerability = SpellPower.getVulnerability(living, actualSchool);
-                    double amount = adrenaline_damage_multiplier * actualSchool;
+                    double amount = adrenaline_damage_multiplier;
                     SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, new SpellInfo(getSpell(new Identifier(MOD_ID, "rend")),new Identifier(MOD_ID)), data1.impactContext());
                     if(data1.caster().hasStatusEffect(Effects.ADRENALINE_GAIN)){
-                        entity.damage(living.getDamageSources().playerAttack(data1.caster()),(float) amount);
-                        //entity.damage(SpellDamageSource.player(actualSchool, data1.caster()), (float) amount);
+                        entity.damage(living.getDamageSources().magic(),(float) amount);
                     }
-                    decreaseEffectLevel(data1.caster(), Effects.ADRENALINE_GAIN,1);
                 }
                 return true;
             }

@@ -40,11 +40,11 @@ public class Effects {
                 effectsConfig.value.magical_trap_speed_reduction, EntityAttributeModifier.Operation.MULTIPLY_BASE);
 
         ADRENALINE_GAIN.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, "8df38693-8f24-4c8c-b346-75ab7e6cc1aa",
-                effectsConfig.value.adrenaline_attack_increase_per_stack, EntityAttributeModifier.Operation.ADDITION)
+                effectsConfig.value.adrenaline_attack_increase_per_stack, EntityAttributeModifier.Operation.MULTIPLY_BASE)
                 .addAttributeModifier(MRPGCEntityAttributes.SIGN_INTENSITY, "0f88e4e8-becb-437b-9beb-6ef08fda3b49",
-                        effectsConfig.value.adrenaline_sign_intensity_increase_per_stack, EntityAttributeModifier.Operation.ADDITION)
+                        effectsConfig.value.adrenaline_sign_intensity_increase_per_stack, EntityAttributeModifier.Operation.MULTIPLY_BASE)
                 .addAttributeModifier(MRPGCEntityAttributes.ADRENALINE_MODIFIER,"355df58b-0a17-481f-b6f9-5fe2501ca6c8",
-                       effectsConfig.value.adrenaline_attribute_increase_per_stack,EntityAttributeModifier.Operation.MULTIPLY_BASE);
+                effectsConfig.value.adrenaline_attribute_increase_per_stack,EntityAttributeModifier.Operation.MULTIPLY_BASE);
 
         QUEN_EXPLODE.addAttributeModifier(MRPGCEntityAttributes.DAMAGE_REFLECT_MODIFIER, "7c097c68-1e70-497f-88d7-b78cfa34cd0e",
                 effectsConfig.value.quen_reflect_damage, EntityAttributeModifier.Operation.MULTIPLY_BASE);

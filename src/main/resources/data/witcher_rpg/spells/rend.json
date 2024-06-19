@@ -5,6 +5,7 @@
     "tier": 4
   },
   "cast": {
+    "movement_speed": 0.1,
     "duration": 0.7,
     "animation": "more_rpg_classes:rend_cast"
   },
@@ -45,7 +46,7 @@
       "action": {
         "type": "DAMAGE",
         "damage": {
-          "spell_power_coefficient": 1.2,
+          "spell_power_coefficient": 1.5,
           "knockback": 0.5
         }
       },
@@ -72,7 +73,7 @@
   ],
   "cost": {
     "effect_id": "witcher_rpg:adrenaline_gain",
-    "exhaust": 15.0,
+    "exhaust": 1.0,
     "durability": 1,
     "cooldown_haste_affected": false,
     "cooldown_duration": 20

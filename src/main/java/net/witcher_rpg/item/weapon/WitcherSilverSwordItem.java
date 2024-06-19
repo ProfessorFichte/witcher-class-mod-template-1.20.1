@@ -43,8 +43,9 @@ public class WitcherSilverSwordItem extends SpellSwordItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         PlayerEntity player = (PlayerEntity) attacker;
+        float attack = (float) attacker.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
         if(target.isUndead()){
-            target.damage(target.getDamageSources().magic(), 1.0f);
+            target.damage(target.getDamageSources().magic(), attack * 0.20F);
             player.addEnchantedHitParticles(target);
         }
         stack.damage(1, attacker, (e)->{
@@ -55,7 +56,7 @@ public class WitcherSilverSwordItem extends SpellSwordItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        tooltip.add(Text.translatable(this.getTranslationKey() + ".description_1").formatted(Formatting.AQUA));
+        tooltip.add(Text.translatable("item.witcher_rpg.silver_witcher_swords.description_1").formatted(Formatting.AQUA));
     }
     @Override
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {

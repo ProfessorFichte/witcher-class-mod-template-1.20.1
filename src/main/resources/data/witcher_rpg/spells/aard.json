@@ -6,6 +6,7 @@
     "tier": 1
   },
   "cast": {
+    "movement_speed": 0.5,
     "duration": 0,
     "particles": [
       {
@@ -69,7 +70,7 @@
     }
   ],
   "cost": {
-    "exhaust": 6.0,
+    "exhaust": 0.4,
     "cooldown_duration": 12,
     "cooldown_haste_affected": "true"
   }

@@ -18,10 +18,8 @@
   "item.witcher_rpg.ultimatum_sword": "Ultimatum",
   "item.witcher_rpg.aerondight_sword": "Aerondight",
 
-  "item.witcher_rpg.silver_witcher_sword.description_1": "Verursacht extra Silberschaden an Untoten Monster",
-  "item.witcher_rpg.meteorite_witcher_sword.description_1": "Verursacht extra Silberschaden an Untoten Monster",
-  "item.witcher_rpg.meteorite_silver_witcher_sword.description_1": "Verursacht extra Silberschaden an Untoten Monster",
-  "item.witcher_rpg.aerondight_sword.description_1": "Verursacht extra Silberschaden an Untoten Monster",
+  "item.witcher_rpg.silver_witcher_swords.description_1": "Verursacht extra Silberschaden an Untoten Monster, skaliert mit Angriffsschaden.",
+  "item.witcher_rpg.aerondight_sword.description_1": "Verursacht extra Silberschaden an Untoten Monster, skaliert mit dem maximalen Leben des Ziels.",
   "item.witcher_rpg.aerondight_sword.description_2": "Die Klinge lädt sich mit jedem Schlag auf (max. 10 Ladungen).",
   "item.witcher_rpg.aerondight_sword.description_3": "Erhöht die Angriffskraft, Zauber kritische Chance und Zauber kritischen Schaden.",
   "item.witcher_rpg.aerondight_sword.description_4": "Wenn voll aufgeladen, verursacht magischen Schaden.",

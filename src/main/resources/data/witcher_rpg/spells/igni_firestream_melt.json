@@ -6,6 +6,7 @@
     "tier": 2
   },
   "cast": {
+    "movement_speed": 0.5,
     "duration": 7.5,
     "animation": "more_rpg_classes:sign_cast_long",
     "sound": {
@@ -100,8 +101,8 @@
     }
   ],
   "cost": {
-    "exhaust": 10.0,
-    "cooldown_duration": 30.0,
+    "exhaust": 0.8,
+    "cooldown_duration": 24.0,
     "cooldown_proportional": true,
     "cooldown_haste_affected": true
   }

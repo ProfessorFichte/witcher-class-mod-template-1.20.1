@@ -18,10 +18,8 @@
   "item.witcher_rpg.ultimatum_sword": "Ultimatum",
   "item.witcher_rpg.aerondight_sword": "Aerondight",
 
-  "item.witcher_rpg.silver_witcher_sword.description_1": "Deals magic silver damage to undead targets.",
-  "item.witcher_rpg.meteorite_witcher_sword.description_1": "Deals magic silver damage to undead targets.",
-  "item.witcher_rpg.meteorite_silver_witcher_sword.description_1": "Deals magic silver damage to undead targets.",
-  "item.witcher_rpg.aerondight_sword.description_1": "Deals magic silver damage to undead targets.",
+  "item.witcher_rpg.silver_witcher_swords.description_1": "Deals magic silver damage to undead targets, scaling with attack damage.",
+  "item.witcher_rpg.aerondight_sword.description_1": "Deals magic silver damage to undead targets, scaling with their max health.",
   "item.witcher_rpg.aerondight_sword.description_2": "The blade charges up with every hit (max. 10 charges).",
   "item.witcher_rpg.aerondight_sword.description_3": "Gaining damage, spell crit chance and spell crit damage.",
   "item.witcher_rpg.aerondight_sword.description_4": "When fully charged, deals magic damage per hit.",

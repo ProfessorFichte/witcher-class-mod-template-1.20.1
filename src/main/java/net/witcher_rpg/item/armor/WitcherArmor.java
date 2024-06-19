@@ -60,7 +60,7 @@ public class WitcherArmor extends ModArmorItem implements GeoItem {
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.putAll(attributes);
         UUID uuid = (UUID)MODIFIERS.get(this.type);
-        builder.put(MRPGCEntityAttributes.SIGN_INTENSITY,new EntityAttributeModifier(uuid,"sign_intensity",0.1, EntityAttributeModifier.Operation.MULTIPLY_BASE));
+        builder.put(MRPGCEntityAttributes.SIGN_INTENSITY,new EntityAttributeModifier(uuid,"sign_intensity",1.0, EntityAttributeModifier.Operation.ADDITION));
         builder.put(MRPGCEntityAttributes.ADRENALINE_MODIFIER,new EntityAttributeModifier(uuid,"adrenaline",0.03, EntityAttributeModifier.Operation.MULTIPLY_BASE));
         this.attributes = builder.build();
     }

@@ -18,12 +18,22 @@
     },
     "particles": [
       {
-        "particle_id": "glow_squid_ink",
-        "shape": "CIRCLE",
-        "origin": "CENTER",
+        "particle_id": "spell_engine:electric_arc_a",
+        "shape": "SPHERE",
+        "origin": "LAUNCH_POINT",
+        "count": 3.0,
+        "min_speed": 0.01,
+        "max_speed": 0.05,
+        "extent": 1
+      },
+      {
+        "particle_id": "spell_engine:electric_arc_b",
+        "shape": "PILLAR",
+        "origin": "FEET",
         "count": 5.0,
-        "min_speed": 0.1,
-        "max_speed": 0.5
+        "min_speed": 0.01,
+        "max_speed": 0.05,
+        "extent": 1
       },
       {
         "particle_id": "witcher_rpg:quen_sign_cast",
@@ -52,14 +62,14 @@
           "duration": 10,
           "apply_mode": "SET",
           "amplifier": 0,
-          "amplifier_power_multiplier": 0.5,
+          "amplifier_power_multiplier": 0.25,
           "show_particles": false
         }
       }
     }
   ],
   "cost": {
-    "exhaust": 8.0,
+    "exhaust": 0.4,
     "cooldown_duration": 36,
     "cooldown_haste_affected": true
   }

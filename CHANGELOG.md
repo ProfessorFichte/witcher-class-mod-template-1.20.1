@@ -1,3 +1,16 @@
+1.0.7
+- Updated for Spell Engine version 0.15
+- Buffed Movement Speed while casting for many signs and physical spells
+- Buffed damage for mostly all physical Witcher Spells
+- nerfed hunger costs and cooldown of the most of the spells
+- Buffed Better Combat Range for all Witcher Swords
+- Silver Swords and the Aerondight now deal a percentage of magic damage, according to your attack damage
+- added new electric particles from the Spell Engine API to the Quen Sign
+- Steel Swords have a 10% chance to add the Bleed effect to non-undead targets
+- made tags for silver and steel ingot items from other mods, so you can use their ingots for crafting Witcher stuff
+- changed Sign Intensity on the Kaer Morhen Set to Flat from Percentage
+- italian translation thanks to Zano1999 
+
 1.0.6
 - Moved Magical Trap Damage Source to this mod from More RPG Classes Mod
 

@@ -18,9 +18,7 @@
   "item.witcher_rpg.ultimatum_sword": "Ультиматум",
   "item.witcher_rpg.aerondight_sword": "Арондит",
 
-  "item.witcher_rpg.silver_witcher_sword.description_1": "Наносит магический урон серебром нежити.",
-  "item.witcher_rpg.meteorite_witcher_sword.description_1": "Наносит магический урон серебром нежити.",
-  "item.witcher_rpg.meteorite_silver_witcher_sword.description_1": "Наносит магический урон серебром нежити.",
+  "item.witcher_rpg.silver_witcher_swords.description_1": "Наносит магический урон серебром нежити.",
   "item.witcher_rpg.aerondight_sword.description_1": "Наносит магический урон серебром нежити.",
   "item.witcher_rpg.aerondight_sword.description_2": "Клинок заряжается с каждым ударом (максимум 10 зарядов).",
   "item.witcher_rpg.aerondight_sword.description_3": "Наносимый урон, шанс и урон от критического удара заклинанием.",

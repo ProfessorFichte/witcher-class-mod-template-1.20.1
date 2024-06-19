@@ -40,7 +40,7 @@
       "action": {
         "type": "DAMAGE",
         "damage": {
-          "spell_power_coefficient": 0.85,
+          "spell_power_coefficient": 1.0,
           "knockback": 1.0
         }
       },
@@ -70,7 +70,7 @@
     }
   ],
   "cost": {
-    "exhaust": 8.0,
+    "exhaust": 0.4,
     "durability": 1,
     "cooldown_haste_affected": false,
     "cooldown_duration": 13

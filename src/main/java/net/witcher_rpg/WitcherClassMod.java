@@ -38,7 +38,7 @@ public class WitcherClassMod implements ModInitializer {
 
 
 	public static ConfigManager<ItemConfig> itemConfig = new ConfigManager<ItemConfig>
-			("items_v2", Default.itemConfig)
+			("items_v3", Default.itemConfig)
 			.builder()
 			.setDirectory(MOD_ID)
 			.sanitize(true)
@@ -76,6 +76,7 @@ public class WitcherClassMod implements ModInitializer {
 	public void onInitialize() {
 		lootConfig.refresh();
 		itemConfig.refresh();
+		effectsConfig.refresh();
 		WitcherLootTableChestModifiers.modifyChestLootTables();
 		WitcherItems.registerModItems();
 		Particles.register();

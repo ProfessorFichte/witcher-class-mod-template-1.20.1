@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static net.more_rpg_classes.util.CustomMethods.increaseAmpByChance;
+import static net.witcher_rpg.WitcherClassMod.effectsConfig;
 
 @Mixin(PlayerEntity.class)
 public class PlayerEntityMixin {
@@ -28,12 +29,12 @@ public class PlayerEntityMixin {
         if (player instanceof ServerPlayerEntity) {
             if (value1 != 100) {
                 value1 = value1 -100;
-                int duration_multiplier = value1 * 5;
+                int duration_multiplier = value1 / 5;
                 if(!player.hasStatusEffect(Effects.ADRENALINE_GAIN)){
                     player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN,350+duration_multiplier,0,false,false,true));
                 }else{
                     int adrenaline_chance_inc = (int) Math.round((float) value1 /5);
-                    increaseAmpByChance(player,Effects.ADRENALINE_GAIN,350+duration_multiplier,1,20+adrenaline_chance_inc,10-adrenaline_chance_inc);
+                    increaseAmpByChance(player,Effects.ADRENALINE_GAIN,350+duration_multiplier,1,effectsConfig.value.adrenaline_max_amplifier-1,10-adrenaline_chance_inc);
                 }
             }
         }
