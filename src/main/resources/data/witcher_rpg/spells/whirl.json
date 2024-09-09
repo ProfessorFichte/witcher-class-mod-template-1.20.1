@@ -6,10 +6,10 @@
   },
   "cast": {
     "movement_speed": 1.3,
-    "duration": 5,
-    "animation": "more_rpg_classes:witcher_whirl",
+    "duration": 3.5,
+    "animation": "witcher_rpg:witcher_whirl",
     "sound": {
-      "id": "more_rpg_classes:whirl",
+      "id": "witcher_rpg:whirl",
       "randomness": 1.1,
       "volume": 0.6
     },
@@ -20,7 +20,6 @@
     "target": {
       "type": "AREA",
       "area": {
-        "distance_dropoff": "SQUARED",
         "angle_degrees": 360
       }
     }

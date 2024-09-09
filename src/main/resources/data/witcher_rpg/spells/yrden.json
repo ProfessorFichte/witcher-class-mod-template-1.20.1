@@ -1,13 +1,12 @@
 {
-  "school": "ARCANE",
+  "school": "YRDEN",
   "group": "yrden",
   "range": 0,
   "learn": {
-    "tier": 1
+    "tier": 2
   },
   "cast": {
-    "duration": 0.5,
-    "animation": "more_rpg_classes:sign_cast_ground",
+    "movement_speed": 0.75,
     "particles": [
       {
         "particle_id": "witcher_rpg:yrden_sign_cast",
@@ -28,6 +27,10 @@
     ]
   },
   "release": {
+    "animation": "witcher_rpg:sign_cast_ground",
+    "sound": {
+      "id": "witcher_rpg:yrden_sign"
+    },
     "target": {
       "type": "CLOUD",
       "cloud": {
@@ -52,7 +55,7 @@
               "particle_id": "witcher_rpg:yrden_cloud",
               "shape": "PILLAR",
               "origin": "FEET",
-              "count": 5.0,
+              "count": 2.0,
               "min_speed": 0.0,
               "max_speed": 0.0
             }
@@ -70,7 +73,7 @@
       "action": {
         "type": "STATUS_EFFECT",
         "status_effect": {
-          "effect_id": "witcher_rpg:magical_trap",
+          "effect_id": "witcher_rpg:yrden_circle",
           "duration": 1,
           "apply_mode": "ADD",
           "amplifier": 0,
@@ -101,7 +104,7 @@
         }
       ],
       "sound": {
-        "id": "more_rpg_classes:yrden_sign",
+        "id": "witcher_rpg:yrden_sign",
         "randomness": 0.1
       }
     }

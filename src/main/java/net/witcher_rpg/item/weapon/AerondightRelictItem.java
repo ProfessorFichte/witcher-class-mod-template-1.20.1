@@ -14,15 +14,13 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
-import net.more_rpg_classes.effect.MRPGCEffects;
-import net.spell_engine.api.item.weapon.SpellSwordItem;
 import net.witcher_rpg.effect.Effects;
 
 import java.util.List;
 
 import static net.more_rpg_classes.util.CustomMethods.increaseHiddenEffectLevel;
 
-public class AerondightRelictItem extends SpellSwordItem {
+public class AerondightRelictItem extends WitcherSword {
     public AerondightRelictItem(ToolMaterial material, Settings settings) {
         super(material, settings);
     }

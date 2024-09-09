@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "witcher_rpg:aerondight_sword",
+    {
+      "id": "witcher_rpg:aeternium_witcher_sword",
+      "required": false
+    },
+    {
+      "id": "witcher_rpg:ruby_witcher_sword",
+      "required": false
+    }
+  ]
+}

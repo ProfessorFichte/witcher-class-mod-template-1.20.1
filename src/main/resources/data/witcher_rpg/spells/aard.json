@@ -1,14 +1,22 @@
 {
-  "school": "LIGHTNING",
+  "school": "AARD",
   "group": "aard",
   "range": 7.5,
   "learn": {
-    "tier": 1
+    "tier": 2
   },
   "cast": {
-    "movement_speed": 0.5,
+    "movement_speed": 0.75,
     "duration": 0,
     "particles": [
+      {
+        "particle_id": "witcher_rpg:aard_sign_cast",
+        "shape": "PIPE",
+        "origin": "LAUNCH_POINT",
+        "count": 0.2,
+        "min_speed": 0.01,
+        "max_speed": 0.1
+      },
       {
         "particle_id": "sweep_attack",
         "angle": 90.0,
@@ -20,16 +28,16 @@
     ]
   },
   "release": {
+    "custom_impact": true,
     "target": {
       "type": "AREA",
       "area": {
-        "distance_dropoff": "SQUARED",
         "angle_degrees": 90
       }
     },
-    "animation": "more_rpg_classes:sign_cast_short",
+    "animation": "witcher_rpg:sign_cast_short",
     "sound": {
-      "id": "more_rpg_classes:aard_sign"
+      "id": "witcher_rpg:aard_sign"
     },
     "particles": [
       {
@@ -41,12 +49,13 @@
         "max_speed": 0.1
       },
       {
-        "particle_id": "sonic_boom",
+        "particle_id": "more_rpg_classes:wind_vacuum",
         "shape": "SPHERE",
+        "rotation": "LOOK",
         "origin": "LAUNCH_POINT",
         "count": 1.0,
-        "min_speed": 0.01,
-        "max_speed": 0.2
+        "min_speed": 0.1,
+        "max_speed": 1.0
       }
     ]
   },
@@ -55,16 +64,19 @@
       "action": {
         "type": "DAMAGE",
         "damage": {
-          "spell_power_coefficient": 0.7,
-          "knockback": 6.0
+          "spell_power_coefficient": 0.75,
+          "knockback": 7.0
         }
       },
       "particles": [
         {
-          "particle_id": "explosion",
-          "shape": "CIRCLE",
-          "origin": "CENTER",
-          "count": 1.0
+          "particle_id": "more_rpg_classes:wind_vacuum",
+          "shape": "SPHERE",
+          "rotation": "LOOK",
+          "origin": "LAUNCH_POINT",
+          "count": 1.0,
+          "min_speed": 0.1,
+          "max_speed": 1.0
         }
       ]
     }

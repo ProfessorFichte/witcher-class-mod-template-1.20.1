@@ -3,7 +3,6 @@ package net.witcher_rpg;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.SpawnGroup;
@@ -12,19 +11,25 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.spell_power.api.SpellSchool;
+import net.spell_power.api.SpellSchools;
+import net.spell_power.api.enchantment.SpellPowerEnchanting;
 import net.witcher_rpg.client.particle.Particles;
 import net.witcher_rpg.config.EffectsConfig;
+import net.witcher_rpg.config.EnchantingConfig;
+import net.witcher_rpg.custom.Enchantment_WitcherSpellSchool;
+import net.witcher_rpg.custom.WitcherSpellSchools;
 import net.witcher_rpg.effect.Effects;
 import net.witcher_rpg.entity.YrdenEntity;
+import net.witcher_rpg.entity.YrdenMagicTrapEntity;
+import net.witcher_rpg.sounds.Sounds;
 import net.witcher_rpg.worldgen.OreGen;
 import net.witcher_rpg.blocks.WitcherBlocks;
 import net.witcher_rpg.item.armor.Armors;
 import net.spell_engine.api.item.ItemConfig;
-import net.spell_engine.api.loot.LootConfig;
-import net.spell_engine.api.loot.LootHelper;
 import net.tinyconfig.ConfigManager;
 import net.witcher_rpg.config.Default;
-import net.witcher_rpg.custom.custom_spells.CustomSpells;
+import net.witcher_rpg.custom.CustomSpells;
 import net.witcher_rpg.item.WitcherGroup;
 import net.witcher_rpg.item.WitcherItems;
 import net.witcher_rpg.item.weapon.WeaponsRegister;
@@ -32,30 +37,32 @@ import net.witcher_rpg.util.loot.WitcherLootTableChestModifiers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Map;
+
 public class WitcherClassMod implements ModInitializer {
 	public static final String MOD_ID = "witcher_rpg";
     public static final Logger LOGGER = LoggerFactory.getLogger("witcher_rpg");
 
 
 	public static ConfigManager<ItemConfig> itemConfig = new ConfigManager<ItemConfig>
-			("items_v3", Default.itemConfig)
+			("items_v4", Default.itemConfig)
 			.builder()
 			.setDirectory(MOD_ID)
 			.sanitize(true)
 			.build();
 
-	public static ConfigManager<LootConfig> lootConfig = new ConfigManager<LootConfig>
-			("loot_v2", Default.lootConfig)
-			.builder()
-			.setDirectory(MOD_ID)
-			.sanitize(true)
-			.constrain(LootConfig::constrainValues)
-			.build();
 	public static ConfigManager<EffectsConfig> effectsConfig = new ConfigManager<EffectsConfig>
 			("effects", new EffectsConfig())
 			.builder()
 			.setDirectory(MOD_ID)
 			.sanitize(true)
+			.build();
+	public static final ConfigManager<EnchantingConfig> enchantmentConfig = new ConfigManager<EnchantingConfig>
+			("enchantments", new EnchantingConfig())
+			.builder()
+			.setDirectory(MOD_ID)
+			.sanitize(true)
+			.schemaVersion(4)
 			.build();
 
 	private void registerItemGroup() {
@@ -66,17 +73,13 @@ public class WitcherClassMod implements ModInitializer {
 		Registry.register(Registries.ITEM_GROUP, WitcherGroup.WITCHER_KEY, WitcherGroup.WITCHER);
 	}
 
-	private void subscribeEvents() {
-		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-			LootHelper.configure(id, tableBuilder, WitcherClassMod.lootConfig.value, WitcherItems.entries);
-		});
-	}
 
 	@Override
 	public void onInitialize() {
-		lootConfig.refresh();
 		itemConfig.refresh();
 		effectsConfig.refresh();
+		enchantmentConfig.refresh();
+		WitcherSpellSchools.initialize();
 		WitcherLootTableChestModifiers.modifyChestLootTables();
 		WitcherItems.registerModItems();
 		Particles.register();
@@ -85,11 +88,32 @@ public class WitcherClassMod implements ModInitializer {
 		OreGen.register();
 		WitcherBlocks.register();
 		CustomSpells.register();
+		Sounds.register();
 		WeaponsRegister.register(itemConfig.value.weapons);
 		Armors.register(itemConfig.value.armor_sets);
 		itemConfig.save();
 		registerItemGroup();
-		subscribeEvents();
+
+		for(var entry: Enchantment_WitcherSpellSchool.all.entrySet()) {
+			Registry.register(Registries.ENCHANTMENT, entry.getKey(), entry.getValue());
+		}
+		attachEnchantmentsToSchools();
+	}
+	private void attachEnchantmentsToSchools() {
+		for(var school: SpellSchools.all()) {
+			var poweringEnchantments = Enchantment_WitcherSpellSchool.all.entrySet().stream()
+					.filter(entry -> entry.getValue().poweredSchools().contains(school))
+					.map(Map.Entry::getValue)
+					.toList();
+			school.addSource(SpellSchool.Trait.POWER, new SpellSchool.Source(SpellSchool.Apply.MULTIPLY, query -> {
+				double value = 0;
+				for (var enchantment: poweringEnchantments) {
+					var level = SpellPowerEnchanting.getEnchantmentLevel(enchantment, query.entity(), null);
+					value = enchantment.amplified(value, level);
+				}
+				return value;
+			}));
+		}
 	}
 
 	static{
@@ -97,6 +121,16 @@ public class WitcherClassMod implements ModInitializer {
 				Registries.ENTITY_TYPE,
 				new Identifier(MOD_ID, "yrden"),
 				FabricEntityTypeBuilder.<YrdenEntity>create(SpawnGroup.MISC, YrdenEntity::new)
+						.dimensions(EntityDimensions.changing(6F, 0.5F))
+						.fireImmune()
+						.trackRangeBlocks(128)
+						.trackedUpdateRate(20)
+						.build()
+		);
+		YrdenMagicTrapEntity.ENTITY_TYPE = Registry.register(
+				Registries.ENTITY_TYPE,
+				new Identifier(MOD_ID, "yrden_magical_trap"),
+				FabricEntityTypeBuilder.<YrdenMagicTrapEntity>create(SpawnGroup.MISC, YrdenMagicTrapEntity::new)
 						.dimensions(EntityDimensions.changing(6F, 0.5F))
 						.fireImmune()
 						.trackRangeBlocks(128)

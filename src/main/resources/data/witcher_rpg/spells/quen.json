@@ -1,20 +1,21 @@
 {
-  "school": "HEALING",
+  "school": "QUEN",
   "group": "quen",
   "range": 0,
   "learn": {
-    "tier": 1
+    "tier": 2
   },
   "cast": {
+    "movement_speed": 0.75,
     "duration": 0
   },
   "release": {
     "target": {
       "type": "SELF"
     },
-    "animation": "more_rpg_classes:sign_cast_short",
+    "animation": "witcher_rpg:sign_cast_short",
     "sound": {
-      "id": "more_rpg_classes:quen_sign"
+      "id": "witcher_rpg:quen_sign"
     },
     "particles": [
       {

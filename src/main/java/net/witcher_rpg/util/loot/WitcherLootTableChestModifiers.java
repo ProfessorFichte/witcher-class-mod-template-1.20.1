@@ -8,7 +8,6 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.util.Identifier;
-import net.more_rpg_classes.item.MRPGCItems;
 import net.witcher_rpg.item.WitcherItems;
 
 public class WitcherLootTableChestModifiers {

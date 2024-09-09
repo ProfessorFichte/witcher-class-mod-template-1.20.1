@@ -1,0 +1,35 @@
+{
+  "school": "PHYSICAL_MELEE",
+  "range": 0,
+  "learn": {
+    "tier": 3
+  },
+  "cast": {
+    "movement_speed": 0.75,
+    "duration": 0
+  },
+  "release": {
+    "target": {
+      "type": "SELF"
+    }
+  },
+  "impact": [
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "witcher_rpg:battle_trance",
+          "duration": 5,
+          "apply_mode": "SET",
+          "amplifier": 0,
+          "show_particles": false
+        }
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 0.8,
+    "cooldown_duration": 42,
+    "cooldown_haste_affected": false
+  }
+}

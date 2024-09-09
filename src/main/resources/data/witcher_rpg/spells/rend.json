@@ -7,11 +7,11 @@
   "cast": {
     "movement_speed": 0.1,
     "duration": 0.7,
-    "animation": "more_rpg_classes:rend_cast"
+    "animation": "witcher_rpg:rend_cast"
   },
   "release": {
     "custom_impact": true,
-    "animation": "more_rpg_classes:rend_release",
+    "animation": "witcher_rpg:rend_release",
     "particles": [
       {
         "particle_id": "crimson_spore",
@@ -36,7 +36,7 @@
     },
 
     "sound": {
-      "id": "more_rpg_classes:rend_spell",
+      "id": "witcher_rpg:rend_spell",
       "volume": 1.2,
       "randomness": 1.3
     }

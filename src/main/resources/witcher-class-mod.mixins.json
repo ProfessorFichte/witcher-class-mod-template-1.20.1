@@ -3,10 +3,14 @@
   "package": "net.witcher_rpg.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AttributeMixin",
+    "EntityAttributesMixin",
     "ExampleMixin",
-    "PlayerEntityMixin"
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
+    "SpellCastMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  }
 }

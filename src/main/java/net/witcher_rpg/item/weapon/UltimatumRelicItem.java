@@ -4,9 +4,8 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
-import net.spell_engine.api.item.weapon.SpellSwordItem;
 
-public class UltimatumRelicItem extends SpellSwordItem {
+public class UltimatumRelicItem extends WitcherSword {
     public UltimatumRelicItem(ToolMaterial material, Settings settings) {
         super(material, settings);
     }

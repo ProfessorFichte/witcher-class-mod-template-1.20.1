@@ -1,14 +1,14 @@
 {
-  "school": "LIGHTNING",
+  "school": "AARD",
   "group": "aard",
   "range": 4.0,
   "learn": {
-    "tier": 4
+    "tier": 3
   },
   "cast": {
     "movement_speed": 0.1,
     "duration": 1.5,
-    "animation": "more_rpg_classes:sign_cast_long",
+    "animation": "witcher_rpg:sign_cast_long",
     "particles": [
       {
         "particle_id": "witcher_rpg:aard_sign_cast",
@@ -17,22 +17,14 @@
         "count": 0.2,
         "min_speed": 0.01,
         "max_speed": 0.1
-      },
-      {
-        "particle_id": "spell_engine:frost_hit",
-        "shape": "SPHERE",
-        "origin": "CENTER",
-        "count": 1.0,
-        "min_speed": 0.2,
-        "max_speed": 1.0
       }
     ],
     "start_sound": {
-      "id": "more_rpg_classes:aard_sign"
+      "id": "witcher_rpg:aard_sign"
     }
   },
   "release": {
-    "animation": "more_rpg_classes:sign_cast_ground",
+    "animation": "witcher_rpg:sign_cast_ground",
     "particles": [
       {
         "particle_id": "sonic_boom",
@@ -42,15 +34,6 @@
         "count": 3.0,
         "min_speed": 5.0,
         "max_speed": 15.0
-      },
-      {
-        "particle_id": "spell_engine:frost_hit",
-        "angle": 360,
-        "shape": "SPHERE",
-        "origin": "CENTER",
-        "count": 3.0,
-        "min_speed": 0.2,
-        "max_speed": 1.0
       }
     ],
     "target": {
@@ -61,7 +44,7 @@
       }
     },
     "sound": {
-      "id": "more_rpg_classes:aard_frost_sign"
+      "id": "witcher_rpg:aard_frost_sign"
     }
   },
   "impact": [
@@ -69,7 +52,7 @@
       "action": {
         "type": "DAMAGE",
         "damage": {
-          "spell_power_coefficient": 0.75
+          "spell_power_coefficient": 0.6
         }
       },
       "particles": [

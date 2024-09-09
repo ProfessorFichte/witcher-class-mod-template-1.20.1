@@ -1,5 +1,5 @@
 {
-  "school": "LIGHTNING",
+  "school": "AARD",
   "group": "aard",
   "range": 7.5,
   "learn": {
@@ -35,9 +35,9 @@
         "angle_degrees": 90
       }
     },
-    "animation": "more_rpg_classes:sign_cast_short",
+    "animation": "witcher_rpg:sign_cast_short",
     "sound": {
-      "id": "more_rpg_classes:aard_sign"
+      "id": "witcher_rpg:aard_sign"
     },
     "particles": [
       {

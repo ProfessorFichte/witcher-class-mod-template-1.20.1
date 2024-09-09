@@ -1,0 +1,35 @@
+{
+  "school": "SIGN",
+  "range": 0,
+  "learn": {
+    "tier": 4
+  },
+  "cast": {
+    "movement_speed":  1.0,
+    "duration": 0
+  },
+  "release": {
+    "target": {
+      "type": "SELF"
+    }
+  },
+  "impact": [
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "witcher_rpg:alternate_sign",
+          "duration": 30,
+          "apply_mode": "SET",
+          "amplifier": 0,
+          "show_particles": false
+        }
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 0,
+    "cooldown_duration": 36,
+    "cooldown_haste_affected": true
+  }
+}

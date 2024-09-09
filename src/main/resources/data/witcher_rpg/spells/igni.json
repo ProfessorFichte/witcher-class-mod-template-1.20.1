@@ -1,16 +1,16 @@
 {
-  "school": "FIRE",
+  "school": "IGNI",
   "group": "igni",
   "range": 4.0,
   "learn": {
-    "tier": 1
+    "tier": 2
   },
   "cast": {
-    "movement_speed": 0.5,
+    "movement_speed": 0.75,
     "duration": 2.0,
-    "animation": "more_rpg_classes:sign_cast_long",
+    "animation": "witcher_rpg:sign_cast_long",
     "sound": {
-      "id": "more_rpg_classes:igni_sign",
+      "id": "witcher_rpg:igni_sign",
       "randomness": 0.2
     },
     "particles": [
@@ -49,7 +49,6 @@
     "target": {
       "type": "AREA",
       "area": {
-        "distance_dropoff": "SQUARED",
         "angle_degrees": 90,
         "horizontal_range_multiplier": 2,
         "vertical_range_multiplier": 1.5

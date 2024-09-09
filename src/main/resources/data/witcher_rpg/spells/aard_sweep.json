@@ -1,0 +1,77 @@
+{
+  "school": "AARD",
+  "group": "aard",
+  "range": 4.0,
+  "learn": {
+    "tier": 3
+  },
+  "cast": {
+    "movement_speed": 0.1,
+    "duration": 0,
+    "particles": [
+      {
+        "particle_id": "witcher_rpg:aard_sign_cast",
+        "shape": "PIPE",
+        "origin": "LAUNCH_POINT",
+        "count": 0.2,
+        "min_speed": 0.01,
+        "max_speed": 0.1
+      }
+    ],
+    "start_sound": {
+      "id": "witcher_rpg:aard_sign"
+    }
+  },
+  "release": {
+    "custom_impact": true,
+    "animation": "witcher_rpg:sign_cast_ground",
+    "particles": [
+      {
+        "particle_id": "sonic_boom",
+        "angle": 360,
+        "shape": "SPHERE",
+        "origin": "FEET",
+        "count": 3.0,
+        "min_speed": 5.0,
+        "max_speed": 15.0
+      }
+    ],
+    "target": {
+      "type": "AREA",
+      "area": {
+        "angle_degrees": 360
+      }
+    },
+    "sound": {
+      "id": "witcher_rpg:aard_sign"
+    }
+  },
+  "impact": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "spell_power_coefficient": 0.6,
+          "knockback": 4.0
+        }
+      },
+      "particles": [
+        {
+          "particle_id": "more_rpg_classes:wind_vacuum",
+          "shape": "SPHERE",
+          "rotation": "LOOK",
+          "origin": "LAUNCH_POINT",
+          "count": 1.0,
+          "min_speed": 0.1,
+          "max_speed": 1.0
+        }
+      ]
+    }
+  ],
+  "cost": {
+    "exhaust": 0.5,
+    "cooldown_duration": 26,
+    "cooldown_haste_affected": false,
+    "effect_id": "witcher_rpg:alternate_sign"
+  }
+}

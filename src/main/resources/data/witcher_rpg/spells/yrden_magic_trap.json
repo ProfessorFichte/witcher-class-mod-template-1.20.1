@@ -1,0 +1,55 @@
+{
+  "range": 3,
+  "school": "YRDEN",
+  "group": "yrden",
+  "learn": {
+    "tier": 4
+  },
+  "cast": {
+    "duration": 0.5,
+    "animation": "witcher_rpg:sign_cast_long",
+    "particles": [
+      {
+        "particle_id": "witcher_rpg:yrden_sign_cast",
+        "shape": "CIRCLE",
+        "origin": "CENTER",
+        "count": 1.0,
+        "min_speed": 0.001,
+        "max_speed": 0.006
+      },
+      {
+        "particle_id": "witcher_rpg:yrden_sign_cast",
+        "shape": "PILLAR",
+        "origin": "CENTER",
+        "count": 1.0,
+        "min_speed": 0.01,
+        "max_speed": 0.06
+      }
+    ]
+  },
+  "release": {
+    "target": {
+      "type": "SELF"
+    },
+    "animation": "witcher_rpg:sign_cast_ground",
+    "sound": {
+      "id": "witcher_rpg:yrden_sign"
+    }
+  },
+  "impact": [
+    {
+      "action": {
+        "type": "SPAWN",
+        "spawn": {
+          "entity_type_id": "witcher_rpg:yrden_magical_trap",
+          "time_to_live_seconds": 20
+        }
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 0.4,
+    "cooldown_duration": 40,
+    "effect_id": "witcher_rpg:alternate_sign"
+  }
+}
