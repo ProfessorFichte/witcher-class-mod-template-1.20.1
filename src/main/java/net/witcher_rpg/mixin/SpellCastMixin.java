@@ -29,11 +29,11 @@ public abstract class SpellCastMixin {
             Spell spell = SpellRegistry.getSpell(spellId);
             if (spell != null) {
                 if(action == SpellCast.Action.CHANNEL &&
-                        Objects.equals(spellId, new Identifier(MOD_ID, "quen_active_shield")) && !player.hasStatusEffect(Effects.QUEN_ACTIVE)){
-                        player.addStatusEffect(new StatusEffectInstance(Effects.QUEN_ACTIVE,1000,0,false,false,true));
+                        Objects.equals(spellId, Identifier.of(MOD_ID, "quen_active_shield")) && !player.hasStatusEffect(Effects.QUEN_ACTIVE.registryEntry)){
+                        player.addStatusEffect(new StatusEffectInstance(Effects.QUEN_ACTIVE.registryEntry,1000,0,false,false,true));
                 }
-                if(action == SpellCast.Action.RELEASE && Objects.equals(spellId, new Identifier(MOD_ID, "quen_active_shield"))){
-                    player.removeStatusEffect(Effects.QUEN_ACTIVE);
+                if(action == SpellCast.Action.RELEASE && Objects.equals(spellId, Identifier.of(MOD_ID, "quen_active_shield"))){
+                    player.removeStatusEffect(Effects.QUEN_ACTIVE.registryEntry);
                 }
             }
         }

@@ -19,9 +19,7 @@ public class UltimatumRelicItem extends WitcherSword {
         if (randomrange_fire >= fire_chance ) {
             target.setOnFireFor(fire_duration);
         }
-        stack.damage(1, attacker, (e)->{
-            e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
-        });
+        stack.damage(1, attacker, EquipmentSlot.MAINHAND);
         return true;
     }
 }

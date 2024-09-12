@@ -1,3 +1,6 @@
+2.0.0
+-  1.21.x update
+
 1.1.2
 - changed the aard impact particles to wind vacuum for better a better shockwave feeling
 - nerfed whirl because the duration was too long

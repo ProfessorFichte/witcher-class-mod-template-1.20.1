@@ -2,6 +2,7 @@ package net.witcher_rpg.entity;
 
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.annotation.Nullable;
 import net.minecraft.entity.*;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
@@ -9,6 +10,7 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
@@ -50,7 +52,7 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
     private Identifier spellId;
     private int timeToLive = 20;
     private int ownerId;
-    public static final Identifier yrdenSoundId = new Identifier(MRPGCMod.MOD_ID, "yrden_sign");
+    public static final Identifier yrdenSoundId = Identifier.of(MRPGCMod.MOD_ID, "yrden_sign");
     public static final SoundEvent yrdenSound = SoundEvent.of(yrdenSoundId);
 
     public YrdenMagicTrapEntity(EntityType<?> type, World world) {
@@ -103,10 +105,10 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
 
 
     @Override
-    protected void initDataTracker() {
-        this.getDataTracker().startTracking(SPELL_ID_TRACKER, "");
-        this.getDataTracker().startTracking(OWNER_ID_TRACKER, 0);
-        this.getDataTracker().startTracking(TIME_TO_LIVE_TRACKER, 0);
+    protected void initDataTracker(DataTracker.Builder builder) {
+        builder.add(SPELL_ID_TRACKER, "");
+        builder.add(OWNER_ID_TRACKER, 0);
+        builder.add(TIME_TO_LIVE_TRACKER, 0);
     }
 
     @Override
@@ -114,7 +116,7 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
         super.onTrackedDataSet(data);
         var rawSpellId = this.getDataTracker().get(SPELL_ID_TRACKER);
         if (rawSpellId != null && !rawSpellId.isEmpty()) {
-            this.spellId = new Identifier(rawSpellId);
+            this.spellId = Identifier.of(rawSpellId);
         }
         this.timeToLive = this.getDataTracker().get(TIME_TO_LIVE_TRACKER);
         this.calculateDimensions();
@@ -136,7 +138,7 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
 
     @Override
     protected void readCustomDataFromNbt(NbtCompound nbt) {
-        this.spellId = new Identifier(nbt.getString(NBTKey.SPELL_ID.key));
+        this.spellId = Identifier.of(nbt.getString(NBTKey.SPELL_ID.key));
         this.ownerId = nbt.getInt(NBTKey.OWNER_ID.key);
         this.timeToLive = nbt.getInt(NBTKey.TIME_TO_LIVE.key);
         this.getDataTracker().set(SPELL_ID_TRACKER, this.spellId.toString());
@@ -167,7 +169,7 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
             yrden_intensity = 1;
         }
         else{
-            yrden_intensity = (float) owner.getAttributeValue(WitcherAttributes.YRDEN_INTENSITY);
+            yrden_intensity = (float) owner.getAttributeValue((RegistryEntry<EntityAttribute>) WitcherAttributes.YRDEN_INTENSITY);
         }
         super.tick();
         var spell = getSpell();
@@ -196,7 +198,7 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
                         if (!isProtected(livingEntity)) {
                             if(this.age % checkDamageInterval == 0){
                                 livingEntity.damage(new MagicalTrapDamageSource(entity.getDamageSources().magic().getTypeRegistryEntry()), 0.75F * yrden_intensity);
-                                livingEntity.addStatusEffect(new StatusEffectInstance(Effects.YRDEN_GLYPH,150, (int) (0 * (yrden_intensity +1 )),false,false,true));
+                                livingEntity.addStatusEffect(new StatusEffectInstance(Effects.YRDEN_GLYPH.registryEntry,150, (int) (0 * (yrden_intensity +1 )),false,false,true));
                                 livingEntity.playSound(yrdenSound,1F,1F);
                                 ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_circle});
                                 ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_spehre});
@@ -215,7 +217,7 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
         }
         var relation = TargetHelper.getRelation(owner, other);
         switch (relation) {
-            case FRIENDLY, SEMI_FRIENDLY -> {
+            case ALLY, FRIENDLY -> {
                 return true;
             }
             case NEUTRAL, MIXED, HOSTILE -> {

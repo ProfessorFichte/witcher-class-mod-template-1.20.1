@@ -12,13 +12,14 @@ public class AerondightChargeEffect extends StatusEffect {
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         ItemStack itemStack = entity.getMainHandStack();
         if(itemStack.getItem() instanceof AerondightRelictItem){
         }
         else{
-            entity.removeStatusEffect(Effects.AERONDIGHT_CHARGE);
+            entity.removeStatusEffect(Effects.AERONDIGHT_CHARGE.registryEntry);
         }
+        return true;
     }
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier) {

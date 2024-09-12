@@ -1,6 +1,5 @@
 package net.witcher_rpg.item;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
@@ -8,9 +7,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.more_rpg_classes.MRPGCMod;
-import net.spell_engine.api.item.trinket.SpellBookItem;
-import net.spell_engine.api.item.trinket.SpellBookTrinketItem;
-import net.spell_engine.api.item.trinket.SpellBookVanillaItem;
 import net.witcher_rpg.WitcherClassMod;
 import net.witcher_rpg.item.armor.Armors;
 import net.witcher_rpg.item.weapon.WeaponsRegister;
@@ -37,34 +33,25 @@ public class WitcherItems {
         }
     }
 
-    //Custom Loot
-    public static Item SILVER_INGOT  = new Item(new FabricItemSettings().maxCount(64));
-    public static Item METEORITE_SILVER_INGOT = new Item(new FabricItemSettings().maxCount(64));
-    public static Item DARK_STEEL_INGOT= new Item(new FabricItemSettings().maxCount(64));
-    public static Item STEEL_INGOT= new Item(new FabricItemSettings().maxCount(64));
-    public static Item RAW_SILVER = new Item(new FabricItemSettings().maxCount(64));
-    public static Item METEORITE = new Item(new FabricItemSettings().maxCount(64));
-    public static Item METEORITE_INGOT = new Item(new FabricItemSettings().maxCount(64));
-    public static Item DARK_IRON_INGOT = new Item(new FabricItemSettings().maxCount(64));
-    public static Item RAW_DARK_IRON = new Item(new FabricItemSettings().maxCount(64));
-    public static MasterSpellBook MASTER_BOOK = new MasterSpellBook( new Identifier(MOD_ID,"master_book"),new Item.Settings());
+    public static final Item SILVER_INGOT  = registerItem("silver_ingot", new Item(new Item.Settings()));
+    public static final Item METEORITE_SILVER_INGOT = registerItem("meteorite_silver_ingot", new Item(new Item.Settings()));
+    public static final Item DARK_STEEL_INGOT= registerItem("dark_steel_ingot", new Item(new Item.Settings()));
+    public static final Item STEEL_INGOT= registerItem("steel_ingot", new Item(new Item.Settings()));
+    public static final Item RAW_SILVER = registerItem("raw_silver", new Item(new Item.Settings()));
+    public static final Item METEORITE = registerItem("meteorite", new Item(new Item.Settings()));
+    public static final Item METEORITE_INGOT = registerItem("meteorite_ingot", new Item(new Item.Settings()));
+    public static final Item DARK_IRON_INGOT = registerItem("dark_iron_ingot", new Item(new Item.Settings()));
+    public static final Item RAW_DARK_IRON = registerItem("raw_dark_iron", new Item(new Item.Settings()));
+    public static final MasterSpellBook MASTER_BOOK = new MasterSpellBook( Identifier.of(MOD_ID,"master_book"),new Item.Settings());
 
+    private static Item registerItem(String name, Item item) {
+        return Registry.register(Registries.ITEM, Identifier.of(MOD_ID, name), item);
+    }
 
     public static void registerModItems(){
-        SpellBooks.createAndRegister(new Identifier(MOD_ID,"witcher_signs"), WitcherGroup.WITCHER_KEY);
-        SpellBooks.createAndRegister(new Identifier(MOD_ID,"witcher_combat"), WitcherGroup.WITCHER_KEY);
-
-
-        Registry.register(Registries.ITEM,new Identifier(MOD_ID,"silver_ingot"),SILVER_INGOT);
-        Registry.register(Registries.ITEM,new Identifier(MOD_ID,"meteorite_silver_ingot"),METEORITE_SILVER_INGOT);
-        Registry.register(Registries.ITEM,new Identifier(MOD_ID,"raw_silver"),RAW_SILVER );
-        Registry.register(Registries.ITEM,new Identifier(MOD_ID,"steel_ingot"),STEEL_INGOT);
-        Registry.register(Registries.ITEM,new Identifier(MOD_ID,"dark_steel_ingot"),DARK_STEEL_INGOT);
-        Registry.register(Registries.ITEM,new Identifier(MOD_ID,"meteorite"),METEORITE );
-        Registry.register(Registries.ITEM,new Identifier(MOD_ID,"meteorite_ingot"),METEORITE_INGOT);
-        Registry.register(Registries.ITEM,new Identifier(MOD_ID,"dark_iron_ingot"),DARK_IRON_INGOT);
-        Registry.register(Registries.ITEM,new Identifier(MOD_ID,"raw_dark_iron"),RAW_DARK_IRON);
-        Registry.register(Registries.ITEM, new Identifier(MOD_ID, "witcher_master_spell_book"), MASTER_BOOK);
+        SpellBooks.createAndRegister(Identifier.of(MOD_ID,"witcher_signs"), WitcherGroup.WITCHER_KEY);
+        SpellBooks.createAndRegister(Identifier.of(MOD_ID,"witcher_combat"), WitcherGroup.WITCHER_KEY);
+        Registry.register(Registries.ITEM, Identifier.of(MOD_ID, "witcher_master_spell_book"), MASTER_BOOK);
 
         ItemGroupEvents.modifyEntriesEvent(WitcherGroup.WITCHER_KEY).register((content) -> {
             content.add(MASTER_BOOK);

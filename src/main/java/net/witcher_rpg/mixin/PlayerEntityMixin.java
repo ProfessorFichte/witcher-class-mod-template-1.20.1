@@ -17,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static net.more_rpg_classes.util.CustomMethods.increaseAmpByChance;
 import static net.witcher_rpg.WitcherClassMod.effectsConfig;
 
 @Mixin(PlayerEntity.class)
@@ -42,13 +41,21 @@ public abstract class PlayerEntityMixin {
         if (player instanceof ServerPlayerEntity) {
             if (value1 != 100) {
                 value1 = value1 -100;
-                int duration_multiplier = value1 * 4;
-                if(!player.hasStatusEffect(Effects.ADRENALINE_GAIN)){
-                    player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN,200+duration_multiplier,0,false,false,true));
-                }else{
-                    int currentDuration= player.getStatusEffect(Effects.ADRENALINE_GAIN).getDuration();
-                    int adrenaline_chance_inc = (int) Math.round((float) value1 /5);
-                    increaseAmpByChance(player,Effects.ADRENALINE_GAIN,currentDuration+duration_multiplier,1,effectsConfig.value.adrenaline_max_amplifier-1,1);
+                int adrenaline_chance_inc = (int) Math.round((float) value1 /5);
+                int adrenaline_duration_multiplier = value1 / 2;
+                if(!player.hasStatusEffect(Effects.ADRENALINE_GAIN.registryEntry)){
+                    player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN.registryEntry,200+adrenaline_duration_multiplier,0,false,false,true));
+                }
+                else
+                {
+                    int currentAmplifier = player.getStatusEffect(Effects.ADRENALINE_GAIN.registryEntry).getAmplifier();
+                    int currentDuration = player.getStatusEffect(Effects.ADRENALINE_GAIN.registryEntry).getDuration();
+                    if(currentAmplifier <= effectsConfig.value.adrenaline_max_amplifier+1){
+                        player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN.registryEntry,currentDuration+adrenaline_duration_multiplier,currentAmplifier+1,false,false,true));
+                    }
+                    else{
+                        player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN.registryEntry,currentDuration+adrenaline_duration_multiplier,effectsConfig.value.adrenaline_max_amplifier+1,false,false,true));
+                    }
                 }
             }
         }
@@ -57,8 +64,8 @@ public abstract class PlayerEntityMixin {
     @ModifyArg(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"), index = 1)
     private float modifyWitcherDamage(float damage) {
         PlayerEntity player = (PlayerEntity) (Object) this;
-        if (player.hasStatusEffect(Effects.BATTLE_TRANCE) && player.hasStatusEffect(Effects.ADRENALINE_GAIN)){
-            int adrenaline_effect_amplifier = player.getStatusEffect(Effects.ADRENALINE_GAIN).getAmplifier() + 1;
+        if (player.hasStatusEffect(Effects.BATTLE_TRANCE.registryEntry) && player.hasStatusEffect(Effects.ADRENALINE_GAIN.registryEntry)){
+            int adrenaline_effect_amplifier = player.getStatusEffect(Effects.ADRENALINE_GAIN.registryEntry).getAmplifier() + 1;
             return (float) (damage + (1 + (adrenaline_effect_amplifier / 10)));
         }
         return damage;

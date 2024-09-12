@@ -15,7 +15,7 @@ public class AxiiPuppetEffect extends StatusEffect {
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
             if (entity instanceof MobEntity mobEntity) {
                 float range = 20.0F;
                 Box radius = new Box(mobEntity.getX() + range,
@@ -33,9 +33,10 @@ public class AxiiPuppetEffect extends StatusEffect {
 
                 }
             }else{
-                entity.addStatusEffect(new StatusEffectInstance(Effects.AXII,40,0,false,false,true));
+                entity.addStatusEffect(new StatusEffectInstance(Effects.AXII.registryEntry,40,0,false,false,true));
             }
         super.applyUpdateEffect(entity, amplifier);
+        return true;
     }
 
     @Override

@@ -14,8 +14,4 @@ public class EffectsConfig {
     public float sign_school_intensity_increase_per_stack = 0.10F;
     public float axii_puppet_attack_damage_increase_per_stack = 0.10F;
     public float battle_trance_speed_increase = 0.30F;
-    public float fast_attack_generic_attack_decrease = -0.15f;
-    public float fast_attack_generic_attack_speed_increase = 0.3F;
-    public float strong_attack_generic_attack_increase = 0.2f;
-    public float strong_attack_generic_attack_speed_decrease = -0.3F;
 }

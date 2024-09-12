@@ -8,23 +8,23 @@ import net.minecraft.util.Identifier;
 import static net.witcher_rpg.WitcherClassMod.MOD_ID;
 
 public class Sounds {
-    public static final Identifier AARD_SIGN_ID = new Identifier(MOD_ID, "aard_sign");
+    public static final Identifier AARD_SIGN_ID = Identifier.of(MOD_ID, "aard_sign");
     public static SoundEvent AARD_SIGN_EVENT= SoundEvent.of(AARD_SIGN_ID);
-    public static final Identifier IGNI_SIGN_ID = new Identifier(MOD_ID, "igni_sign");
+    public static final Identifier IGNI_SIGN_ID = Identifier.of(MOD_ID, "igni_sign");
     public static SoundEvent IGNI_SIGN_EVENT= SoundEvent.of(IGNI_SIGN_ID);
-    public static final Identifier QUEN_SIGN_ID = new Identifier(MOD_ID, "quen_sign");
+    public static final Identifier QUEN_SIGN_ID = Identifier.of(MOD_ID, "quen_sign");
     public static SoundEvent QUEN_SIGN_EVENT= SoundEvent.of(QUEN_SIGN_ID);
-    public static final Identifier YRDEN_SIGN_ID = new Identifier(MOD_ID, "yrden_sign");
+    public static final Identifier YRDEN_SIGN_ID = Identifier.of(MOD_ID, "yrden_sign");
     public static SoundEvent YRDEN_SIGN_EVENT= SoundEvent.of(YRDEN_SIGN_ID);
-    public static final Identifier AARD_FROST_SIGN_ID = new Identifier(MOD_ID, "aard_frost_sign");
+    public static final Identifier AARD_FROST_SIGN_ID = Identifier.of(MOD_ID, "aard_frost_sign");
     public static SoundEvent AARD_FROST_SIGN_EVENT= SoundEvent.of(AARD_FROST_SIGN_ID);
-    public static final Identifier AXII_SIGN_ID = new Identifier(MOD_ID, "axii_sign");
+    public static final Identifier AXII_SIGN_ID = Identifier.of(MOD_ID, "axii_sign");
     public static SoundEvent AXII_SIGN_EVENT= SoundEvent.of(AXII_SIGN_ID);
-    public static final Identifier QUEN_BREAK_ID = new Identifier(MOD_ID, "quen_sign_break");
+    public static final Identifier QUEN_BREAK_ID = Identifier.of(MOD_ID, "quen_sign_break");
     public static SoundEvent QUEN_BREAK_EVENT= SoundEvent.of(QUEN_BREAK_ID);
-    public static final Identifier REND_SPELL_ID = new Identifier(MOD_ID, "rend_spell");
+    public static final Identifier REND_SPELL_ID = Identifier.of(MOD_ID, "rend_spell");
     public static SoundEvent REND_SPELL_EVENT= SoundEvent.of(REND_SPELL_ID);
-    public static final Identifier WHIRL_ID = new Identifier(MOD_ID, "whirl");
+    public static final Identifier WHIRL_ID = Identifier.of(MOD_ID, "whirl");
     public static SoundEvent WHIRL_EVENT= SoundEvent.of(WHIRL_ID);
 
     public static void register() {

@@ -4,6 +4,7 @@ import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.registry.entry.RegistryEntry;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -23,7 +24,7 @@ public class AttributeMixin {
     private DefaultAttributeContainer fallback;
 
     @Inject(at = @At("HEAD"), method = "getValue", cancellable = true)
-    private void getAttributeValueAardSign(EntityAttribute attribute, CallbackInfoReturnable<Double> info) {
+    private void getAttributeValueAardSign(RegistryEntry<EntityAttribute> attribute, CallbackInfoReturnable<Double> cir) {
         if(attribute == AARD_INTENSITY){
             EntityAttributeInstance signamount = this.custom.get(SIGN_INTENSITY);
             double value1 = 0;
@@ -44,12 +45,12 @@ public class AttributeMixin {
                 total += sign;
             }
             if(sign > 0){
-                info.setReturnValue(total);
+                cir.setReturnValue(total);
             }
         }
     }
     @Inject(at = @At("HEAD"), method = "getValue", cancellable = true)
-    private void getAttributeValueAxiiSign(EntityAttribute attribute, CallbackInfoReturnable<Double> info) {
+    private void getAttributeValueAxiiSign(RegistryEntry<EntityAttribute> attribute, CallbackInfoReturnable<Double> cir) {
         if(attribute == AXII_INTENSITY){
             EntityAttributeInstance signamount = this.custom.get(SIGN_INTENSITY);
             double value1 = 0;
@@ -70,12 +71,12 @@ public class AttributeMixin {
                 total += sign;
             }
             if(sign > 0){
-                info.setReturnValue(total);
+                cir.setReturnValue(total);
             }
         }
     }
     @Inject(at = @At("HEAD"), method = "getValue", cancellable = true)
-    private void getAttributeValueIgniSign(EntityAttribute attribute, CallbackInfoReturnable<Double> info) {
+    private void getAttributeValueIgniSign(RegistryEntry<EntityAttribute> attribute, CallbackInfoReturnable<Double> cir) {
         if(attribute == IGNI_INTENSITY){
             EntityAttributeInstance signamount = this.custom.get(SIGN_INTENSITY);
             double value1 = 0;
@@ -96,12 +97,12 @@ public class AttributeMixin {
                 total += sign;
             }
             if(sign > 0){
-                info.setReturnValue(total);
+                cir.setReturnValue(total);
             }
         }
     }
     @Inject(at = @At("HEAD"), method = "getValue", cancellable = true)
-    private void getAttributeValueQuenSign(EntityAttribute attribute, CallbackInfoReturnable<Double> info) {
+    private void getAttributeValueQuenSign(RegistryEntry<EntityAttribute> attribute, CallbackInfoReturnable<Double> cir) {
         if(attribute == QUEN_INTENSITY){
             EntityAttributeInstance signamount = this.custom.get(SIGN_INTENSITY);
             double value1 = 0;
@@ -122,13 +123,13 @@ public class AttributeMixin {
                 total += sign;
             }
             if(sign > 0){
-                info.setReturnValue(total);
+                cir.setReturnValue(total);
             }
         }
     }
 
     @Inject(at = @At("HEAD"), method = "getValue", cancellable = true)
-    private void getAttributeValueYrdenSign(EntityAttribute attribute, CallbackInfoReturnable<Double> info) {
+    private void getAttributeValueYrdenSign(RegistryEntry<EntityAttribute> attribute, CallbackInfoReturnable<Double> cir) {
         if(attribute == YRDEN_INTENSITY){
             EntityAttributeInstance signamount = this.custom.get(SIGN_INTENSITY);
             double value1 = 0;
@@ -149,7 +150,7 @@ public class AttributeMixin {
                 total += sign;
             }
             if(sign > 0){
-                info.setReturnValue(total);
+                cir.setReturnValue(total);
             }
         }
     }

@@ -10,12 +10,12 @@ import net.minecraft.world.gen.feature.PlacedFeature;
 import net.witcher_rpg.WitcherClassMod;
 
 public class OreGen {
-    public static final Identifier SILVER_ORE_ID = new Identifier(WitcherClassMod.MOD_ID, "silver_ore_placed");
-    public static final Identifier METEORITE_ORE_ID = new Identifier(WitcherClassMod.MOD_ID, "meteorite_ore_placed");
-    public static final Identifier DARK_IRON_ORE_ID = new Identifier(WitcherClassMod.MOD_ID, "dark_iron_ore_placed");
-    public static final RegistryKey<PlacedFeature> SILVER_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(WitcherClassMod.MOD_ID, "silver_ore_placed"));
-    public static final RegistryKey<PlacedFeature> METEORITE_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(WitcherClassMod.MOD_ID, "meteorite_ore_placed"));
-    public static final RegistryKey<PlacedFeature> DARK_IRON_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(WitcherClassMod.MOD_ID, "dark_iron_ore_placed"));
+    public static final Identifier SILVER_ORE_ID = Identifier.of(WitcherClassMod.MOD_ID, "silver_ore_placed");
+    public static final Identifier METEORITE_ORE_ID = Identifier.of(WitcherClassMod.MOD_ID, "meteorite_ore_placed");
+    public static final Identifier DARK_IRON_ORE_ID = Identifier.of(WitcherClassMod.MOD_ID, "dark_iron_ore_placed");
+    public static final RegistryKey<PlacedFeature> SILVER_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(WitcherClassMod.MOD_ID, "silver_ore_placed"));
+    public static final RegistryKey<PlacedFeature> METEORITE_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(WitcherClassMod.MOD_ID, "meteorite_ore_placed"));
+    public static final RegistryKey<PlacedFeature> DARK_IRON_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(WitcherClassMod.MOD_ID, "dark_iron_ore_placed"));
 
     public static void register() {
         BiomeModifications.addFeature(

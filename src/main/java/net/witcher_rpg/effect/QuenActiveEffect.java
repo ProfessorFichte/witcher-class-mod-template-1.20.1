@@ -14,7 +14,7 @@ import static net.more_rpg_classes.util.CustomMethods.clearNegativeEffects;
 import static net.witcher_rpg.WitcherClassMod.MOD_ID;
 
 public class QuenActiveEffect extends StatusEffect {
-    public static final Identifier QUEN_BREAK_ID = new Identifier(MOD_ID, "quen_sign_break");
+    public static final Identifier QUEN_BREAK_ID = Identifier.of(MOD_ID, "quen_sign_break");
     public static final SoundEvent QUEN_BREAK = SoundEvent.of(QUEN_BREAK_ID );
     private final int healthPerStack;
 
@@ -32,25 +32,22 @@ public class QuenActiveEffect extends StatusEffect {
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         clearNegativeEffects(entity,true);
+        return false;
     }
 
-    @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         entity.setAbsorptionAmount(entity.getAbsorptionAmount() - (float)(healthPerStack * (amplifier + 1)));
         if (!entity.getWorld().isClient()) {
                 entity.getWorld().playSoundFromEntity(null, entity, QUEN_BREAK, SoundCategory.PLAYERS, 1F, 1F);
             ParticleHelper.sendBatches(entity, new ParticleBatch[]{quen_break});
             }
-        super.onRemoved(entity, attributes, amplifier);
     }
 
-    @Override
     public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         clearNegativeEffects(entity,true);
         entity.setAbsorptionAmount(entity.getAbsorptionAmount() + (float)(healthPerStack * (amplifier + 1)));
-        super.onApplied(entity, attributes, amplifier);
     }
 
     @Override

@@ -11,8 +11,9 @@ public class MagicalTrapDamageSource extends DamageSource {
         super(type);
     }
 
+    @Override
     public Text getDeathMessage(LivingEntity killed) {
-        return Text.of(killed.getEntityName() + " died in a magical trap");
+        return Text.of(killed.getName() + " died in a magical trap");
     }
 }
 

@@ -2,7 +2,9 @@ package net.witcher_rpg.mixin;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
@@ -41,12 +43,12 @@ public abstract class LivingEntityMixin {
     private void witcherBlockingMechanics( final CallbackInfoReturnable<Boolean> info) {
         LivingEntity player2 = ((LivingEntity) (Object) this);
         if (player2 instanceof ServerPlayerEntity player && player instanceof SpellCasterEntity caster) {
-            if (SpellRegistry.getSpell(new Identifier(MOD_ID, "defensive_witcher_mechanics")) != null
-                    && Objects.equals(caster.getCurrentSpell(), SpellRegistry.getSpell(new Identifier(MOD_ID, "defensive_witcher_mechanics")))) {
+            if (SpellRegistry.getSpell(Identifier.of(MOD_ID, "defensive_witcher_mechanics")) != null
+                    && Objects.equals(caster.getCurrentSpell(), SpellRegistry.getSpell(Identifier.of(MOD_ID, "defensive_witcher_mechanics")))) {
                 info.setReturnValue(true);
             }
-            if (SpellRegistry.getSpell(new Identifier(MOD_ID, "whirl")) != null
-                    && Objects.equals(caster.getCurrentSpell(), SpellRegistry.getSpell(new Identifier(MOD_ID, "whirl")))) {
+            if (SpellRegistry.getSpell(Identifier.of(MOD_ID, "whirl")) != null
+                    && Objects.equals(caster.getCurrentSpell(), SpellRegistry.getSpell(Identifier.of(MOD_ID, "whirl")))) {
                 info.setReturnValue(true);
             }
         }
@@ -55,7 +57,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V"))
     private void applyQuenHealBeforeDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity damagedTarget = ((LivingEntity) (Object) this);
-        if(damagedTarget.isPlayer() && damagedTarget.hasStatusEffect(Effects.QUEN_ACTIVE) && !source.isIn(DamageTypeTags.BYPASSES_INVULNERABILITY)){
+        if(damagedTarget.isPlayer() && damagedTarget.hasStatusEffect(Effects.QUEN_ACTIVE.registryEntry) && !source.isIn(DamageTypeTags.BYPASSES_INVULNERABILITY)){
             damagedTarget.heal(amount/2);
         }
     }

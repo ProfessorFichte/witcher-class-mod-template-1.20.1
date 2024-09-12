@@ -18,12 +18,11 @@ public class WintersBladeRelicItem extends WitcherSword {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         int frosted_duration = 200;
         int frosted_chance = 10;
-        increaseAmpByChance(target, MRPGCEffects.FROSTED,frosted_duration,0,9,frosted_chance);
+        increaseAmpByChance(target, MRPGCEffects.FROSTED.effect,frosted_duration,0,9,frosted_chance);
 
 
-        stack.damage(1, attacker, (e)->{
-            e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
-        });
+        stack.damage(1, attacker, EquipmentSlot.MAINHAND);
+
         return true;
     }
 }

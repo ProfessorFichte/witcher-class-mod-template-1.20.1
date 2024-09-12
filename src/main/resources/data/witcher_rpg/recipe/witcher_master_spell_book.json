@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "witcher_rpg:dark_steel_ingot"
+    },
+    {
+      "item": "witcher_rpg:meteorite_silver_ingot"
+    },
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:lapis_lazuli"
+    }
+  ],
+  "result": {
+    "id": "witcher_rpg:witcher_master_spell_book"
+  }
+}
