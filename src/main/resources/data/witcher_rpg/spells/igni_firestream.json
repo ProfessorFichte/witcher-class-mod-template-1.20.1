@@ -1,14 +1,13 @@
 {
   "school": "IGNI",
-  "group":"igni",
   "range": 6.0,
   "learn": {
     "tier": 3
   },
   "cast": {
+    "animation": "witcher_rpg:sign_cast_long",
     "movement_speed": 0.5,
     "duration": 7.5,
-    "animation": "witcher_rpg:sign_cast_long",
     "sound": {
       "id": "witcher_rpg:igni_sign",
       "randomness": 0.4
@@ -51,7 +50,8 @@
       "action": {
         "type": "DAMAGE",
         "damage": {
-          "spell_power_coefficient": 0.9
+          "spell_power_coefficient": 0.9,
+          "knockback": 0.2
         }
       },
       "particles": [

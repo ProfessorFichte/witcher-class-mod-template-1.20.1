@@ -1,5 +1,5 @@
 {
-    "name": "sign_cast",
+    "name": "sign_cast_long",
     "author": "Fichte",
     "description": "Sign Cast",
     "emote":{
@@ -10,7 +10,7 @@
         "stopTick":45,
         "degrees":false,
         "moves":[
-            
+
             {
                 "tick":3,
                 "easing": "EASEINOUTQUAD",

@@ -1,5 +1,12 @@
 2.0.0
 -  1.21.x update
+- alternate sign mode is disabled for 1.21 version, will be enabled later
+- the alternate signs can still be found in the Master Witcher Spell Book
+- Sign Intensity Enchant is for Weapons, added specific sign intensity enchants for all Sign-Forms for the armor
+- new particles for the aard signs
+- new Spell School Witcher_Melee, that the melee spells also benefit from adrenaline, to crit more & higher
+- Rend now stuns blocking entities and adds grievous wounds effect
+- nerfed Whirl & Rend cooldown
 
 1.1.2
 - changed the aard impact particles to wind vacuum for better a better shockwave feeling

@@ -1,13 +1,12 @@
 {
   "range": 3,
   "school": "YRDEN",
-  "group": "yrden",
   "learn": {
     "tier": 4
   },
   "cast": {
-    "duration": 0.5,
     "animation": "witcher_rpg:sign_cast_long",
+    "duration": 0.5,
     "particles": [
       {
         "particle_id": "witcher_rpg:yrden_sign_cast",

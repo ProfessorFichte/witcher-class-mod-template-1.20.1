@@ -1,13 +1,14 @@
 {
-  "school": "PHYSICAL_MELEE",
+  "school": "WITCHER_MELEE",
   "range": 3.0,
   "learn": {
     "tier": 2
   },
   "cast": {
+    "animation": "witcher_rpg:witcher_reflexes",
     "movement_speed": 0.8,
-    "duration": 0.25,
-    "animation": "witcher_rpg:witcher_reflexes"
+    "duration": 0.25
+
   },
   "release": {
     "target": {

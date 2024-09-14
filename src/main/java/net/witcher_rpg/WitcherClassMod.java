@@ -102,4 +102,7 @@ public class WitcherClassMod implements ModInitializer {
 						.build()
 		);
 	}
+	public static Identifier id(String path) {
+		return Identifier.of(MOD_ID, path);
+	}
 }

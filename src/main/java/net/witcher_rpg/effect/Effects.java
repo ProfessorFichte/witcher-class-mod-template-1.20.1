@@ -128,6 +128,15 @@ public class Effects {
         Synchronized.configure(QUEN_ACTIVE.effect,true);
         Synchronized.configure(BATTLE_TRANCE.effect,true);
 
+
+        OnRemoval.configure(QUEN_SHIELD.effect, (context) -> {
+            QuenShieldEffect.onRemove(context.entity());
+        });
+        OnRemoval.configure(QUEN_ACTIVE.effect, (context) -> {
+            QuenActiveEffect.onRemove(context.entity());
+        });
+
+
         RemoveOnHit.configure(AXII.effect, true);
 
         ActionImpairing.configure(AXII.effect, EntityActionsAllowed.STUN);

@@ -1,6 +1,8 @@
 {
   "values": [
-    "forcemaster_rpg:oriene_feet",
-    "forcemaster_rpg:phasleb_feet"
+    "witcher_rpg:witcher_feet",
+    "witcher_rpg:feline_feet",
+    "witcher_rpg:ursine_feet",
+    "witcher_rpg:griffin_feet"
   ]
 }

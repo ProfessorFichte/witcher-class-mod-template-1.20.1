@@ -144,6 +144,17 @@
   "spell.witcher_rpg.yrden.name": "Yrden",
   "spell.witcher_rpg.yrden_magic_trap.description": "Beschwört eine Yrden Glyphe für {duration} Sekunden, zerstört Projektile verlangsamt Gegner und fügt ihnen Schaden zu.",
   "spell.witcher_rpg.yrden_magic_trap.name": "Yrden Magische Falle",
-  "enchantment.witcher_rpg.signs" : "Zeichenintensität",
-  "enchantment.witcher_rpg.signs.desc" : "Erhöht den Schaden aller Hexerzeichen."
+  "enchantment.witcher_rpg.sign_intensity" : "Zeichenintensität",
+  "enchantment.witcher_rpg.sign_intensity.desc" : "Erhöht den Schaden aller Hexerzeichen.",
+  "enchantment.witcher_rpg.aard_intensity": "Aard-Intensität",
+  "enchantment.witcher_rpg.aard_intensity.desc" : "Erhöht den Schaden von Aard Zeichen.",
+  "enchantment.witcher_rpg.axii_intensity": "Axii-Intensität",
+  "enchantment.witcher_rpg.axii_intensity.desc" : "Erhöht den Schaden von Axii Zeichen.",
+  "enchantment.witcher_rpg.igni_intensity": "Igni-Intensität",
+  "enchantment.witcher_rpg.igni_intensity.desc" : "Erhöht den Schaden von Igni Zeichen.",
+  "enchantment.witcher_rpg.quen_intensity": "Quen-Intensität",
+  "enchantment.witcher_rpg.quen_intensity.desc" : "Erhöht den Schaden von Quen Zeichen.",
+  "enchantment.witcher_rpg.yrden_intensity": "Yrden-Intensität",
+  "enchantment.witcher_rpg.yrden_intensity.desc" : "Erhöht den Schaden von Yrden Zeichen.",
+  "entity.witcher_rpg.yrden_magical_trap": "Magische Falle"
 }

@@ -1,6 +1,8 @@
 {
   "values": [
-    "forcemaster_rpg:oriene_head",
-    "forcemaster_rpg:phasleb_head"
+    "witcher_rpg:witcher_head",
+    "witcher_rpg:feline_head",
+    "witcher_rpg:ursine_head",
+    "witcher_rpg:griffin_head"
   ]
 }

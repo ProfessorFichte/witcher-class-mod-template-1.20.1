@@ -1,14 +1,13 @@
 {
   "school": "AXII",
-  "group": "axii",
   "range": 7,
   "learn": {
     "tier": 3
   },
   "cast": {
+    "animation": "witcher_rpg:sign_cast_long",
     "movement_speed": 0.2,
     "duration": 2.0,
-    "animation": "witcher_rpg:sign_cast_long",
     "particles": [
       {
         "particle_id": "witcher_rpg:axii_sign_cast",

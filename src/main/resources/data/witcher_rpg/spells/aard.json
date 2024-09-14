@@ -7,25 +7,7 @@
   },
   "cast": {
     "movement_speed": 0.75,
-    "duration": 0,
-    "particles": [
-      {
-        "particle_id": "witcher_rpg:aard_sign_cast",
-        "shape": "PIPE",
-        "origin": "LAUNCH_POINT",
-        "count": 0.2,
-        "min_speed": 0.01,
-        "max_speed": 0.1
-      },
-      {
-        "particle_id": "sweep_attack",
-        "angle": 90.0,
-        "rotation": "LOOK",
-        "shape": "CONE",
-        "origin": "LAUNCH_POINT",
-        "count": 1.0
-      }
-    ]
+    "duration": 0
   },
   "release": {
     "custom_impact": true,
@@ -56,6 +38,16 @@
         "count": 1.0,
         "min_speed": 0.1,
         "max_speed": 1.0
+      },
+      {
+        "particle_id": "small_gust",
+        "angle": 360,
+        "shape": "CIRCLE",
+        "origin": "CENTER",
+        "count": 30.0,
+        "min_speed": 0.2,
+        "max_speed": 0.3,
+        "pre_spawn_travel": 6
       }
     ]
   },
@@ -64,8 +56,8 @@
       "action": {
         "type": "DAMAGE",
         "damage": {
-          "spell_power_coefficient": 0.75,
-          "knockback": 7.0
+          "knockback": 8.0,
+          "spell_power_coefficient": 0.75
         }
       },
       "particles": [
@@ -77,13 +69,21 @@
           "count": 1.0,
           "min_speed": 0.1,
           "max_speed": 1.0
+        },
+        {
+          "particle_id": "gust",
+          "shape": "CIRCLE",
+          "origin": "CENTER",
+          "count": 1.0,
+          "min_speed": 0.2,
+          "max_speed": 0.3
         }
       ]
     }
   ],
   "cost": {
     "exhaust": 0.4,
-    "cooldown_duration": 12,
+    "cooldown_duration": 18,
     "cooldown_haste_affected": "true"
   }
 }

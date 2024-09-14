@@ -1,13 +1,13 @@
 {
-  "school": "PHYSICAL_MELEE",
+  "school": "WITCHER_MELEE",
   "range": 3.0,
   "learn": {
     "tier": 4
   },
   "cast": {
+    "animation": "witcher_rpg:rend_cast",
     "movement_speed": 0.1,
-    "duration": 0.7,
-    "animation": "witcher_rpg:rend_cast"
+    "duration": 0.7
   },
   "release": {
     "custom_impact": true,
@@ -47,9 +47,10 @@
         "type": "DAMAGE",
         "damage": {
           "spell_power_coefficient": 1.5,
-          "knockback": 0.5
+          "knockback": 1.0
         }
       },
+
       "particles": [
         {
           "particle_id": "crimson_spore",
@@ -69,13 +70,24 @@
           "max_speed": 1.0
         }
       ]
+    },
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "more_rpg_classes:grievous_wounds",
+          "duration": 6.0,
+          "apply_mode": "SET",
+          "amplifier": 0,
+          "show_particles": false
+        }
+      }
     }
   ],
   "cost": {
-    "effect_id": "witcher_rpg:adrenaline_gain",
     "exhaust": 1.0,
     "durability": 1,
     "cooldown_haste_affected": false,
-    "cooldown_duration": 20
+    "cooldown_duration": 28
   }
 }

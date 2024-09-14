@@ -6,9 +6,9 @@
     "tier": 2
   },
   "cast": {
+    "animation": "witcher_rpg:sign_cast_long",
     "movement_speed": 0.75,
     "duration": 2.0,
-    "animation": "witcher_rpg:sign_cast_long",
     "sound": {
       "id": "witcher_rpg:igni_sign",
       "randomness": 0.2
@@ -60,7 +60,8 @@
       "action": {
         "type": "DAMAGE",
         "damage": {
-          "spell_power_coefficient": 0.8
+          "spell_power_coefficient": 0.8,
+          "knockback": 0.2
         },
         "sound": {
           "id": "block.blastfurnace.fire_crackle"

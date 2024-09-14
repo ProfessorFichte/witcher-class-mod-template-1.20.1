@@ -1,5 +1,5 @@
 {
-  "school": "PHYSICAL_MELEE",
+  "school": "WITCHER_MELEE",
   "range": 2.5,
   "learn": {
     "tier": 3
@@ -13,7 +13,7 @@
       "randomness": 1.1,
       "volume": 0.6
     },
-    "channel_ticks": 4
+    "channel_ticks": 8
   },
   "release": {
     "custom_impact": false,
@@ -29,7 +29,8 @@
       "action": {
         "type": "DAMAGE",
         "damage": {
-          "spell_power_coefficient": 1.35
+          "spell_power_coefficient": 1.35,
+          "knockback": 0.3
         }
       },
       "particles": [
@@ -51,7 +52,7 @@
   ],
   "cost": {
     "exhaust": 12.0,
-    "cooldown_duration": 22,
+    "cooldown_duration": 32,
     "durability": 5,
     "cooldown_proportional": true,
     "cooldown_haste_affected": false

@@ -1,5 +1,7 @@
 package net.witcher_rpg.item.weapon;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -7,6 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.registry.tag.EntityTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
@@ -18,9 +21,10 @@ public class WitcherSilverSwordItem extends WitcherSword {
     }
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        EntityType<?> type = ((Entity) target).getType();
         PlayerEntity player = (PlayerEntity) attacker;
         float attack = (float) attacker.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-        if(target.isDead()){
+        if(type.isIn(EntityTypeTags.UNDEAD)){
             target.damage(target.getDamageSources().magic(), attack * 0.20F);
             player.addEnchantedHitParticles(target);
         }

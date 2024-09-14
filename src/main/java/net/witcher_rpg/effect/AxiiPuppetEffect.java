@@ -34,6 +34,7 @@ public class AxiiPuppetEffect extends StatusEffect {
                 }
             }else{
                 entity.addStatusEffect(new StatusEffectInstance(Effects.AXII.registryEntry,40,0,false,false,true));
+                entity.removeStatusEffect(Effects.AXII_PUPPET.registryEntry);
             }
         super.applyUpdateEffect(entity, amplifier);
         return true;

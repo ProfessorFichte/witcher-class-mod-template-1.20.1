@@ -8,8 +8,8 @@
       {
         "amount": {
           "type": "minecraft:linear",
-          "base": 0.03,
-          "per_level_above_first": 0.03
+          "base": 0.05,
+          "per_level_above_first": 0.05
         },
         "attribute": "witcher_rpg:sign_intensity",
         "id": "witcher_rpg:sign_intensity",
@@ -17,7 +17,6 @@
       }
     ]
   },
-  "exclusive_set": "#spell_power:multi_school",
   "max_cost": {
     "base": 12,
     "per_level_above_first": 11
@@ -28,8 +27,8 @@
     "per_level_above_first": 11
   },
   "slots": [
-    "armor"
+    "mainhand"
   ],
   "supported_items": "#witcher_rpg:enchantable/sign_intensity",
-  "weight": 2
+  "weight": 10
 }

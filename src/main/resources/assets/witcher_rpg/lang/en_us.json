@@ -156,6 +156,18 @@
   "attribute.name.witcher_rpg.quen_intensity": "Quen Sign Intensity",
   "attribute.name.witcher_rpg.yrden_intensity": "Yrden Sign Intensity",
 
-  "enchantment.witcher_rpg.signs" : "Sign Intensity",
-  "enchantment.witcher_rpg.signs.desc" : "Increases all kinds of sign spell damage you deal"
+  "enchantment.witcher_rpg.sign_intensity" : "Sign Intensity",
+  "enchantment.witcher_rpg.sign_intensity.desc" : "Increases all kinds of sign spell damage you deal",
+  "enchantment.witcher_rpg.aard_intensity": "Aard Intensity",
+  "enchantment.witcher_rpg.aard_intensity.desc" : "Increases aard sign spell damage you deal",
+  "enchantment.witcher_rpg.axii_intensity": "Axii Intensity",
+  "enchantment.witcher_rpg.axii_intensity.desc" : "Increases axii sign spell damage you deal",
+  "enchantment.witcher_rpg.igni_intensity": "Igni Intensity",
+  "enchantment.witcher_rpg.igni_intensity.desc" : "Increases igni sign spell damage you deal",
+  "enchantment.witcher_rpg.quen_intensity": "Quen Intensity",
+  "enchantment.witcher_rpg.quen_intensity.desc" : "Increases quen sign spell damage you deal",
+  "enchantment.witcher_rpg.yrden_intensity": "Yrden Intensity",
+  "enchantment.witcher_rpg.yrden_intensity.desc" : "Increases yrden sign spell damage you deal",
+
+  "entity.witcher_rpg.yrden_magical_trap": "Magical Trap"
 }

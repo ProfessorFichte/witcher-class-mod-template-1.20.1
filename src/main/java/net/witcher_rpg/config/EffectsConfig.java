@@ -14,4 +14,5 @@ public class EffectsConfig {
     public float sign_school_intensity_increase_per_stack = 0.10F;
     public float axii_puppet_attack_damage_increase_per_stack = 0.10F;
     public float battle_trance_speed_increase = 0.30F;
+    public float quen_active_shield_quen_intensity_amplifier_multiplier = 0.25F;
 }
