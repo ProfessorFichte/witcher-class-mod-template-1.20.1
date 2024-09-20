@@ -52,8 +52,8 @@
   "cost": {
     "exhaust": 0.5,
     "cooldown_duration": 24.0,
-    "cooldown_proportional": true,
-    "cooldown_haste_affected": true,
+    "cooldown_proportional": false,
+    "cooldown_haste_affected": false,
     "effect_id": "witcher_rpg:alternate_sign"
   }
 }

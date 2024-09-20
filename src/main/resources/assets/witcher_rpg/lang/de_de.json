@@ -156,5 +156,9 @@
   "enchantment.witcher_rpg.quen_intensity.desc" : "Erhöht den Schaden von Quen Zeichen.",
   "enchantment.witcher_rpg.yrden_intensity": "Yrden-Intensität",
   "enchantment.witcher_rpg.yrden_intensity.desc" : "Erhöht den Schaden von Yrden Zeichen.",
-  "entity.witcher_rpg.yrden_magical_trap": "Magische Falle"
+  "entity.witcher_rpg.yrden_magical_trap": "Magische Falle",
+  "tooltip.witcher_rpg.shift_down": "Drücke §eShift§r für mehr Infos!",
+  "item.witcher_rpg.steel_witcher_swords.description_1": "Chance den Gegner Bluten hinzuzufügen, falls er nicht untot ist.",
+  "item.witcher_rpg.ultimatum.description_1": "Chance den Gegner zu verbrennen..",
+  "item.witcher_rpg.winters_blade.description_1": "Chance den Gegner einzufrieren."
 }

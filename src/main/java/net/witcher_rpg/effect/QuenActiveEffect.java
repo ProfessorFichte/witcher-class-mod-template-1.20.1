@@ -3,10 +3,14 @@ package net.witcher_rpg.effect;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
+import net.more_rpg_classes.effect.MRPGCEffects;
 import net.spell_engine.api.spell.ParticleBatch;
+import net.spell_engine.internals.casting.SpellCast;
+import net.spell_engine.internals.casting.SpellCasterEntity;
 import net.spell_engine.particle.ParticleHelper;
 
 import static net.more_rpg_classes.util.CustomMethods.clearNegativeEffects;
@@ -47,6 +51,12 @@ public class QuenActiveEffect extends StatusEffect {
         if (!entity.getWorld().isClient()) {
             entity.getWorld().playSoundFromEntity(null, entity, QUEN_BREAK, SoundCategory.PLAYERS, 1F, 1F);
             ParticleHelper.sendBatches(entity, new ParticleBatch[]{quen_break});
+            if(entity instanceof SpellCasterEntity){
+                SpellCasterEntity spellCasterEntity = (SpellCasterEntity) entity;
+                if(spellCasterEntity.isCastingSpell()){
+                    entity.addStatusEffect(new StatusEffectInstance(MRPGCEffects.STUNNED.registryEntry,10,0,false,false,false));
+                }
+            }
         }
     }
 }

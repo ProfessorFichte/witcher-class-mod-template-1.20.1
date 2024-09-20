@@ -1,6 +1,7 @@
 package net.witcher_rpg.item.weapon;
 
 
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -60,11 +61,16 @@ public class AerondightRelictItem extends WitcherSword {
     }
 
 
-    public void appendTooltip(ItemStack stack, List<Text> tooltip, TooltipContext context, TooltipType.Default type) {
-        tooltip.add(Text.translatable(this.getTranslationKey() + ".description_1").formatted(Formatting.AQUA));
-        tooltip.add(Text.translatable(this.getTranslationKey() + ".description_2").formatted(Formatting.DARK_AQUA));
-        tooltip.add(Text.translatable(this.getTranslationKey() + ".description_3").formatted(Formatting.DARK_AQUA));
-        tooltip.add(Text.translatable(this.getTranslationKey() + ".description_4").formatted(Formatting.DARK_AQUA));
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable(this.getTranslationKey() + ".description_1").formatted(Formatting.AQUA));
+            tooltip.add(Text.translatable(this.getTranslationKey() + ".description_2").formatted(Formatting.DARK_AQUA));
+            tooltip.add(Text.translatable(this.getTranslationKey() + ".description_3").formatted(Formatting.DARK_AQUA));
+            tooltip.add(Text.translatable(this.getTranslationKey() + ".description_4").formatted(Formatting.DARK_AQUA));
+        }else{
+            tooltip.add(Text.translatable("tooltip.witcher_rpg.shift_down"));
+        }
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

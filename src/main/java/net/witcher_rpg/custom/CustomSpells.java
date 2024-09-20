@@ -11,6 +11,7 @@ import net.spell_engine.api.spell.CustomSpellHandler;
 import net.spell_engine.api.spell.SpellInfo;
 import net.spell_engine.internals.SpellHelper;
 import net.spell_engine.utils.TargetHelper;
+import net.witcher_rpg.effect.Effects;
 
 import java.util.List;
 import java.util.function.Predicate;

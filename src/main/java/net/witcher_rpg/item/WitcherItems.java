@@ -6,7 +6,6 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.more_rpg_classes.MRPGCMod;
 import net.witcher_rpg.WitcherClassMod;
 import net.witcher_rpg.item.armor.Armors;
 import net.witcher_rpg.item.weapon.WeaponsRegister;
@@ -42,7 +41,7 @@ public class WitcherItems {
     public static final Item METEORITE_INGOT = registerItem("meteorite_ingot", new Item(new Item.Settings()));
     public static final Item DARK_IRON_INGOT = registerItem("dark_iron_ingot", new Item(new Item.Settings()));
     public static final Item RAW_DARK_IRON = registerItem("raw_dark_iron", new Item(new Item.Settings()));
-    public static final MasterSpellBook MASTER_BOOK = new MasterSpellBook( Identifier.of(MOD_ID,"master_book"),new Item.Settings());
+    public static final MasterSpellBook MASTER_BOOK = new MasterSpellBook( Identifier.of(MOD_ID,"master_book"),new Item.Settings().maxCount(1));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(MOD_ID, name), item);

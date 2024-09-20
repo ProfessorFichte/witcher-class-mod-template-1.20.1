@@ -202,7 +202,7 @@ public class Armors {
                     material_griffin,
                     Identifier.of(MOD_ID, "griffin"),
                     20,
-                    BearSchoolArmor::new,
+                    GriffinSchoolArmor::new,
                     ItemConfig.ArmorSet.with(
                             new ItemConfig.ArmorSet.Piece(2)
                                     .addAll(List.of(

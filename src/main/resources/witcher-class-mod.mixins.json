@@ -8,7 +8,7 @@
     "ExampleMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
-    "SpellCastMixin"
+    "SpellHelperMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,3 +1,13 @@
+2.0.2
+- Griffin School Armor used Ursine Armor texture, oops
+
+2.0.1
+- Spell Engine API Update (1.1.0 + 1.21.1)
+- Updated SpellHelperMixin
+- QuenActiveShield now stuns you for a short amount when removed, because it explodes in TW3 and knocks you back
+- fixed tooltips for some witcher swords
+- made the Master Witcher Book not stack able
+
 2.0.0
 -  1.21.x update
 - alternate sign mode is disabled for 1.21 version, will be enabled later
@@ -7,6 +17,9 @@
 - new Spell School Witcher_Melee, that the melee spells also benefit from adrenaline, to crit more & higher
 - Rend now stuns blocking entities and adds grievous wounds effect
 - nerfed Whirl & Rend cooldown
+
+1.1.3
+- forgot to change sound identifier from YrdenMagicTrap
 
 1.1.2
 - changed the aard impact particles to wind vacuum for better a better shockwave feeling

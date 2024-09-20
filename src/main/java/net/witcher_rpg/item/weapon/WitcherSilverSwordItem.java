@@ -1,5 +1,6 @@
 package net.witcher_rpg.item.weapon;
 
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -32,8 +33,15 @@ public class WitcherSilverSwordItem extends WitcherSword {
         return true;
     }
 
-    public void appendTooltip(ItemStack stack, List<Text> tooltip, TooltipContext context, TooltipType.Default type) {
-        tooltip.add(Text.translatable("item.witcher_rpg.silver_witcher_swords.description_1").formatted(Formatting.AQUA));
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("item.witcher_rpg.silver_witcher_swords.description_1").formatted(Formatting.AQUA));
+        }else {
+            tooltip.add(Text.translatable("tooltip.witcher_rpg.shift_down"));
+
+        }
+
         super.appendTooltip(stack, context, tooltip, type);
     }
 }
