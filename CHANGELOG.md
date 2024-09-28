@@ -1,3 +1,7 @@
+1.1.3
+- Ice And Fire Fabric Silver Ingot Compat
+- forgot to add silver & steel swords to their tags
+
 1.1.2
 - changed the aard impact particles to wind vacuum for better a better shockwave feeling
 - nerfed whirl because the duration was too long
