@@ -1,3 +1,6 @@
+2.0.3
+- added Ice and Fire Fabric Silver Ingot Compat
+
 2.0.2
 - Griffin School Armor used Ursine Armor texture, oops
 

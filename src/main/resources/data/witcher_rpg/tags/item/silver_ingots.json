@@ -25,6 +25,10 @@
     {
       "id": "mythicmetals:silver_ingot",
       "required": false
+    },
+    {
+      "id": "iceandfire:silver_ingot",
+      "required": false
     }
   ]
 }
