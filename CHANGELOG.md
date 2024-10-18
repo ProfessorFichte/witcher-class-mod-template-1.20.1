@@ -1,5 +1,6 @@
 2.0.3
 - added Ice and Fire Fabric Silver Ingot Compat
+- fixed a typo for the Dark Iron Ore
 
 2.0.2
 - Griffin School Armor used Ursine Armor texture, oops
