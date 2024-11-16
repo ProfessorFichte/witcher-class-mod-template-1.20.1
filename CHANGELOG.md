@@ -1,6 +1,9 @@
 1.1.3
 - Ice And Fire Fabric Silver Ingot Compat
 - forgot to add silver & steel swords to their tags
+- added more configured_feature variants for the witcher ores
+- tweaked some numbers for the ores
+- made the dark iron ore brighter
 
 1.1.2
 - changed the aard impact particles to wind vacuum for better a better shockwave feeling

@@ -15,8 +15,8 @@ public class WitcherLootTableChestModifiers {
             new Identifier("minecraft", "chests/village/village_weaponsmith");
     private static final float silver_ingot_chance = 0.75f;
     private static final float steel_ingot_chance = 0.75f;
-    private static final float dark_iron_ingot_chance = 0.2f;
-    private static final float meteorite_ingot_chance = 0.2f;
+    private static final float dark_iron_ingot_chance = 0.25f;
+    private static final float meteorite_ingot_chance = 0.25f;
 
 
     public static void modifyChestLootTables(){
