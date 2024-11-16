@@ -13,8 +13,8 @@ import net.witcher_rpg.item.WitcherItems;
 public class WitcherLootTableChestModifiers {
     private static final Identifier WEAPON_SMITH_CHEST =
             new Identifier("minecraft", "chests/village/village_weaponsmith");
-    private static final float silver_ingot_chance = 0.75f;
-    private static final float steel_ingot_chance = 0.75f;
+    private static final float silver_ingot_chance = 0.5f;
+    private static final float steel_ingot_chance = 0.5f;
     private static final float dark_iron_ingot_chance = 0.25f;
     private static final float meteorite_ingot_chance = 0.25f;
 
@@ -40,7 +40,7 @@ public class WitcherLootTableChestModifiers {
                 LootPool.Builder poolBuilder4 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(meteorite_ingot_chance))
-                        .with(ItemEntry.builder(WitcherItems.METEORITE))
+                        .with(ItemEntry.builder(WitcherItems.METEORITE_INGOT))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
                 tableBuilder.pool(poolBuilder.build());
                 tableBuilder.pool(poolBuilder2.build());
