@@ -6,6 +6,7 @@
 - made the dark iron ore brighter
 - added a meteorite like geode
 - added netherrack dark iron ore
+- adrenaline effect amplifier now gets decreased on receiving damage (like in TW3 game)
 
 1.1.2
 - changed the aard impact particles to wind vacuum for better a better shockwave feeling
