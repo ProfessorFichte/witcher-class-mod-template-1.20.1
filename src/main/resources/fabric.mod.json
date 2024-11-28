@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "witcher-rpg",
+	"id": "witcher_rpg",
 	"version": "${version}",
 	"name": "Witcher Class Mod",
 	"description": "Slay monsters like a Witcher! Spell Engine Add-On",

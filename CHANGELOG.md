@@ -5,6 +5,7 @@
 - tweaked some numbers for the ores
 - made the dark iron ore brighter
 - added a meteorite like geode
+- added netherrack dark iron ore
 
 1.1.2
 - changed the aard impact particles to wind vacuum for better a better shockwave feeling
