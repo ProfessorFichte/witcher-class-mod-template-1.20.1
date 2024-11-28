@@ -42,13 +42,17 @@ public abstract class PlayerEntityMixin {
         if (player instanceof ServerPlayerEntity) {
             if (value1 != 100) {
                 value1 = value1 -100;
-                int duration_multiplier = value1 * 4;
+                int duration_multiplier = value1 * 3;
                 if(!player.hasStatusEffect(Effects.ADRENALINE_GAIN)){
                     player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN,200+duration_multiplier,0,false,false,true));
                 }else{
                     int currentDuration= player.getStatusEffect(Effects.ADRENALINE_GAIN).getDuration();
+                    int effectDuration = duration_multiplier + currentDuration;
+                    if(effectDuration > effectsConfig.value.adrenaline_max_seconds_duration){
+                        effectDuration = effectsConfig.value.adrenaline_max_seconds_duration;
+                    }
                     int adrenaline_chance_inc = (int) Math.round((float) value1 /5);
-                    increaseAmpByChance(player,Effects.ADRENALINE_GAIN,currentDuration+duration_multiplier,1,effectsConfig.value.adrenaline_max_amplifier-1,1);
+                    increaseAmpByChance(player,Effects.ADRENALINE_GAIN,effectDuration,1,effectsConfig.value.adrenaline_max_amplifier-1,1);
                 }
             }
         }

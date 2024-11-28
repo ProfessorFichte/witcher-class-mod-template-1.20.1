@@ -1,4 +1,5 @@
 1.1.3
+- **CONFIG** Your effects config got overwritten, use effects_v1 now
 - Ice And Fire Fabric Silver Ingot Compat
 - forgot to add silver & steel swords to their tags
 - added more configured_feature variants for the witcher ores

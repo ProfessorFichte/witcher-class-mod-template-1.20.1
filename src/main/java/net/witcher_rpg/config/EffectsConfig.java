@@ -9,13 +9,10 @@ public class EffectsConfig {
     public float quen_reflect_damage = 0.50F;
     public float adrenaline_attack_increase_per_stack = 0.025F;
     public float adrenaline_sign_intensity_increase_per_stack = 0.025F;
+    public int adrenaline_max_seconds_duration = 180;
     public int adrenaline_max_amplifier = 10;
     public float adrenaline_attribute_increase_per_stack = 0.01F;
     public float sign_school_intensity_increase_per_stack = 0.10F;
     public float axii_puppet_attack_damage_increase_per_stack = 0.10F;
     public float battle_trance_speed_increase = 0.30F;
-    public float fast_attack_generic_attack_decrease = -0.15f;
-    public float fast_attack_generic_attack_speed_increase = 0.3F;
-    public float strong_attack_generic_attack_increase = 0.2f;
-    public float strong_attack_generic_attack_speed_decrease = -0.3F;
 }
