@@ -8,14 +8,19 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.witcher_rpg.WitcherClassMod;
+import net.witcher_rpg.util.tags.ModBiomeTags;
 
 public class OreGen {
     public static final Identifier SILVER_ORE_ID = Identifier.of(WitcherClassMod.MOD_ID, "silver_ore_placed");
     public static final Identifier METEORITE_ORE_ID = Identifier.of(WitcherClassMod.MOD_ID, "meteorite_ore_placed");
     public static final Identifier DARK_IRON_ORE_ID = Identifier.of(WitcherClassMod.MOD_ID, "dark_iron_ore_placed");
+    public static final Identifier NETHER_DARK_IRON_ORE_ID = Identifier.of(WitcherClassMod.MOD_ID, "dark_iron_ore_nether_placed");
+    public static final Identifier METEORITE_ID = Identifier.of(WitcherClassMod.MOD_ID, "dark_iron_ore_placed");
     public static final RegistryKey<PlacedFeature> SILVER_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(WitcherClassMod.MOD_ID, "silver_ore_placed"));
     public static final RegistryKey<PlacedFeature> METEORITE_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(WitcherClassMod.MOD_ID, "meteorite_ore_placed"));
     public static final RegistryKey<PlacedFeature> DARK_IRON_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(WitcherClassMod.MOD_ID, "dark_iron_ore_placed"));
+    public static final RegistryKey<PlacedFeature> NETHER_DARK_IRON_ORE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(WitcherClassMod.MOD_ID, "dark_iron_ore_nether_placed"));
+    public static final RegistryKey<PlacedFeature> METEORITE_PLACED_KEY = RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(WitcherClassMod.MOD_ID, "meteorite"));
 
     public static void register() {
         BiomeModifications.addFeature(
@@ -32,6 +37,16 @@ public class OreGen {
                 BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES,
                 DARK_IRON_ORE_PLACED_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.foundInTheNether(),
+                GenerationStep.Feature.UNDERGROUND_ORES,
+                NETHER_DARK_IRON_ORE_PLACED_KEY
+        );
+        BiomeModifications.addFeature(
+                BiomeSelectors.tag(ModBiomeTags.HAS_METEORITE),
+                GenerationStep.Feature.UNDERGROUND_DECORATION,
+                METEORITE_PLACED_KEY
         );
     }
 

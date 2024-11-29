@@ -4,6 +4,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -18,6 +19,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Objects;
+import java.util.Random;
 
 import static net.witcher_rpg.WitcherClassMod.MOD_ID;
 
@@ -59,6 +61,27 @@ public abstract class LivingEntityMixin {
         LivingEntity damagedTarget = ((LivingEntity) (Object) this);
         if(damagedTarget.isPlayer() && damagedTarget.hasStatusEffect(Effects.QUEN_ACTIVE.registryEntry) && !source.isIn(DamageTypeTags.BYPASSES_INVULNERABILITY)){
             damagedTarget.heal(amount/2);
+        }
+    }
+
+    @Inject(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V"))
+    private void decreaseAdrenalineAmplifierOnDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        LivingEntity damagedTarget = ((LivingEntity) (Object) this);
+        if(damagedTarget.isPlayer() && damagedTarget.hasStatusEffect(Effects.ADRENALINE_GAIN.registryEntry)){
+            int adrenaline_effect_amplifier = damagedTarget.getStatusEffect(Effects.ADRENALINE_GAIN.registryEntry).getAmplifier();
+            int adrenaline_effect_duration = damagedTarget.getStatusEffect(Effects.ADRENALINE_GAIN.registryEntry).getDuration();
+            float adrenaline_attribute_player = (float) (damagedTarget.getAttributeValue(WitcherAttributes.ADRENALINE_MODIFIER)-100.0F);
+            float random = new Random().nextFloat(100);
+            if(adrenaline_effect_amplifier != 0){
+                if(random > adrenaline_attribute_player){
+                    damagedTarget.removeStatusEffect(Effects.ADRENALINE_GAIN.registryEntry);
+                    damagedTarget.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN.registryEntry,
+                            adrenaline_effect_duration,adrenaline_effect_amplifier-1,false,false,true));
+                }
+
+            }else{
+                damagedTarget.removeStatusEffect(Effects.ADRENALINE_GAIN.registryEntry);
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ public class EffectsConfig {
     public float adrenaline_sign_intensity_increase_per_stack = 0.025F;
     public int adrenaline_max_amplifier = 10;
     public float adrenaline_attribute_increase_per_stack = 0.01F;
+    public int adrenaline_max_seconds_duration = 180;
     public float sign_school_intensity_increase_per_stack = 0.10F;
     public float axii_puppet_attack_damage_increase_per_stack = 0.10F;
     public float battle_trance_speed_increase = 0.30F;

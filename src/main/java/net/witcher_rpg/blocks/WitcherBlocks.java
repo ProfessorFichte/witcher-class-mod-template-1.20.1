@@ -67,6 +67,13 @@ public class WitcherBlocks {
                     .requiresTool()
                     .strength(3.0F, 3.0F)
     ));
+    public static final Entry NETHER_DARK_IRON_ORE= entry("nether_dark_iron_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7),
+            FabricBlockSettings.create()
+                    .mapColor(MapColor.DARK_RED)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(3.0F, 3.0F)
+    ));
 
 
     public static void register() {

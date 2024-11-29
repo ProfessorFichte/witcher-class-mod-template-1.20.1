@@ -41,20 +41,26 @@ public abstract class PlayerEntityMixin {
         if (player instanceof ServerPlayerEntity) {
             if (value1 != 100) {
                 value1 = value1 -100;
-                int adrenaline_chance_inc = (int) Math.round((float) value1 /5);
-                int adrenaline_duration_multiplier = value1 / 2;
+                int adrenaline_duration_multiplier = value1 * 3;
                 if(!player.hasStatusEffect(Effects.ADRENALINE_GAIN.registryEntry)){
-                    player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN.registryEntry,200+adrenaline_duration_multiplier,0,false,false,true));
+                    player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN.registryEntry,
+                            200+adrenaline_duration_multiplier,0,false,false,true));
                 }
                 else
                 {
                     int currentAmplifier = player.getStatusEffect(Effects.ADRENALINE_GAIN.registryEntry).getAmplifier();
                     int currentDuration = player.getStatusEffect(Effects.ADRENALINE_GAIN.registryEntry).getDuration();
-                    if(currentAmplifier <= effectsConfig.value.adrenaline_max_amplifier+1){
-                        player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN.registryEntry,currentDuration+adrenaline_duration_multiplier,currentAmplifier+1,false,false,true));
+                    int effectDuration = adrenaline_duration_multiplier + currentDuration;
+                    if(effectDuration > (effectsConfig.value.adrenaline_max_seconds_duration *20)){
+                        effectDuration = (effectsConfig.value.adrenaline_max_seconds_duration *20);
+                    }
+                    if(currentAmplifier < effectsConfig.value.adrenaline_max_amplifier-1){
+                        player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN.registryEntry,effectDuration,
+                                currentAmplifier+1,false,false,true));
                     }
                     else{
-                        player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN.registryEntry,currentDuration+adrenaline_duration_multiplier,effectsConfig.value.adrenaline_max_amplifier+1,false,false,true));
+                        player.addStatusEffect(new StatusEffectInstance(Effects.ADRENALINE_GAIN.registryEntry,effectDuration,
+                                effectsConfig.value.adrenaline_max_amplifier-1,false,false,true));
                     }
                 }
             }
