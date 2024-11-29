@@ -48,8 +48,8 @@ public abstract class PlayerEntityMixin {
                 }else{
                     int currentDuration= player.getStatusEffect(Effects.ADRENALINE_GAIN).getDuration();
                     int effectDuration = duration_multiplier + currentDuration;
-                    if(effectDuration > effectsConfig.value.adrenaline_max_seconds_duration){
-                        effectDuration = effectsConfig.value.adrenaline_max_seconds_duration;
+                    if(effectDuration > (effectsConfig.value.adrenaline_max_seconds_duration*20)){
+                        effectDuration = effectsConfig.value.adrenaline_max_seconds_duration*20;
                     }
                     int adrenaline_chance_inc = (int) Math.round((float) value1 /5);
                     increaseAmpByChance(player,Effects.ADRENALINE_GAIN,effectDuration,1,effectsConfig.value.adrenaline_max_amplifier-1,1);

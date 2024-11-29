@@ -1,3 +1,6 @@
+1.1.4 - 1.20.1
+- small fix for the adrenaline mechanic
+
 1.1.3
 - **CONFIG** Your effects config got overwritten, use effects_v1 now
 - Ice And Fire Fabric Silver Ingot Compat
