@@ -1,3 +1,6 @@
+2.0.5 - 1.21
+- forgot "has_meteorite" worldgen tag for the new meteorite "geode" feature
+
 2.0.4 - 1.21
 - **CONFIG** Your effects config got overwritten, use effects_v1 now
 - forgot to add silver & steel swords to their tags
