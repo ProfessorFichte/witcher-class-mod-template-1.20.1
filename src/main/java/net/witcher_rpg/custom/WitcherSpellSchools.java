@@ -4,12 +4,14 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageTypes;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.spell_power.SpellPowerMod;
 import net.spell_power.api.SpellPowerMechanics;
 import net.spell_power.api.SpellSchool;
 import net.spell_power.api.SpellSchools;
+import net.witcher_rpg.WitcherClassMod;
 import net.witcher_rpg.entity.attribute.WitcherAttributes;
 
 import static net.spell_power.api.SpellPowerMechanics.PERCENT_ATTRIBUTE_BASELINE;
@@ -20,7 +22,7 @@ public class WitcherSpellSchools {
     public static final SpellSchool SIGN = new SpellSchool(SpellSchool.Archetype.MAGIC,
             Identifier.of(SpellPowerMod.ID, "sign"),
             0xfffeca,
-            DamageTypes.MAGIC,
+            RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of(WitcherClassMod.MOD_ID, "signs")),
             WitcherAttributes.SIGN_INTENSITY);
     public static final SpellSchool AARD = new SpellSchool(SpellSchool.Archetype.MAGIC,
             Identifier.of(SpellPowerMod.ID, "aard"),
@@ -30,22 +32,22 @@ public class WitcherSpellSchools {
     public static final SpellSchool AXII = new SpellSchool(SpellSchool.Archetype.MAGIC,
             Identifier.of(SpellPowerMod.ID, "axii"),
             0x008000,
-            DamageTypes.MAGIC,
+            RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of(WitcherClassMod.MOD_ID, "axii")),
             WitcherAttributes.AXII_INTENSITY);
     public static final SpellSchool IGNI = new SpellSchool(SpellSchool.Archetype.MAGIC,
             Identifier.of(SpellPowerMod.ID, "igni"),
             0xdd4e00,
-            DamageTypes.MAGIC,
+            RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of(WitcherClassMod.MOD_ID, "igni")),
             WitcherAttributes.IGNI_INTENSITY);
     public static final SpellSchool QUEN= new SpellSchool(SpellSchool.Archetype.MAGIC,
             Identifier.of(SpellPowerMod.ID, "quen"),
             0xfffeca,
-            DamageTypes.MAGIC,
+            RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of(WitcherClassMod.MOD_ID, "quen")),
             WitcherAttributes.QUEN_INTENSITY);
     public static final SpellSchool YRDEN= new SpellSchool(SpellSchool.Archetype.MAGIC,
             Identifier.of(SpellPowerMod.ID, "yrden"),
             0xe717fe,
-            DamageTypes.MAGIC,
+            RegistryKey.of(RegistryKeys.DAMAGE_TYPE, Identifier.of(WitcherClassMod.MOD_ID, "yrden")),
             WitcherAttributes.YRDEN_INTENSITY);
     public static final SpellSchool WITCHER_MELEE = new SpellSchool(SpellSchool.Archetype.MELEE,
             Identifier.of(SpellPowerMod.ID, "witcher_melee"),

@@ -13,8 +13,12 @@ import net.minecraft.registry.tag.EntityTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.more_rpg_classes.effect.MRPGCEffects;
+import net.witcher_rpg.effect.Effects;
 
 import java.util.List;
+import java.util.Random;
+
+import static net.witcher_rpg.WitcherClassMod.tweaksConfig;
 
 public class UltimatumRelicItem extends WitcherSword {
     public UltimatumRelicItem(ToolMaterial material, Settings settings) {
@@ -23,26 +27,22 @@ public class UltimatumRelicItem extends WitcherSword {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        //SteelSword Bleed
+        //GENERAL STEEL SWORD PASSIVE
         EntityType<?> type = ((Entity) target).getType();
         if(!type.isIn(EntityTypeTags.UNDEAD)){
-            int bleed_duration = 200;
-            int bleed_chance = 10;
-            int randomrange_bleed = (int) ((Math.random() * (1 + bleed_chance)) + 1);
-
-            if (randomrange_bleed >= bleed_chance ) {
-                target.addStatusEffect(new StatusEffectInstance(MRPGCEffects.BLEEDING.registryEntry,bleed_duration,0,false,false,true));
+            float random = new Random().nextFloat(1.0F);
+            if (random > tweaksConfig.value.steel_swords_bleed_chance ) {
+                target.addStatusEffect(new StatusEffectInstance(MRPGCEffects.BLEEDING.registryEntry,
+                        tweaksConfig.value.steel_swords_bleed_duration_seconds, 0,false,false,true));
             }
         }
-
-        //BURN CHANCE
-        int fire_duration = 5;
-        int fire_chance = 12;
-        int randomrange_fire = (int) ((Math.random() * (1 + fire_chance)) + 1);
-
-        if (randomrange_fire >= fire_chance ) {
-            target.setOnFireFor(fire_duration);
+        //STAGGER CHANCE
+        float random = new Random().nextFloat(1.0F);
+        if (random > tweaksConfig.value.ultimatum_stagger_chance ) {
+            target.addStatusEffect(new StatusEffectInstance(Effects.STAGGER.registryEntry,
+                    tweaksConfig.value.ultimatum_stagger_duration_seconds, 0,false,false,true));
         }
+
         stack.damage(1, attacker, EquipmentSlot.MAINHAND);
         return true;
     }

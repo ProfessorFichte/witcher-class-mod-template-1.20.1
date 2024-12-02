@@ -72,6 +72,8 @@ public class Effects {
             new AlternateSignEffect(StatusEffectCategory.BENEFICIAL, 0xfffeca));
     public static final Entry BATTLE_TRANCE = new Entry("battle_trance",
             new CustomEffect(StatusEffectCategory.BENEFICIAL, 0xb3b3b3));
+    public static final Entry STAGGER = new Entry("stagger",
+            new CustomEffect(StatusEffectCategory.HARMFUL, 0xb3b3b3));
 
     public static void register(){
         AERONDIGHT_CHARGE.effect.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, AERONDIGHT_CHARGE.modifierId(),
@@ -100,7 +102,7 @@ public class Effects {
                 effectsConfig.value.sign_school_intensity_increase_per_stack, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE);
         QUEN_INTENSITY.effect.addAttributeModifier(WitcherAttributes.QUEN_INTENSITY, QUEN_INTENSITY.modifierId(),
                 effectsConfig.value.sign_school_intensity_increase_per_stack, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE);
-        YRDEN_INTENSITY.effect.addAttributeModifier(WitcherAttributes.AXII_INTENSITY, YRDEN_INTENSITY.modifierId(),
+        YRDEN_INTENSITY.effect.addAttributeModifier(WitcherAttributes.YRDEN_INTENSITY, YRDEN_INTENSITY.modifierId(),
                 effectsConfig.value.sign_school_intensity_increase_per_stack, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE);
         AXII_PUPPET.effect.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, AXII_PUPPET.modifierId(),
                 effectsConfig.value.axii_puppet_attack_damage_increase_per_stack, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE);
@@ -110,6 +112,13 @@ public class Effects {
                 QUEN_SHIELD.modifierId(), 4, EntityAttributeModifier.Operation.ADD_VALUE);
         QUEN_ACTIVE.effect.addAttributeModifier(EntityAttributes.GENERIC_MAX_ABSORPTION,
                 QUEN_ACTIVE.modifierId(), 8, EntityAttributeModifier.Operation.ADD_VALUE);
+        STAGGER.effect.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, STAGGER.modifierId(),
+                effectsConfig.value.stagger_attack_armor_speed_decrease, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+                .addAttributeModifier(EntityAttributes.GENERIC_ARMOR, STAGGER.modifierId(),
+                        effectsConfig.value.stagger_attack_armor_speed_decrease, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+                .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, STAGGER.modifierId(),
+                effectsConfig.value.stagger_attack_armor_speed_decrease, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+
 
 
         Synchronized.configure(AERONDIGHT_CHARGE.effect,true);
@@ -127,6 +136,7 @@ public class Effects {
         Synchronized.configure(ALTERNATE_SIGN.effect,true);
         Synchronized.configure(QUEN_ACTIVE.effect,true);
         Synchronized.configure(BATTLE_TRANCE.effect,true);
+        Synchronized.configure(STAGGER.effect,true);
 
 
         OnRemoval.configure(QUEN_SHIELD.effect, (context) -> {
@@ -135,11 +145,15 @@ public class Effects {
         OnRemoval.configure(QUEN_ACTIVE.effect, (context) -> {
             QuenActiveEffect.onRemove(context.entity());
         });
+        OnRemoval.configure(ALTERNATE_SIGN.effect, (context) -> {
+            AlternateSignEffect.onRemove(context.entity());
+        });
 
 
         RemoveOnHit.configure(AXII.effect, true);
 
         ActionImpairing.configure(AXII.effect, EntityActionsAllowed.STUN);
+        ActionImpairing.configure(STAGGER.effect, EntityActionsAllowed.INCAPACITATE);
 
         HealthImpacting.configureDamageTaken(AXII.effect, effectsConfig.value.axii_damage_increase);
 

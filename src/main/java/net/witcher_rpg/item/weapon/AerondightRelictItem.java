@@ -7,17 +7,20 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.registry.tag.EntityTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.witcher_rpg.damage.SilverDamageSource;
 import net.witcher_rpg.effect.Effects;
+import net.witcher_rpg.util.tags.WitcherEntityTags;
 
 import java.util.List;
+
+import static net.more_rpg_classes.util.CustomMethods.applyStatusEffect;
+import static net.witcher_rpg.WitcherClassMod.tweaksConfig;
 
 public class AerondightRelictItem extends WitcherSword {
     public AerondightRelictItem(ToolMaterial material, Settings settings) {
@@ -27,35 +30,24 @@ public class AerondightRelictItem extends WitcherSword {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        PlayerEntity player = (PlayerEntity) attacker;
+        //GENERAL SILVER SWORD PASSIVE
         EntityType<?> type = ((Entity) target).getType();
-        int charge_duration = 130;
-        int charge_amplifier_max = 9;
-
-
-
-        if(type.isIn(EntityTypeTags.UNDEAD)){
+        if(type.isIn(WitcherEntityTags.SILVER_VULNERABLE)){
             float attack = (float) attacker.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-            target.damage(target.getDamageSources().magic(), attack * 0.30F);
-            player.addEnchantedHitParticles(target);
+            target.damage(new SilverDamageSource(target.getDamageSources().magic().getTypeRegistryEntry()),
+                    attack * tweaksConfig.value.silver_swords_silver_damage_attack_damage_multiplier);
         }
-
-        if(!player.hasStatusEffect(Effects.AERONDIGHT_CHARGE.registryEntry)){
-            player.addStatusEffect(new StatusEffectInstance(Effects.AERONDIGHT_CHARGE.registryEntry,charge_duration,0,false,false,false));
-        }
-        else
-        {
+        //AERONDIGHT PASSIVE
+        PlayerEntity player = (PlayerEntity) attacker;
+        applyStatusEffect(player,0,14,Effects.AERONDIGHT_CHARGE.registryEntry,
+                tweaksConfig.value.aerondight_charged_sword_max_amplifier-1,
+                true,false,false,0);
+        if(player.hasStatusEffect(Effects.AERONDIGHT_CHARGE.registryEntry)){
             int currentAmplifier = player.getStatusEffect(Effects.AERONDIGHT_CHARGE.registryEntry).getAmplifier();
-            if(currentAmplifier <= charge_amplifier_max+1){
-                player.addStatusEffect(new StatusEffectInstance(Effects.AERONDIGHT_CHARGE.registryEntry,charge_duration,currentAmplifier+1,false,false,false));
-            }
-            else{
-                target.damage(target.getDamageSources().magic(), 1.0f);
-                player.addEnchantedHitParticles(target);
-                player.addStatusEffect(new StatusEffectInstance(Effects.AERONDIGHT_CHARGE.registryEntry,charge_duration,charge_amplifier_max+1,false,false,false));
+            if(currentAmplifier == tweaksConfig.value.aerondight_charged_sword_max_amplifier-1){
+                target.damage(target.getDamageSources().magic(), 2.0f);
             }
         }
-
         stack.damage(1, attacker, EquipmentSlot.MAINHAND);
         return true;
     }
@@ -64,7 +56,7 @@ public class AerondightRelictItem extends WitcherSword {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if(Screen.hasShiftDown()) {
-            tooltip.add(Text.translatable(this.getTranslationKey() + ".description_1").formatted(Formatting.AQUA));
+            tooltip.add(Text.translatable("item.witcher_rpg.silver_witcher_swords.description_1").formatted(Formatting.AQUA));
             tooltip.add(Text.translatable(this.getTranslationKey() + ".description_2").formatted(Formatting.DARK_AQUA));
             tooltip.add(Text.translatable(this.getTranslationKey() + ".description_3").formatted(Formatting.DARK_AQUA));
             tooltip.add(Text.translatable(this.getTranslationKey() + ".description_4").formatted(Formatting.DARK_AQUA));

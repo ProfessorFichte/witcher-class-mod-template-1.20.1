@@ -8,6 +8,7 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -22,9 +23,11 @@ import net.spell_engine.api.spell.Spell;
 import net.spell_engine.internals.SpellRegistry;
 import net.spell_engine.particle.ParticleHelper;
 import net.spell_engine.utils.TargetHelper;
-import net.witcher_rpg.damage.MagicalTrapDamageSource;
+import net.witcher_rpg.custom.WitcherSpellSchools;
 import net.witcher_rpg.effect.Effects;
 import net.witcher_rpg.entity.attribute.WitcherAttributes;
+
+import static net.more_rpg_classes.util.CustomMethods.spellSchoolDamageCalculation;
 
 
 public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
@@ -197,7 +200,7 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
                     if (entity instanceof LivingEntity livingEntity) {
                         if (!isProtected(livingEntity)) {
                             if(this.age % checkDamageInterval == 0){
-                                livingEntity.damage(new MagicalTrapDamageSource(entity.getDamageSources().magic().getTypeRegistryEntry()), 0.75F * yrden_intensity);
+                                spellSchoolDamageCalculation(WitcherSpellSchools.YRDEN,0.75F,livingEntity, (PlayerEntity) owner);
                                 livingEntity.addStatusEffect(new StatusEffectInstance(Effects.YRDEN_GLYPH.registryEntry,150, (int) (0 * (yrden_intensity +1 )),false,false,true));
                                 livingEntity.playSound(yrdenSound,1F,1F);
                                 ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_circle});

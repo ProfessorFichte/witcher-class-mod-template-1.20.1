@@ -160,6 +160,6 @@
   "entity.witcher_rpg.yrden_magical_trap": "Magische Falle",
   "tooltip.witcher_rpg.shift_down": "Drücke §eShift§r für mehr Infos!",
   "item.witcher_rpg.steel_witcher_swords.description_1": "Chance den Gegner Bluten hinzuzufügen, falls er nicht untot ist.",
-  "item.witcher_rpg.ultimatum.description_1": "Chance den Gegner zu verbrennen..",
+  "item.witcher_rpg.ultimatum.description_1": "Chance das der Gegner taumelt.",
   "item.witcher_rpg.winters_blade.description_1": "Chance den Gegner einzufrieren."
 }

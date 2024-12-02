@@ -34,7 +34,7 @@ public abstract class PlayerEntityMixin {
     }
 
     @Inject(at = @At("HEAD"), method = "attack")
-    public void witcher$attack(Entity target, CallbackInfo ci) {
+    public void witcherStackAdrenaline(Entity target, CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity)(Object)this;
         EntityAttributeInstance adrenaline = ((LivingEntity) (Object) this).getAttributeInstance(WitcherAttributes.ADRENALINE_MODIFIER);
         int value1 = (int) adrenaline.getValue();
@@ -68,7 +68,7 @@ public abstract class PlayerEntityMixin {
     }
 
     @ModifyArg(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"), index = 1)
-    private float modifyWitcherDamage(float damage) {
+    private float modifyWitcherDamageBattleTrance(float damage) {
         PlayerEntity player = (PlayerEntity) (Object) this;
         if (player.hasStatusEffect(Effects.BATTLE_TRANCE.registryEntry) && player.hasStatusEffect(Effects.ADRENALINE_GAIN.registryEntry)){
             int adrenaline_effect_amplifier = player.getStatusEffect(Effects.ADRENALINE_GAIN.registryEntry).getAmplifier() + 1;

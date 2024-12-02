@@ -15,6 +15,10 @@ import net.minecraft.util.Formatting;
 import net.more_rpg_classes.effect.MRPGCEffects;
 
 import java.util.List;
+import java.util.Random;
+
+import static net.more_rpg_classes.util.CustomMethods.applyStatusEffect;
+import static net.witcher_rpg.WitcherClassMod.tweaksConfig;
 
 public class WintersBladeRelicItem extends WitcherSword {
     public WintersBladeRelicItem(ToolMaterial material, Settings settings) {
@@ -23,33 +27,20 @@ public class WintersBladeRelicItem extends WitcherSword {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        //SteelSword Bleed
+        //GENERAL STEEL SWORD PASSIVE
         EntityType<?> type = ((Entity) target).getType();
         if(!type.isIn(EntityTypeTags.UNDEAD)){
-            int bleed_duration = 200;
-            int bleed_chance = 10;
-            int randomrange_bleed = (int) ((Math.random() * (1 + bleed_chance)) + 1);
-
-            if (randomrange_bleed >= bleed_chance ) {
-                target.addStatusEffect(new StatusEffectInstance(MRPGCEffects.BLEEDING.registryEntry,bleed_duration,0,false,false,true));
+            float random = new Random().nextFloat(1.0F);
+            if (random < tweaksConfig.value.steel_swords_bleed_chance ) {
+                target.addStatusEffect(new StatusEffectInstance(MRPGCEffects.BLEEDING.registryEntry,
+                        tweaksConfig.value.steel_swords_bleed_duration_seconds, 0,false,false,true));
             }
         }
-        //10% chance to frost
-        int frosted_duration = 200;
-        int frosted_chance = 10;
-        int roll = (int) ((Math.random() * (1 + frosted_chance)) + 1);
-
-
-        if(!target.hasStatusEffect(MRPGCEffects.FROZEN_SOLID.registryEntry)){
-        if (roll >= frosted_chance)    {
-            if(!target.hasStatusEffect(MRPGCEffects.FROSTED.registryEntry)){
-
-                target.addStatusEffect(new StatusEffectInstance(MRPGCEffects.FROSTED.registryEntry,frosted_duration,0,false,false,true));
-            }else {
-                int currentAmplifier = target.getStatusEffect(MRPGCEffects.FROSTED.registryEntry).getAmplifier();
-                target.addStatusEffect(new StatusEffectInstance(MRPGCEffects.FROSTED.registryEntry,frosted_duration,currentAmplifier+1,false,false,true));
-            }
-        }
+        //FROST CHANCE
+        float random = new Random().nextFloat(1.0F);
+        if(random > tweaksConfig.value.wintersblade_freeze_chance){
+            applyStatusEffect(target,0,8, MRPGCEffects.FROSTED.registryEntry,
+                    4, true,true,false,0);
         }
 
         stack.damage(1, attacker, EquipmentSlot.MAINHAND);

@@ -11,11 +11,13 @@ import net.spell_engine.api.spell.CustomSpellHandler;
 import net.spell_engine.api.spell.SpellInfo;
 import net.spell_engine.internals.SpellHelper;
 import net.spell_engine.utils.TargetHelper;
+import net.spell_power.api.SpellSchool;
 import net.witcher_rpg.effect.Effects;
 
 import java.util.List;
 import java.util.function.Predicate;
 
+import static net.more_rpg_classes.util.CustomMethods.spellSchoolDamageCalculation;
 import static net.witcher_rpg.WitcherClassMod.MOD_ID;
 import static net.spell_engine.internals.SpellRegistry.getSpell;
 
@@ -37,7 +39,7 @@ public class CustomSpells {
                         Vec3d vec3d = arrow.getPos().subtract(arrow.getX(), arrow.getY(), arrow.getZ());
                         arrow.setVelocity(vec3d);
                     }else if (entity.isLiving()){
-                        SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, new SpellInfo(getSpell(Identifier.of(MOD_ID, "aard_sweep")),Identifier.of(MOD_ID)), data1.impactContext());
+                        SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, new SpellInfo(getSpell(Identifier.of(MOD_ID, "aard")),Identifier.of(MOD_ID)), data1.impactContext());
                         LivingEntity livingEntity = (LivingEntity) entity;
                         Vec3d currentMovement = entity.getVelocity();
                         entity.setVelocity(currentMovement.x , currentMovement.y + 0.5, currentMovement.z);
@@ -91,12 +93,17 @@ public class CustomSpells {
         CustomSpellHandler.register(Identifier.of(MOD_ID, "rend"), (data) -> {
             CustomSpellHandler.Data data1 = (CustomSpellHandler.Data) data;
             for (Entity entity : data1.targets()) {
+                SpellSchool school = getSpell(Identifier.of(MOD_ID, "rend")).school;
+                float spell_power_coefficient = getSpell(Identifier.of(MOD_ID, "rend")).impact[0].action.damage.spell_power_coefficient;
+                if(data1.caster().hasStatusEffect(Effects.ADRENALINE_GAIN.registryEntry)){
+                    int amplifier = data1.caster().getStatusEffect(Effects.ADRENALINE_GAIN.registryEntry).getAmplifier()+1;
+                    spell_power_coefficient = spell_power_coefficient * ((float) amplifier / 10);
+                }
                 if (entity instanceof LivingEntity living) {
-                    SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, new SpellInfo(getSpell(Identifier.of(MOD_ID, "rend")),Identifier.of(MOD_ID)), data1.impactContext());
+                    spellSchoolDamageCalculation(school,spell_power_coefficient,living,data1.caster());
                     if (!data1.caster().getWorld().isClient) {
                         if (living.isBlocking()) {
                             living.addStatusEffect(new StatusEffectInstance(MRPGCEffects.STUNNED.registryEntry, 40, 0, false, false, true));
-                            SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, new SpellInfo(getSpell(Identifier.of(MOD_ID, "rend")), Identifier.of(MOD_ID)), data1.impactContext());
                         }
                     }
                 }

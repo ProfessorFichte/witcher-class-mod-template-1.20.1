@@ -10,11 +10,14 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.registry.tag.EntityTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.witcher_rpg.damage.SilverDamageSource;
+import net.witcher_rpg.util.tags.WitcherEntityTags;
 
 import java.util.List;
+
+import static net.witcher_rpg.WitcherClassMod.tweaksConfig;
 
 public class WitcherSilverSwordItem extends WitcherSword {
     public WitcherSilverSwordItem(ToolMaterial material, Settings settings) {
@@ -22,12 +25,12 @@ public class WitcherSilverSwordItem extends WitcherSword {
     }
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        //GENERAL SILVER SWORD PASSIVE
         EntityType<?> type = ((Entity) target).getType();
-        PlayerEntity player = (PlayerEntity) attacker;
-        float attack = (float) attacker.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-        if(type.isIn(EntityTypeTags.UNDEAD)){
-            target.damage(target.getDamageSources().magic(), attack * 0.20F);
-            player.addEnchantedHitParticles(target);
+        if(type.isIn(WitcherEntityTags.SILVER_VULNERABLE)){
+            float attack = (float) attacker.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+            target.damage(new SilverDamageSource(target.getDamageSources().magic().getTypeRegistryEntry()),
+                    attack * tweaksConfig.value.silver_swords_silver_damage_attack_damage_multiplier);
         }
         stack.damage(1, attacker, EquipmentSlot.MAINHAND);
         return true;

@@ -1,3 +1,19 @@
+2.1.0 - 1.21
+- **BALANCING & CHANGES**
+- added magic damage types for each sign school and silver
+- added entity type tags for targets that are vulnerable to a specific sign
+- if a target is vulnerable to a specific sign, the damage gets increased
+- rend damage now scales with adrenaline effect amplifier
+- casting damaging signs (aard & igni) increases your adrenaline now
+- added the Stagger Effect
+- added a tweaks config file
+- made passive for all relic swords configurable
+- cleaned up the code of relic witcher swords
+- the ultimatum sword applies stagger instead of fire
+- added missing textures of status effects
+- **ADDITIONS**
+- added "smithing template" diagrams for each witcher school armor (Enhanced & Superior Tier)
+
 2.0.5 - 1.21
 - forgot "has_meteorite" worldgen tag for the new meteorite "geode" feature
 

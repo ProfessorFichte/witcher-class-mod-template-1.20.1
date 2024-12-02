@@ -13,6 +13,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.witcher_rpg.client.particle.Particles;
 import net.witcher_rpg.config.EffectsConfig;
+import net.witcher_rpg.config.TweaksConfig;
 import net.witcher_rpg.custom.WitcherSpellSchools;
 import net.witcher_rpg.effect.Effects;
 import net.witcher_rpg.entity.YrdenEntity;
@@ -51,6 +52,12 @@ public class WitcherClassMod implements ModInitializer {
 			.setDirectory(MOD_ID)
 			.sanitize(true)
 			.build();
+	public static ConfigManager<TweaksConfig> tweaksConfig = new ConfigManager<TweaksConfig>
+			("tweaks", new TweaksConfig())
+			.builder()
+			.setDirectory(MOD_ID)
+			.sanitize(true)
+			.build();
 
 	private void registerItemGroup() {
 		WitcherGroup.WITCHER = FabricItemGroup.builder()
@@ -65,6 +72,7 @@ public class WitcherClassMod implements ModInitializer {
 	public void onInitialize() {
 		itemConfig.refresh();
 		effectsConfig.refresh();
+		tweaksConfig.refresh();
 		WitcherSpellSchools.initialize();
 		WitcherLootTableChestModifiers.modifyChestLootTables();
 		WitcherItems.registerModItems();

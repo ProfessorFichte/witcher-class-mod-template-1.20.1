@@ -70,18 +70,6 @@
           "max_speed": 1.0
         }
       ]
-    },
-    {
-      "action": {
-        "type": "STATUS_EFFECT",
-        "status_effect": {
-          "effect_id": "more_rpg_classes:grievous_wounds",
-          "duration": 6.0,
-          "apply_mode": "SET",
-          "amplifier": 0,
-          "show_particles": false
-        }
-      }
     }
   ],
   "cost": {

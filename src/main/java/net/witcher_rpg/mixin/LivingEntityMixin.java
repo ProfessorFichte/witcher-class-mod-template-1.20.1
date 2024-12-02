@@ -1,5 +1,7 @@
 package net.witcher_rpg.mixin;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -11,8 +13,11 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import net.spell_engine.internals.SpellRegistry;
 import net.spell_engine.internals.casting.SpellCasterEntity;
+import net.witcher_rpg.WitcherClassMod;
 import net.witcher_rpg.effect.Effects;
 import net.witcher_rpg.entity.attribute.WitcherAttributes;
+import net.witcher_rpg.util.tags.WitcherDamageTypes;
+import net.witcher_rpg.util.tags.WitcherEntityTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,6 +27,7 @@ import java.util.Objects;
 import java.util.Random;
 
 import static net.witcher_rpg.WitcherClassMod.MOD_ID;
+import static net.witcher_rpg.WitcherClassMod.tweaksConfig;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
@@ -83,5 +89,29 @@ public abstract class LivingEntityMixin {
                 damagedTarget.removeStatusEffect(Effects.ADRENALINE_GAIN.registryEntry);
             }
         }
+    }
+
+
+    @Inject(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V"))
+    private void specificSignSchoolVulnerability(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        LivingEntity damagedTarget = ((LivingEntity) (Object) this);
+        EntityType<?> type = ((Entity) damagedTarget).getType();
+        float damageIncrease = tweaksConfig.value.sign_vulnerability_damage_increase;
+        if(type.isIn(WitcherEntityTags.AARD_VULNERABLE) && source.isIn(WitcherDamageTypes.AARD)){
+            amount = amount * damageIncrease;
+        }
+        if(type.isIn(WitcherEntityTags.AXII_VULNERABLE) && source.isIn(WitcherDamageTypes.AXII)){
+            amount = amount * damageIncrease;
+        }
+        if(type.isIn(WitcherEntityTags.IGNI_VULNERABLE) && source.isIn(WitcherDamageTypes.IGNI)){
+            amount = amount * damageIncrease;
+        }
+        if(type.isIn(WitcherEntityTags.YRDEN_VULNERABLE) && source.isIn(WitcherDamageTypes.YRDEN)){
+            amount = amount * damageIncrease;
+        }
+        if(type.isIn(WitcherEntityTags.QUEN_VULNERABLE) && source.isIn(WitcherDamageTypes.QUEN)){
+            amount = amount * damageIncrease;
+        }
+        return;
     }
 }

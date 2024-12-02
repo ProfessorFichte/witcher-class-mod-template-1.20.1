@@ -48,6 +48,7 @@ public class WitcherItems {
     }
 
     public static void registerModItems(){
+
         SpellBooks.createAndRegister(Identifier.of(MOD_ID,"witcher_signs"), WitcherGroup.WITCHER_KEY);
         SpellBooks.createAndRegister(Identifier.of(MOD_ID,"witcher_combat"), WitcherGroup.WITCHER_KEY);
         Registry.register(Registries.ITEM, Identifier.of(MOD_ID, "witcher_master_spell_book"), MASTER_BOOK);
@@ -64,7 +65,7 @@ public class WitcherItems {
             content.add(DARK_IRON_INGOT);
             content.add(DARK_STEEL_INGOT);
         });
-
+        WitcherArmorDiagram.registerWitcherArmorDiagrams();
         WitcherClassMod.LOGGER.info("Registering Mod Items for " + MOD_ID);
     }
 }

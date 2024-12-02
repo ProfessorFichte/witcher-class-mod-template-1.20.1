@@ -28,6 +28,19 @@ public class Armors {
     private static final Supplier<Ingredient> WITCHER_INGREDIENTS = () -> Ingredient.ofItems(
             Items.LEATHER, WitcherItems.SILVER_INGOT
     );
+    private static final Supplier<Ingredient> FELINE_INGREDIENTS = () -> Ingredient.ofItems(
+            Items.LEATHER, WitcherItems.STEEL_INGOT, WitcherItems.DARK_IRON_INGOT, WitcherItems.DARK_STEEL_INGOT
+    );
+    private static final Supplier<Ingredient> GRIFFIN_INGREDIENTS = () -> Ingredient.ofItems(
+            Items.LEATHER, WitcherItems.SILVER_INGOT ,  WitcherItems.METEORITE_INGOT, WitcherItems.METEORITE_SILVER_INGOT
+    );
+    private static final Supplier<Ingredient> WOLVEN_INGREDIENTS = () -> Ingredient.ofItems(
+            Items.LEATHER, WitcherItems.SILVER_INGOT ,  WitcherItems.METEORITE_INGOT, WitcherItems.METEORITE_SILVER_INGOT
+    );
+    private static final Supplier<Ingredient> URSINE_INGREDIENTS = () -> Ingredient.ofItems(
+            Items.CHAIN, WitcherItems.STEEL_INGOT, WitcherItems.DARK_IRON_INGOT, WitcherItems.DARK_STEEL_INGOT
+    );
+
 
     private static final float felineAttackSpeed = 0.02F;
     private static final float felineAttackDamage = 0.04F;
@@ -71,29 +84,45 @@ public class Armors {
         entries.add(entry);
         return entry;
     }
+    public static final String COMBATROLL_RECHARGE = "combatroll:recharge";
+    public static final String ADRENALINE = "witcher_rpg:adrenaline_modifier";
+    public static final String AARD_INTENSITY = "witcher_rpg:aard_intensity";
+    public static final String AXII_INTENSITY = "witcher_rpg:axii_intensity";
+    public static final String IGNI_INTENSITY = "witcher_rpg:igni_intensity";
+    public static final String QUEN_INTENSITY = "witcher_rpg:quen_intensity";
+    public static final String YRDEN_INTENSITY = "witcher_rpg:yrden_intensity";
+    public static final String SIGN_INTENSITY = "witcher_rpg:sign_intensity";
 
-    public static RegistryEntry<ArmorMaterial> material_feline = material(
-            "feline",
-            2, 4, 4, 2,
-            9,
-            SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, WITCHER_INGREDIENTS);
-
+    //TIER 1
     public static RegistryEntry<ArmorMaterial> material_witcher = material(
             "witcher",
             2, 5, 4, 3,
             11,
             SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, WITCHER_INGREDIENTS);
-    public static RegistryEntry<ArmorMaterial> material_ursine = material(
-            "ursine",
-            2, 6, 6, 3,
-            9,
-            SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, WITCHER_INGREDIENTS);
 
+    public static RegistryEntry<ArmorMaterial> material_feline = material(
+            "feline",
+            1, 3, 3, 1,
+            9,
+            SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, FELINE_INGREDIENTS);
     public static RegistryEntry<ArmorMaterial> material_griffin = material(
             "griffin",
-            2, 5, 4, 3,
+            2, 5, 4, 1,
             11,
-            SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, WITCHER_INGREDIENTS);
+            SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, GRIFFIN_INGREDIENTS);
+    public static RegistryEntry<ArmorMaterial> material_ursine = material(
+            "ursine",
+            2, 6, 5, 2,
+            9,
+            SoundEvents.ITEM_ARMOR_EQUIP_IRON, URSINE_INGREDIENTS);
+    public static RegistryEntry<ArmorMaterial> material_wolven = material(
+            "wolven",
+            2, 5, 4, 1,
+            11,
+            SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, WOLVEN_INGREDIENTS);
+
+
+
 
     public static final Armor.Set catSchoolArmorSet =
             create(

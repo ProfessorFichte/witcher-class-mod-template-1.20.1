@@ -21,8 +21,9 @@ public class AlternateSignEffect extends StatusEffect {
         super(statusEffectCategory, color);
     }
 
-    public void onApplied(LivingEntity pLivingEntity, AttributeContainer attributes, int amplifier) {
-        ItemStack itemStack = getSpellBookStack((PlayerEntity) pLivingEntity);
+    public void onApplied(LivingEntity entity, int amplifier) {
+        super.onApplied(entity, amplifier);
+        ItemStack itemStack = getSpellBookStack((PlayerEntity) entity);
         if(!itemStack.isEmpty()){
             List<String> stringlist = List.of();
             stringlist = containerFromItemStack(itemStack).spell_ids();
@@ -57,8 +58,8 @@ public class AlternateSignEffect extends StatusEffect {
     }
 
 
-    public void onRemoved(LivingEntity pLivingEntity, AttributeContainer attributes, int amplifier) {
-        ItemStack itemStack = getSpellBookStack((PlayerEntity) pLivingEntity);
+    public static void onRemove(LivingEntity entity) {
+        ItemStack itemStack = getSpellBookStack((PlayerEntity) entity);
         if(!itemStack.isEmpty()){
             List<String> stringlist = List.of();
             stringlist = containerFromItemStack(itemStack).spell_ids();
