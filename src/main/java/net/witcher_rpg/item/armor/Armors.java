@@ -42,22 +42,6 @@ public class Armors {
     );
 
 
-    private static final float felineAttackSpeed = 0.02F;
-    private static final float felineAttackDamage = 0.04F;
-    private static final float felineAdrenaline = 0.10F;
-
-    private static final float ursineHealth = 2.0F;
-    private static final float ursineAttackDamage = 0.04F;
-    private static final float ursineAdrenaline = 0.10F;
-
-    private static final float witcherSign = 1.0F;
-    public static final float witcherAdrenaline = 0.075F;
-    private static final float witcherAttackDamage = 0.03F;
-
-    private static final float griffinSign = 0.25F;
-    public static final float griffinAdrenaline = 0.075F;
-    private static final float griffinHaste = 0.03F;
-
     public static RegistryEntry<ArmorMaterial> material(String name,
                                                         int protectionHead, int protectionChest, int protectionLegs, int protectionFeet,
                                                         int enchantability, RegistryEntry<SoundEvent> equipSound, Supplier<Ingredient> repairIngredient) {
@@ -84,181 +68,347 @@ public class Armors {
         entries.add(entry);
         return entry;
     }
-    public static final String COMBATROLL_RECHARGE = "combatroll:recharge";
-    public static final String ADRENALINE = "witcher_rpg:adrenaline_modifier";
-    public static final String AARD_INTENSITY = "witcher_rpg:aard_intensity";
-    public static final String AXII_INTENSITY = "witcher_rpg:axii_intensity";
-    public static final String IGNI_INTENSITY = "witcher_rpg:igni_intensity";
-    public static final String QUEN_INTENSITY = "witcher_rpg:quen_intensity";
-    public static final String YRDEN_INTENSITY = "witcher_rpg:yrden_intensity";
-    public static final String SIGN_INTENSITY = "witcher_rpg:sign_intensity";
 
-    //TIER 1
+
+    private static final Identifier ATTACK_DAMAGE = Identifier.ofVanilla("generic.attack_damage");
+    private static final Identifier ATTACK_SPEED = Identifier.ofVanilla("generic.attack_speed");
+    private static final Identifier MAX_HEALTH = Identifier.ofVanilla("generic.max_health");
+    private static final Identifier COMBATROLL_RECHARGE = Identifier.of("combatroll:recharge");
+    private static final Identifier ADRENALINE = Identifier.of("witcher_rpg:adrenaline_modifier");
+    private static final Identifier AARD_INTENSITY = Identifier.of("witcher_rpg:aard_intensity");
+    private static final Identifier AXII_INTENSITY = Identifier.of("witcher_rpg:axii_intensity");
+    private static final Identifier IGNI_INTENSITY = Identifier.of("witcher_rpg:igni_intensity");
+    private static final Identifier QUEN_INTENSITY = Identifier.of("witcher_rpg:quen_intensity");
+    private static final Identifier YRDEN_INTENSITY = Identifier.of("witcher_rpg:yrden_intensity");
+    private static final Identifier SIGN_INTENSITY = Identifier.of("witcher_rpg:sign_intensity");
+
+    ////MODIFIERS
+    //TIER1 MODIFIERS
+    private static final float witcherSign = 0.10F;
+    public static final float witcherAdrenaline = 0.02F;
+    private static final float witcherAttackDamage = 0.04F;
+
+    //FELINE MODIFIERS
+    private static final float felineAttackDamage = 0.04F;
+    private static final float felineAdrenaline = 0.10F;
+
+    //GRIFFIN MODIFIERS
+    private static final float griffinSign = 0.25F;
+    public static final float griffinAdrenaline = 0.075F;
+
+    //WOLVEN MODIFIERS
+
+    //URSINE MODIFIERS
+    private static final float ursineAttackDamage = 0.04F;
+    private static final float ursineAdrenaline = 0.10F;
+
+    ////MATERIALS
+    //TIER 1 MATERIAL
     public static RegistryEntry<ArmorMaterial> material_witcher = material(
-            "witcher",
-            2, 5, 4, 3,
-            11,
+            "witcher", 1, 3, 3, 1, 9,
             SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, WITCHER_INGREDIENTS);
-
+    //FELINE MATERIAL
     public static RegistryEntry<ArmorMaterial> material_feline = material(
-            "feline",
-            1, 3, 3, 1,
-            9,
+            "feline",1, 3, 3, 1, 9,
             SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, FELINE_INGREDIENTS);
+    public static RegistryEntry<ArmorMaterial> material_enhanced_feline = material(
+            "enhanced_feline",2, 4, 4, 2, 10,
+            SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, FELINE_INGREDIENTS);
+    public static RegistryEntry<ArmorMaterial> material_superior_feline = material(
+            "superior_feline",2, 4, 4, 2, 15,
+            SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, FELINE_INGREDIENTS);
+    //GRIFFIN MATERIAL
     public static RegistryEntry<ArmorMaterial> material_griffin = material(
-            "griffin",
-            2, 5, 4, 1,
-            11,
+            "griffin", 2, 5, 4, 1,9,
             SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, GRIFFIN_INGREDIENTS);
-    public static RegistryEntry<ArmorMaterial> material_ursine = material(
-            "ursine",
-            2, 6, 5, 2,
-            9,
-            SoundEvents.ITEM_ARMOR_EQUIP_IRON, URSINE_INGREDIENTS);
+    public static RegistryEntry<ArmorMaterial> material_enhanced_griffin = material(
+            "enhanced_griffin", 2, 5, 4, 3, 10,
+            SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, GRIFFIN_INGREDIENTS);
+    public static RegistryEntry<ArmorMaterial> material_superior_griffin = material(
+            "superior_griffin", 2, 5, 4, 3, 15,
+            SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, GRIFFIN_INGREDIENTS);
+    //WOLVEN MATERIAL
     public static RegistryEntry<ArmorMaterial> material_wolven = material(
-            "wolven",
-            2, 5, 4, 1,
-            11,
+            "wolven",2, 5, 4, 1,9,
             SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, WOLVEN_INGREDIENTS);
+    public static RegistryEntry<ArmorMaterial> material_enhanced_wolven = material(
+            "enhanced_wolven",2, 5, 4, 3, 10,
+            SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, WOLVEN_INGREDIENTS);
+    public static RegistryEntry<ArmorMaterial> material_superior_wolven = material(
+            "superior_wolven", 2, 5, 4, 3, 15,
+            SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, WOLVEN_INGREDIENTS);
+    //URSINE MATERIAL
+    public static RegistryEntry<ArmorMaterial> material_ursine = material(
+            "ursine", 2, 6, 5, 2, 9,
+            SoundEvents.ITEM_ARMOR_EQUIP_IRON, URSINE_INGREDIENTS);
+    public static RegistryEntry<ArmorMaterial> material_enhanced_ursine = material(
+            "enhanced_ursine", 3, 8, 6, 3, 10,
+            SoundEvents.ITEM_ARMOR_EQUIP_IRON, URSINE_INGREDIENTS);
+    public static RegistryEntry<ArmorMaterial> material_superior_ursine = material(
+            "superior_ursine", 3, 8, 6, 3, 15,
+            SoundEvents.ITEM_ARMOR_EQUIP_IRON, URSINE_INGREDIENTS);
 
-
-
-
-    public static final Armor.Set catSchoolArmorSet =
-            create(
-                    material_feline,
-                    Identifier.of(MOD_ID, "feline"),
-                    20,
-                    CatSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(2)
-                                    .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_speed")),felineAttackSpeed),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),felineAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),felineAttackDamage)
-                                    )),
-                            new ItemConfig.ArmorSet.Piece(4)
-                                    .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_speed")),felineAttackSpeed),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),felineAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),felineAttackDamage)
-                                    )),
-                            new ItemConfig.ArmorSet.Piece(4)
-                                    .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_speed")),felineAttackSpeed),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),felineAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),felineAttackDamage)
-                                    )),
-                            new ItemConfig.ArmorSet.Piece(2)
-                                    .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_speed")),felineAttackSpeed),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),felineAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),felineAttackDamage)
-                                    ))
-                    ))
-                    .armorSet();
-
+    ////ARMOR SETS
+    //TIER 1 ARMOR
     public static final Armor.Set witcherArmorSet =
             create(
-                    material_witcher,
-                    Identifier.of(MOD_ID, "witcher"),
-                    20,
-                    WitcherArmor::new,
+                    material_witcher, Identifier.of(MOD_ID, "witcher"), 15, WitcherArmor::new,
                     ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(2)
+                            new ItemConfig.ArmorSet.Piece(material_witcher.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.bonus(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:sign_intensity")),witcherSign),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),witcherAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),witcherAttackDamage)
+                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,witcherSign),
+                                            ItemConfig.Attribute.multiply(ADRENALINE,witcherAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,witcherAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(5)
+                            new ItemConfig.ArmorSet.Piece(material_witcher.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.bonus(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:sign_intensity")),witcherSign),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),witcherAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),witcherAttackDamage)
+                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,witcherSign),
+                                            ItemConfig.Attribute.multiply(ADRENALINE,witcherAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,witcherAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(4)
+                            new ItemConfig.ArmorSet.Piece(material_witcher.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.bonus(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:sign_intensity")),witcherSign),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),witcherAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),witcherAttackDamage)
+                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,witcherSign),
+                                            ItemConfig.Attribute.multiply(ADRENALINE,witcherAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,witcherAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(3)
+                            new ItemConfig.ArmorSet.Piece(material_witcher.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.bonus(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:sign_intensity")),witcherSign),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),witcherAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),witcherAttackDamage)
-                                    ))
-                    ))
-                    .armorSet();
+                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,witcherSign),
+                                            ItemConfig.Attribute.multiply(ADRENALINE,witcherAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,witcherAttackDamage)
+                                    )))).armorSet();
 
-    public static final Armor.Set ursineArmorSet =
+    //FELINE SCHOOL ARMOR
+    public static final Armor.Set felineSchoolArmorSet =
             create(
-                    material_ursine,
-                    Identifier.of(MOD_ID, "ursine"),
-                    20,
-                    BearSchoolArmor::new,
+                    material_feline, Identifier.of(MOD_ID, "feline"), 15, CatSchoolArmor::new,
                     ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(2)
+                            new ItemConfig.ArmorSet.Piece(material_feline.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.bonus(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.max_health")),ursineHealth),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),ursineAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),ursineAttackDamage)
+                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(6)
+                            new ItemConfig.ArmorSet.Piece(material_feline.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.bonus(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.max_health")),ursineHealth),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),ursineAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),ursineAttackDamage)
+                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(6)
+                            new ItemConfig.ArmorSet.Piece(material_feline.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.bonus(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.max_health")),ursineHealth),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),ursineAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),ursineAttackDamage)
+                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(3)
+                            new ItemConfig.ArmorSet.Piece(material_feline.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.bonus(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.max_health")),ursineHealth),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),ursineAdrenaline),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("minecraft:generic.attack_damage")),ursineAttackDamage)
-                                    ))
-                    ))
-                    .armorSet();
+                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamage)
+                                    )))).armorSet();
 
+    public static final Armor.Set enhancedFelineSchoolArmorSet =
+            create(
+                    material_enhanced_feline, Identifier.of(MOD_ID, "enhanced_feline"), 20, CatSchoolArmor::new,
+                    ItemConfig.ArmorSet.with(
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.HELMET))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.LEGGINGS))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.BOOTS))
+                                    .addAll(List.of(
+                                    )))).armorSet();
+
+    public static final Armor.Set superiorFelineSchoolArmorSet =
+            create(
+                    material_superior_feline, Identifier.of(MOD_ID, "superior_feline"), 25, CatSchoolArmor::new,
+                    ItemConfig.ArmorSet.with(
+                            new ItemConfig.ArmorSet.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.HELMET))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.LEGGINGS))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.BOOTS))
+                                    .addAll(List.of(
+                                    )))).armorSet();
+    //GRIFFIN SCHOOL ARMOR
     public static final Armor.Set griffinArmorSet =
             create(
-                    material_griffin,
-                    Identifier.of(MOD_ID, "griffin"),
-                    20,
-                    GriffinSchoolArmor::new,
+                    material_griffin, Identifier.of(MOD_ID, "griffin"), 15, GriffinSchoolArmor::new,
                     ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(2)
+                            new ItemConfig.ArmorSet.Piece(material_griffin.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:sign_intensity")),griffinSign),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),griffinAdrenaline),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id, griffinHaste)
+                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSign),
+                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenaline)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(5)
+                            new ItemConfig.ArmorSet.Piece(material_griffin.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:sign_intensity")),griffinSign),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),griffinAdrenaline),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id, griffinHaste)
+                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSign),
+                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenaline)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(4)
+                            new ItemConfig.ArmorSet.Piece(material_griffin.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:sign_intensity")),griffinSign),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),griffinAdrenaline),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id, griffinHaste)
+                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSign),
+                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenaline)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(3)
+                            new ItemConfig.ArmorSet.Piece(material_griffin.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:sign_intensity")),griffinSign),
-                                            ItemConfig.Attribute.multiply(Objects.requireNonNull(Identifier.tryParse("witcher_rpg:adrenaline_modifier")),griffinAdrenaline),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id, griffinHaste)
-                                    ))
-                    ))
-                    .armorSet();
+                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSign),
+                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenaline)
+                                    )))).armorSet();
+
+    public static final Armor.Set enhancedGriffinArmorSet =
+            create(
+                    material_enhanced_griffin, Identifier.of(MOD_ID, "enhanced_griffin"), 20, GriffinSchoolArmor::new,
+                    ItemConfig.ArmorSet.with(
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.HELMET))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.LEGGINGS))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.BOOTS))
+                                    .addAll(List.of(
+                                    )))).armorSet();
+
+    public static final Armor.Set superiorGriffinArmorSet =
+            create(
+                    material_superior_griffin, Identifier.of(MOD_ID, "superior_griffin"), 25, GriffinSchoolArmor::new,
+                    ItemConfig.ArmorSet.with(
+                            new ItemConfig.ArmorSet.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.HELMET))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.LEGGINGS))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.BOOTS))
+                                    .addAll(List.of(
+                                    )))).armorSet();
+
+    //WOLVEN SCHOOL ARMOR
+    public static final Armor.Set wolvenArmorSet =
+            create(
+                    material_wolven, Identifier.of(MOD_ID, "wolven"), 15, GriffinSchoolArmor::new,
+                    ItemConfig.ArmorSet.with(
+                            new ItemConfig.ArmorSet.Piece(material_wolven.value().getProtection(ArmorItem.Type.HELMET))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_wolven.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                                    .addAll(List.of(
+
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_wolven.value().getProtection(ArmorItem.Type.LEGGINGS))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_wolven.value().getProtection(ArmorItem.Type.BOOTS))
+                                    .addAll(List.of(
+                                    )))).armorSet();
+    public static final Armor.Set enhancedWolvenArmorSet =
+            create(
+                    material_enhanced_wolven, Identifier.of(MOD_ID, "enhanced_wolven"), 20, GriffinSchoolArmor::new,
+                    ItemConfig.ArmorSet.with(
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.HELMET))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                                    .addAll(List.of(
+
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.LEGGINGS))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.BOOTS))
+                                    .addAll(List.of(
+                                    )))).armorSet();
+    public static final Armor.Set superiorWolvenArmorSet =
+            create(
+                    material_superior_wolven, Identifier.of(MOD_ID, "superior_wolven"), 25, GriffinSchoolArmor::new,
+                    ItemConfig.ArmorSet.with(
+                            new ItemConfig.ArmorSet.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.HELMET))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                                    .addAll(List.of(
+
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.LEGGINGS))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.BOOTS))
+                                    .addAll(List.of(
+                                    )))).armorSet();
+
+    //URSINE SCHOOL ARMOR
+    public static final Armor.Set ursineArmorSet =
+            create(
+                    material_ursine, Identifier.of(MOD_ID, "ursine"), 15, BearSchoolArmor::new,
+                    ItemConfig.ArmorSet.with(
+                            new ItemConfig.ArmorSet.Piece(material_ursine.value().getProtection(ArmorItem.Type.HELMET))
+                                    .addAll(List.of(
+                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamage)
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_ursine.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                                    .addAll(List.of(
+                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamage)
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_ursine.value().getProtection(ArmorItem.Type.LEGGINGS))
+                                    .addAll(List.of(
+                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamage)
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_ursine.value().getProtection(ArmorItem.Type.BOOTS))
+                                    .addAll(List.of(
+                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenaline),
+                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamage)
+                                    )))).armorSet();
+    public static final Armor.Set enhancedUrsineArmorSet =
+            create(
+                    material_enhanced_ursine, Identifier.of(MOD_ID, "enhanced_ursine"), 20, BearSchoolArmor::new,
+                    ItemConfig.ArmorSet.with(
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.HELMET))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.LEGGINGS))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.BOOTS))
+                                    .addAll(List.of(
+                                    )))).armorSet();
+    public static final Armor.Set superiorUrsineArmorSet =
+            create(
+                    material_superior_ursine, Identifier.of(MOD_ID, "superior_ursine"), 25, BearSchoolArmor::new,
+                    ItemConfig.ArmorSet.with(
+                            new ItemConfig.ArmorSet.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.HELMET))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.LEGGINGS))
+                                    .addAll(List.of(
+                                    )),
+                            new ItemConfig.ArmorSet.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.BOOTS))
+                                    .addAll(List.of(
+                                    )))).armorSet();
+
 
     public static void register(Map<String, ItemConfig.ArmorSet> configs) {
         Armor.register(configs, entries, WitcherGroup.WITCHER_KEY);
