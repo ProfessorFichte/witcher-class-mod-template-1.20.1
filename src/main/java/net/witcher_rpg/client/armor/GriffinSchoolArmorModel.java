@@ -5,6 +5,8 @@ import net.minecraft.util.Identifier;
 import net.witcher_rpg.WitcherClassMod;
 import net.witcher_rpg.item.armor.GriffinSchoolArmor;
 
+import static net.witcher_rpg.WitcherClassMod.MOD_ID;
+
 public class GriffinSchoolArmorModel extends GeoModel<GriffinSchoolArmor> {
     @Override
     public Identifier getModelResource(GriffinSchoolArmor object) {
@@ -13,7 +15,8 @@ public class GriffinSchoolArmorModel extends GeoModel<GriffinSchoolArmor> {
 
     @Override
     public Identifier getTextureResource(GriffinSchoolArmor armor) {
-        return Identifier.of(WitcherClassMod.MOD_ID, "textures/armor/griffin_armor.png");
+        var textureId = armor.getFirstLayerId();
+        return Identifier.of(MOD_ID, "textures/armor/"+ textureId.getPath() + ".png");
     }
 
     @Override

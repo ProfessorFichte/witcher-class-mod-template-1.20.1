@@ -5,6 +5,8 @@ import net.minecraft.util.Identifier;
 import net.witcher_rpg.item.armor.WitcherArmor;
 import net.witcher_rpg.WitcherClassMod;
 
+import static net.witcher_rpg.WitcherClassMod.MOD_ID;
+
 public class WitcherArmorModel extends GeoModel<WitcherArmor> {
     @Override
     public Identifier getModelResource(WitcherArmor object) {
@@ -13,7 +15,8 @@ public class WitcherArmorModel extends GeoModel<WitcherArmor> {
 
     @Override
     public Identifier getTextureResource(WitcherArmor armor) {
-        return Identifier.of(WitcherClassMod.MOD_ID, "textures/armor/witcher_armor.png");
+        var textureId = armor.getFirstLayerId();
+        return Identifier.of(MOD_ID, "textures/armor/"+ textureId.getPath() + ".png");
     }
 
     @Override

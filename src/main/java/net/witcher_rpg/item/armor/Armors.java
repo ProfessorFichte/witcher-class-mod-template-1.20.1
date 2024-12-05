@@ -105,7 +105,7 @@ public class Armors {
     ////MATERIALS
     //TIER 1 MATERIAL
     public static RegistryEntry<ArmorMaterial> material_witcher = material(
-            "witcher", 1, 3, 3, 1, 9,
+            "witcher", 2, 4, 4, 2, 10,
             SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, WITCHER_INGREDIENTS);
     //FELINE MATERIAL
     public static RegistryEntry<ArmorMaterial> material_feline = material(
@@ -152,7 +152,7 @@ public class Armors {
     //TIER 1 ARMOR
     public static final Armor.Set witcherArmorSet =
             create(
-                    material_witcher, Identifier.of(MOD_ID, "witcher"), 15, WitcherArmor::new,
+                    material_witcher, Identifier.of(MOD_ID, "witcher"), 20, WitcherArmor::new,
                     ItemConfig.ArmorSet.with(
                             new ItemConfig.ArmorSet.Piece(material_witcher.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(

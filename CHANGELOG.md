@@ -13,6 +13,7 @@
 - added missing textures of status effects
 - **ADDITIONS**
 - added "smithing template" diagrams for each witcher school armor (Enhanced & Superior Tier)
+- superior witcher gear is fireproof like netherite gear
 
 2.0.5 - 1.21
 - forgot "has_meteorite" worldgen tag for the new meteorite "geode" feature
