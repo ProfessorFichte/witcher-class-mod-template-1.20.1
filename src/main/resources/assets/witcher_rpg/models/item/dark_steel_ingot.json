@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "witcher_rpg:item/dark_steel_ingot"
+    "layer0": "witcher_rpg:item/materials/dark_steel_ingot"
   }
 }

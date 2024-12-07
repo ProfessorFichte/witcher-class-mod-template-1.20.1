@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "witcher_rpg:item/witcher_signs_spell_book"
+    "layer0": "witcher_rpg:item/misc/witcher_signs_spell_book"
   }
 }

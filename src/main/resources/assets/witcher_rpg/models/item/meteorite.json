@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "witcher_rpg:item/meteorite"
+    "layer0": "witcher_rpg:item/materials/meteorite"
   }
 }
