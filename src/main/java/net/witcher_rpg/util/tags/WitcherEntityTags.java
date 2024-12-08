@@ -13,6 +13,7 @@ public class WitcherEntityTags {
     public static final TagKey<EntityType<?>> AARD_VULNERABLE = register("aard_vulnerable");
     public static final TagKey<EntityType<?>> AXII_VULNERABLE = register("axii_vulnerable");
     public static final TagKey<EntityType<?>> QUEN_VULNERABLE = register("quen_vulnerable");
+    public static final TagKey<EntityType<?>> AXII_EFFECT_IMMUNE = register("axii_effect_immune");
 
     private static TagKey<EntityType<?>> register(String id) {
         return TagKey.of(RegistryKeys.ENTITY_TYPE, WitcherClassMod.id(id));

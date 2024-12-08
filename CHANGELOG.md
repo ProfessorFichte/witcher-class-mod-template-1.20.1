@@ -1,19 +1,29 @@
 2.1.0 - 1.21
-- **BALANCING & CHANGES**
-- added magic damage types for each sign school and silver
-- added entity type tags for targets that are vulnerable to a specific sign
-- if a target is vulnerable to a specific sign, the damage gets increased
-- rend damage now scales with adrenaline effect amplifier
-- casting damaging signs (aard & igni) increases your adrenaline now
-- added the Stagger Effect
-- added a tweaks config file
-- made passive for all relic swords configurable
-- cleaned up the code of relic witcher swords
-- the ultimatum sword applies stagger instead of fire
-- added missing textures of status effects
-- **ADDITIONS**
-- added "smithing template" diagrams for each witcher school armor (Enhanced & Superior Tier)
-- superior witcher gear is fireproof like netherite gear
+**INTERNAL CHANGES**
+- BREAKING FOR TEXTURE PACKS: Changed the paths for textures in the model files
+- CONFIG RESET: Your custom item Configs got reset, the config file is now called: "items_v4"
+- Added magic damage types for each sign school and silver
+- Added entity type tags for targets that are vulnerable to a specific sign
+- Added Entity Type for Axii Immunity (Mostly for Bosses)
+- If a target is vulnerable to a specific sign, the damage gets increased
+- Cleaned up the code of relic witcher swords
+- Added a tweaks config file
+
+**BALANCING**
+- Rend Spell damage now scales with adrenaline effect amplifier
+- Casting damaging signs (aard & igni) increases your adrenaline now
+- Added the Stagger Effect
+- Made the passive for all relic swords configurable
+- The ultimatum sword applies stagger instead of fire
+- Added missing textures of status effects
+- The Kaer Morhen Set now acts as an early- to mid-game armor choice
+- Changed Armor Set Bonuses
+
+**ADDITIONS**
+- You now can level up your Witcher School Armor!
+- Added "smithing template" diagrams for each witcher school armor (Enhanced & Superior Tier)
+- New Armor: Wolven Witcher-School Armor
+- Superior witcher gear is fireproof like Netherite gear
 
 2.0.5 - 1.21
 - forgot "has_meteorite" worldgen tag for the new meteorite "geode" feature
