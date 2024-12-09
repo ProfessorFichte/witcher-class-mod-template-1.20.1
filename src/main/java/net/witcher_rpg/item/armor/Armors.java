@@ -10,7 +10,6 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
-import net.spell_power.api.SpellPowerMechanics;
 import net.witcher_rpg.item.WitcherGroup;
 import net.spell_engine.api.item.ItemConfig;
 import net.spell_engine.api.item.armor.Armor;
@@ -19,7 +18,6 @@ import net.witcher_rpg.item.WitcherItems;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.Supplier;
 
 import static net.witcher_rpg.WitcherClassMod.MOD_ID;
@@ -301,7 +299,7 @@ public class Armors {
     //WOLVEN SCHOOL ARMOR
     public static final Armor.Set wolvenArmorSet =
             create(
-                    material_wolven, Identifier.of(MOD_ID, "wolven"), 15, GriffinSchoolArmor::new,
+                    material_wolven, Identifier.of(MOD_ID, "wolven"), 15, WolfSchoolArmor::new,
                     ItemConfig.ArmorSet.with(
                             new ItemConfig.ArmorSet.Piece(material_wolven.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
@@ -318,7 +316,7 @@ public class Armors {
                                     )))).armorSet();
     public static final Armor.Set enhancedWolvenArmorSet =
             create(
-                    material_enhanced_wolven, Identifier.of(MOD_ID, "enhanced_wolven"), 20, GriffinSchoolArmor::new,
+                    material_enhanced_wolven, Identifier.of(MOD_ID, "enhanced_wolven"), 20, WolfSchoolArmor::new,
                     ItemConfig.ArmorSet.with(
                             new ItemConfig.ArmorSet.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
@@ -335,7 +333,7 @@ public class Armors {
                                     )))).armorSet();
     public static final Armor.Set superiorWolvenArmorSet =
             create(
-                    material_superior_wolven, Identifier.of(MOD_ID, "superior_wolven"), 25, GriffinSchoolArmor::new,
+                    material_superior_wolven, Identifier.of(MOD_ID, "superior_wolven"), 25, WolfSchoolArmor::new,
                     ItemConfig.ArmorSet.with(
                             new ItemConfig.ArmorSet.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
