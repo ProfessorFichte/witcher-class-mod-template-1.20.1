@@ -74,7 +74,7 @@ public class Armors {
     private static final Identifier KNOCKBACK_RESISTANCE = Identifier.ofVanilla("generic.knockback_resistance");
     private static final Identifier ARMOR_TOUGHNESS = Identifier.ofVanilla("generic.armor_toughness");
     private static final Identifier MAX_HEALTH = Identifier.ofVanilla("generic.max_health");
-    private static final Identifier COMBATROLL_RECHARGE = Identifier.of("combatroll:recharge");
+    private static final Identifier COMBATROLL_RECHARGE = Identifier.of("combat_roll:recharge");
     private static final Identifier ADRENALINE = Identifier.of("witcher_rpg:adrenaline_modifier");
     private static final Identifier AARD_INTENSITY = Identifier.of("witcher_rpg:aard_intensity");
     private static final Identifier AXII_INTENSITY = Identifier.of("witcher_rpg:axii_intensity");
@@ -100,7 +100,7 @@ public class Armors {
     private static final float felineAttackSpeedT3 = 0.05F;
     private static final float felineAdrenalineT3 = 0.075F;
     private static final float felineAttackDamageT3 = 0.03F;
-    private static final float felineRollRechargeT3 = 0.01F;
+    private static final float felineRollRechargeT3 = 0.05F;
 
     //GRIFFIN MODIFIERS
     private static final float griffinSign = 0.20F;

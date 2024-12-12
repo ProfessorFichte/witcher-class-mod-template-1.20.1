@@ -1,4 +1,5 @@
 2.1.0 - 1.21
+**WITCHER SCHOOLS ARMOR UPDATE**
 **INTERNAL CHANGES**
 - BREAKING FOR TEXTURE PACKS: Changed the paths for textures in the model files
 - CONFIG RESET: Your custom item Configs got reset, the config file is now called: "items_v5"

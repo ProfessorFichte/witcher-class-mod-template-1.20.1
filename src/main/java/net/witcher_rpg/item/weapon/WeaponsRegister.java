@@ -134,13 +134,13 @@ public static final Weapon.Entry ultimatum = ultimatum("","ultimatum_sword",
         Weapon.CustomMaterial.matching(ToolMaterials.DIAMOND, () -> Ingredient.ofItems(WitcherItems.STEEL_INGOT)), 5.5F,true)
         .attribute(ItemConfig.Attribute.multiply(SpellPowerMechanics.CRITICAL_DAMAGE.id, 0.1F))
         .attribute(ItemConfig.Attribute.multiply(ADRENALINE,0.075F))
-        .attribute(ItemConfig.Attribute.bonus(IGNI_INTENSITY,3.5F))
+        .attribute(ItemConfig.Attribute.bonus(IGNI_INTENSITY,4.0F))
         ;
 
     public static final Weapon.Entry winters_blade = winters_blade("","winters_blade_sword",
             Weapon.CustomMaterial.matching(ToolMaterials.DIAMOND, () -> Ingredient.ofItems(WitcherItems.STEEL_INGOT)), 5.5F,true)
-            .attribute(ItemConfig.Attribute.bonus(SpellSchools.FROST.id, 3))
-            .attribute(ItemConfig.Attribute.bonus(AARD_INTENSITY,3.5F))
+            .attribute(ItemConfig.Attribute.bonus(AARD_INTENSITY,4.0F))
+            .attribute(ItemConfig.Attribute.multiply(ADRENALINE,0.05F))
             .attribute(ItemConfig.Attribute.multiply(SpellPowerMechanics.CRITICAL_DAMAGE.id, 0.15F))
             ;
 
