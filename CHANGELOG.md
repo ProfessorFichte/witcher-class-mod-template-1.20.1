@@ -8,6 +8,7 @@
 - If a target is vulnerable to a specific sign, the damage gets increased
 - Cleaned up the code of relic witcher swords
 - Added a tweaks config file
+- Added a Witcher Grave Structure for Witcher Related Loot
 
 **BALANCING**
 - Rend Spell damage now scales with adrenaline effect amplifier
@@ -18,6 +19,7 @@
 - Added missing textures of status effects
 - The Kaer Morhen Set now acts as an early- to mid-game armor choice
 - Changed Armor Set Bonuses
+- Relic Witcher Swords can only be found in Witcher Related structure chests now and in the future (LNE Witcher Add On)
 
 **ADDITIONS**
 - You now can level up your Witcher School Armor!

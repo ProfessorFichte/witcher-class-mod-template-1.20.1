@@ -4,27 +4,27 @@
     "minecraft:deep_ocean",
     {
       "id": "#c:mountain",
-      "replace": false
+      "required": false
     },
     {
       "id": "#c:caves",
-      "replace": false
+      "required": false
     },
     {
       "id": "#c:mountain_peak",
-      "replace": false
+      "required": false
     },
     {
       "id": "#c:extreme_hills",
-      "replace": false
+      "required": false
     },
     {
       "id": "#c:ocean",
-      "replace": false
+      "required": false
     },
     {
       "id": "#c:desert",
-      "replace": false
+      "required": false
     }
   ]
 }
