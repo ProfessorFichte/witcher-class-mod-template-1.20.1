@@ -1,10 +1,13 @@
 {
   "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 1.0,
+  "group": "silver_ingot",
   "ingredient": {
-    "item":
-    "witcher_rpg:raw_silver"
+    "item": "witcher_rpg:raw_silver"
   },
-  "result": "witcher_rpg:silver_ingot",
-  "experience": 0.1,
-  "cookingtime": 100
+  "result": {
+    "id": "witcher_rpg:silver_ingot"
+  }
 }

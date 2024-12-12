@@ -1,9 +1,12 @@
 {
   "replace": false,
   "values": [
-
     {
       "id": "tcots-witcher:drowner",
+      "required": false
+    },
+    {
+      "id":"tcots-witcher:water_hag",
       "required": false
     }
   ]
