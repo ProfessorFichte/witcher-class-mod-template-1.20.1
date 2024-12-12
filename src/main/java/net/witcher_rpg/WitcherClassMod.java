@@ -40,7 +40,7 @@ public class WitcherClassMod implements ModInitializer {
 
 
 	public static ConfigManager<ItemConfig> itemConfig = new ConfigManager<ItemConfig>
-			("items_v4", Default.itemConfig)
+			("items_v5", Default.itemConfig)
 			.builder()
 			.setDirectory(MOD_ID)
 			.sanitize(true)

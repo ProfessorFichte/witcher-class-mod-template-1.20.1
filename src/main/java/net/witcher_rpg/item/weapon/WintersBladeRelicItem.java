@@ -49,6 +49,7 @@ public class WintersBladeRelicItem extends WitcherSword {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.witcher_rpg.relic_witcher_swords.description_1").formatted(Formatting.RED));
         if(Screen.hasShiftDown()) {
             tooltip.add(Text.translatable("item.witcher_rpg.steel_witcher_swords.description_1").formatted(Formatting.DARK_RED));
             tooltip.add(Text.translatable("item.witcher_rpg.winters_blade.description_1").formatted(Formatting.AQUA));

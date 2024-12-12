@@ -1,7 +1,7 @@
 2.1.0 - 1.21
 **INTERNAL CHANGES**
 - BREAKING FOR TEXTURE PACKS: Changed the paths for textures in the model files
-- CONFIG RESET: Your custom item Configs got reset, the config file is now called: "items_v4"
+- CONFIG RESET: Your custom item Configs got reset, the config file is now called: "items_v5"
 - Added magic damage types for each sign school and silver
 - Added entity type tags for targets that are vulnerable to a specific sign
 - Added Entity Type for Axii Immunity (Mostly for Bosses)
@@ -9,6 +9,7 @@
 - Cleaned up the code of relic witcher swords
 - Added a tweaks config file
 - Added a Witcher Grave Structure for Witcher Related Loot
+- Relic Witcher Swords can only be found in Witcher Related structure chests now and in the future (LNE Witcher Add On)
 
 **BALANCING**
 - Rend Spell damage now scales with adrenaline effect amplifier
@@ -19,12 +20,12 @@
 - Added missing textures of status effects
 - The Kaer Morhen Set now acts as an early- to mid-game armor choice
 - Changed Armor Set Bonuses
-- Relic Witcher Swords can only be found in Witcher Related structure chests now and in the future (LNE Witcher Add On)
 
 **ADDITIONS**
 - You now can level up your Witcher School Armor!
 - Added "smithing template" diagrams for each witcher school armor (Enhanced & Superior Tier)
 - New Armor: Wolven Witcher-School Armor
+- Wolven Gear is a hybrid medium armor type
 - Superior witcher gear is fireproof like Netherite gear
 
 2.0.5 - 1.21

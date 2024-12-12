@@ -55,6 +55,7 @@ public class AerondightRelictItem extends WitcherSword {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("item.witcher_rpg.relic_witcher_swords.description_1").formatted(Formatting.RED));
         if(Screen.hasShiftDown()) {
             tooltip.add(Text.translatable("item.witcher_rpg.silver_witcher_swords.description_1").formatted(Formatting.AQUA));
             tooltip.add(Text.translatable(this.getTranslationKey() + ".description_2").formatted(Formatting.DARK_AQUA));
