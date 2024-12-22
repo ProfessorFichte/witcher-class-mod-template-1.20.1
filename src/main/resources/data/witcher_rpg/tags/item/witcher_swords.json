@@ -13,6 +13,10 @@
     {
       "id": "witcher_rpg:aeternium_witcher_sword",
       "required": false
+    },
+    {
+      "id": "witcher_rpg:aether_witcher_sword",
+      "required": false
     }
   ]
 }
