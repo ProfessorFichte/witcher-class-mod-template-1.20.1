@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.more_rpg_classes.effect.MRPGCEffects;
 import net.spell_engine.api.spell.CustomSpellHandler;
+import net.spell_engine.api.spell.Spell;
 import net.spell_engine.api.spell.SpellInfo;
 import net.spell_engine.internals.SpellHelper;
 import net.spell_engine.utils.TargetHelper;
@@ -26,6 +27,8 @@ public class CustomSpells {
         ///////WITCHER_SPELLS
         /// AARD
         CustomSpellHandler.register(Identifier.of(MOD_ID, "aard"), (data) -> {
+            SpellInfo spellinfo = new SpellInfo(getSpell(Identifier.of(MOD_ID, "aard")),Identifier.of(MOD_ID));
+            Spell.Impact[] impacts = getSpell(Identifier.of(MOD_ID, "aard")).impact;
             CustomSpellHandler.Data data1 = (CustomSpellHandler.Data) data;
             Predicate<Entity> selectionPredicate = (target2) -> {
                 return (TargetHelper.actionAllowed(TargetHelper.TargetingMode.DIRECT, TargetHelper.Intent.HARMFUL, data1.caster(), target2)
@@ -39,7 +42,7 @@ public class CustomSpells {
                         Vec3d vec3d = arrow.getPos().subtract(arrow.getX(), arrow.getY(), arrow.getZ());
                         arrow.setVelocity(vec3d);
                     }else if (entity.isLiving()){
-                        SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, new SpellInfo(getSpell(Identifier.of(MOD_ID, "aard")),Identifier.of(MOD_ID)), data1.impactContext());
+                        SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, spellinfo,impacts ,data1.impactContext());
                         LivingEntity livingEntity = (LivingEntity) entity;
                         Vec3d currentMovement = entity.getVelocity();
                         entity.setVelocity(currentMovement.x , currentMovement.y + 0.5, currentMovement.z);
@@ -53,6 +56,8 @@ public class CustomSpells {
         });
         /// AARD_SWEEP
         CustomSpellHandler.register(Identifier.of(MOD_ID, "aard_sweep"), (data) -> {
+            SpellInfo spellinfo = new SpellInfo(getSpell(Identifier.of(MOD_ID, "aard_sweep")),Identifier.of(MOD_ID));
+            Spell.Impact[] impacts = getSpell(Identifier.of(MOD_ID, "aard_sweep")).impact;
             CustomSpellHandler.Data data1 = (CustomSpellHandler.Data) data;
             Predicate<Entity> selectionPredicate = (target2) -> {
                 return (TargetHelper.actionAllowed(TargetHelper.TargetingMode.DIRECT, TargetHelper.Intent.HARMFUL, data1.caster(), target2)
@@ -66,7 +71,7 @@ public class CustomSpells {
                         Vec3d vec3d = arrow.getPos().subtract(arrow.getX(), arrow.getY(), arrow.getZ());
                         arrow.setVelocity(vec3d);
                     }else if (entity.isLiving()){
-                        SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, new SpellInfo(getSpell(Identifier.of(MOD_ID, "aard_sweep")),Identifier.of(MOD_ID)), data1.impactContext());
+                        SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, spellinfo, impacts,data1.impactContext());
                         LivingEntity livingEntity = (LivingEntity) entity;
                         Vec3d currentMovement = entity.getVelocity();
                         entity.setVelocity(currentMovement.x , currentMovement.y + 0.5, currentMovement.z);

@@ -44,7 +44,7 @@
         }
       ],
       "sound": {
-        "id": "more_rpg_classes:slash_impact",
+        "id": "more_rpg_classes:crippling_strike",
         "randomness": 1.5,
         "volume": 0.1
       }

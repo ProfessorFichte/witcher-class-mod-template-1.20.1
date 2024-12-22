@@ -1,3 +1,7 @@
+2.2.0 - 1.21
+- Spell Engine 1.2 Update
+- added the Heavenly Witcher Sword (Aether Variant)
+
 2.1.0 - 1.21
 **WITCHER SCHOOLS ARMOR UPDATE**
 **INTERNAL CHANGES**
