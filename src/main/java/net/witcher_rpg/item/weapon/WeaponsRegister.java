@@ -165,7 +165,7 @@ public static final Weapon.Entry ultimatum = ultimatum("","ultimatum_sword",
                     .attribute(ItemConfig.Attribute.bonus(SIGN_INTENSITY,4.0F))
                     .attribute(ItemConfig.Attribute.multiply(ADRENALINE,0.1F));
         }
-        if(!FabricLoader.getInstance().isModLoaded(AETHER)){
+        if(FabricLoader.getInstance().isModLoaded(AETHER)){
             var repair = ingredient("aether:ambrosium_shard", FabricLoader.getInstance().isModLoaded(AETHER), Items.NETHERITE_INGOT);
             witcherswords(AETHER, "aether_witcher_sword",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, repair),7.0F, true)
