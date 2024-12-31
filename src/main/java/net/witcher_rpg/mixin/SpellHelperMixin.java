@@ -1,6 +1,6 @@
 package net.witcher_rpg.mixin;
 
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.List;
 import java.util.Objects;
 
 import static java.lang.Math.round;
@@ -59,7 +60,10 @@ public abstract class SpellHelperMixin {
         if (!player.isSpectator()) {
             Spell spell = SpellRegistry.getSpell(spellId);
             SpellSchool school = getSpell(spellId).school;
-            if (spell != null && action == SpellCast.Action.RELEASE && targetResult != null && school == WitcherSpellSchools.IGNI || school == WitcherSpellSchools.AARD) {
+
+            List<Entity> entities = targetResult.entities();
+
+            if (spell != null && action == SpellCast.Action.RELEASE && entities != null && school == WitcherSpellSchools.IGNI || school == WitcherSpellSchools.AARD) {
 
                 EntityAttributeInstance adrenaline = player.getAttributeInstance(WitcherAttributes.ADRENALINE_MODIFIER);
                 int value1 = (int) adrenaline.getValue()-100;

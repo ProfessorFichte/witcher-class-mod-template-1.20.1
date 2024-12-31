@@ -6,6 +6,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.DamageTypeTags;
@@ -96,6 +97,7 @@ public abstract class LivingEntityMixin {
     private void specificSignSchoolVulnerability(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity damagedTarget = ((LivingEntity) (Object) this);
         EntityType<?> type = ((Entity) damagedTarget).getType();
+        DamageType damageType = source.getType();
         float damageIncrease = tweaksConfig.value.sign_vulnerability_damage_increase;
         if(type.isIn(WitcherEntityTags.AARD_VULNERABLE) && source.isIn(WitcherDamageTypes.AARD)){
             amount = amount * damageIncrease;
