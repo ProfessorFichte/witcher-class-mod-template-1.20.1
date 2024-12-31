@@ -1,3 +1,9 @@
+1.1.5 - 1.20.1
+- **CONFIG** Your effects config got overwritten, use effects_v2 now
+- added sign intensity buff for the Loot & Explore Drink
+- added adrenaline attribute buff for the Loot & Explore Drink
+- added missing status effect textures
+
 1.1.4 - 1.20.1
 - small fix for the adrenaline mechanic
 

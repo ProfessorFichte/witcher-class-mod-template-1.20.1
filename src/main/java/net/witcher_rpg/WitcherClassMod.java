@@ -52,7 +52,7 @@ public class WitcherClassMod implements ModInitializer {
 			.build();
 
 	public static ConfigManager<EffectsConfig> effectsConfig = new ConfigManager<EffectsConfig>
-			("effects_v1", new EffectsConfig())
+			("effects_v2", new EffectsConfig())
 			.builder()
 			.setDirectory(MOD_ID)
 			.sanitize(true)

@@ -94,6 +94,10 @@
   "effect.witcher_rpg.strong_attack.description": "Boosts Attack Damage, Reduces Attack Speed. (Cant be used with Fast Attack)",
   "effect.witcher_rpg.quen_active": "Quen Active Shield",
   "effect.witcher_rpg.quen_active.description": "Gives absorption and clears negative status effects, will be removed when no absorption hearts are active.",
+  "effect.witcher_rpg.sign_intensity": "Sign Intensity",
+  "effect.witcher_rpg.sign_intensity.description": "Increases the damage of all Signs.",
+  "effect.witcher_rpg.adrenaline_burst": "Adrenaline Burst",
+  "effect.witcher_rpg.adrenaline_burst.description": "Increases your Adrenaline Attribute.",
 
   "spell.witcher_rpg.quen.name": "Quen",
   "spell.witcher_rpg.quen.description": "Gives you a absorption effect for {effect_duration} seconds and clears all negative status effects.",

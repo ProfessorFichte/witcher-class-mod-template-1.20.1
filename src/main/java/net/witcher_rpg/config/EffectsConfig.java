@@ -15,4 +15,5 @@ public class EffectsConfig {
     public float sign_school_intensity_increase_per_stack = 0.10F;
     public float axii_puppet_attack_damage_increase_per_stack = 0.10F;
     public float battle_trance_speed_increase = 0.30F;
+    public float adrenaline_burst_increase = 0.10F;
 }

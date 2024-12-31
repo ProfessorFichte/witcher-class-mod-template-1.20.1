@@ -32,6 +32,8 @@ public class Effects {
     public static StatusEffect ADRENALINE_GAIN = new  CustomEffect(StatusEffectCategory.BENEFICIAL, 0xdd4e00);
     public static StatusEffect ALTERNATE_SIGN = new AlternateSignEffect(StatusEffectCategory.BENEFICIAL, 0xfffeca);
     public static StatusEffect BATTLE_TRANCE = new CustomEffect(StatusEffectCategory.BENEFICIAL, 0xb3b3b3);
+    public static StatusEffect SIGN_INTENSITY = new CustomEffect(StatusEffectCategory.BENEFICIAL, 0xfffeca);
+    public static StatusEffect ADRENALINE_BURST = new CustomEffect(StatusEffectCategory.BENEFICIAL, 0xdd4e00);
 
     public static void register(){
         AERONDIGHT_CHARGE.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, "d1843e0f-8a63-4c96-a854-9c9444981042",
@@ -66,6 +68,10 @@ public class Effects {
                 effectsConfig.value.axii_puppet_attack_damage_increase_per_stack, EntityAttributeModifier.Operation.MULTIPLY_BASE);
         BATTLE_TRANCE.addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, "5e58808d-6042-45c6-bb4d-f5fcd82f485e",
                 effectsConfig.value.battle_trance_speed_increase, EntityAttributeModifier.Operation.MULTIPLY_BASE);
+        SIGN_INTENSITY.addAttributeModifier(WitcherAttributes.SIGN_INTENSITY, "0f88e4e8-becb-437b-9beb-6ef08fda3b49",
+                effectsConfig.value.sign_school_intensity_increase_per_stack, EntityAttributeModifier.Operation.MULTIPLY_BASE);
+        ADRENALINE_BURST.addAttributeModifier(WitcherAttributes.ADRENALINE_MODIFIER,"355df58b-0a17-481f-b6f9-5fe2501ca6c8",
+                        effectsConfig.value.adrenaline_burst_increase,EntityAttributeModifier.Operation.MULTIPLY_BASE);
 
 
         Synchronized.configure(AERONDIGHT_CHARGE,true);
@@ -83,6 +89,8 @@ public class Effects {
         Synchronized.configure(ALTERNATE_SIGN,true);
         Synchronized.configure(QUEN_ACTIVE,true);
         Synchronized.configure(BATTLE_TRANCE,true);
+        Synchronized.configure(SIGN_INTENSITY,true);
+        Synchronized.configure(ADRENALINE_BURST,true);
 
         RemoveOnHit.configure(AXII, true);
 
@@ -108,6 +116,8 @@ public class Effects {
         Registry.register(Registries.STATUS_EFFECT, witcher_effectid++, new Identifier(MOD_ID, "axii_puppet").toString(), AXII_PUPPET);
         Registry.register(Registries.STATUS_EFFECT, witcher_effectid++, new Identifier(MOD_ID, "yrden_glyph").toString(), YRDEN_GLYPH);
         Registry.register(Registries.STATUS_EFFECT, witcher_effectid++, new Identifier(MOD_ID, "battle_trance").toString(), BATTLE_TRANCE);
+        Registry.register(Registries.STATUS_EFFECT, witcher_effectid++, new Identifier(MOD_ID, "sign_intensity").toString(), SIGN_INTENSITY);
+        Registry.register(Registries.STATUS_EFFECT, witcher_effectid++, new Identifier(MOD_ID, "adrenaline_burst").toString(), ADRENALINE_BURST);
     }
 
 }
