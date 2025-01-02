@@ -10,7 +10,7 @@
       "tag": "witcher_rpg:steel_ingots"
     },
     "R": {
-      "tag": "minecraft:leather"
+      "item": "minecraft:leather"
     }
   },
   "result": {

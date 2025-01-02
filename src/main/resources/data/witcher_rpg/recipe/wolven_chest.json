@@ -7,7 +7,7 @@
   ],
   "key": {
     "W": {
-      "tag": "minecraft:leather"
+      "item": "minecraft:leather"
     },
     "Z": {
       "tag": "witcher_rpg:steel_ingots"

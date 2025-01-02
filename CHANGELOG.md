@@ -1,3 +1,6 @@
+2.2.1 - 1.21
+- fixed a issue with the wolven armor crafting recipe
+
 2.2.0 - 1.21
 - Spell Engine 1.2 Update
 - added the Heavenly Witcher Sword (Aether Variant)
