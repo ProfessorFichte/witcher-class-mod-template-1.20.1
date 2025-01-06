@@ -1,9 +1,12 @@
 {
   "itemGroup.witcher_rpg.general": "Witcher",
 
-  "item.witcher_rpg.witcher_signs_spell_book": "Witcher Sign Manual",
-  "item.witcher_rpg.witcher_combat_spell_book": "Witcher Techniques",
-  "item.witcher_rpg.witcher_master_spell_book": "Master Witcher Book",
+  "item.witcher_rpg.signs_spell_book": "Witcher Sign Manual",
+  "item.witcher_rpg.signs.spell_scroll": "Witcher Skill",
+  "item.witcher_rpg.fencing_spell_book": "Witcher Techniques",
+  "item.witcher_rpg.fencing.spell_scroll": "Witcher Skill",
+  "item.witcher_rpg.master_spell_book": "Master Witcher Book",
+  "item.witcher_rpg.master.spell_scroll": "Witcher Skill",
 
   "item.witcher_rpg.iron_witcher_sword": "Iron Witcher Sword",
   "item.witcher_rpg.steel_witcher_sword": "Steel Witcher Sword",
@@ -140,6 +143,10 @@
   "effect.witcher_rpg.quen_active.description": "Gives absorption and clears negative status effects, will be removed when no absorption hearts are active.",
   "effect.witcher_rpg.stagger": "Stagger",
   "effect.witcher_rpg.stagger.description": "Reduces Armor, Attack Damage & Movement Speed and incapacitates the target.",
+  "effect.witcher_rpg.sign_intensity": "Sign Intensity",
+  "effect.witcher_rpg.sign_intensity.description": "Increases the damage of all Signs.",
+  "effect.witcher_rpg.adrenaline_burst": "Adrenaline Burst",
+  "effect.witcher_rpg.adrenaline_burst.description": "Increases your Adrenaline Attribute.",
 
   "spell.witcher_rpg.quen.name": "Quen",
   "spell.witcher_rpg.quen.description": "Gives you a absorption effect for {effect_duration} seconds and clears all negative status effects.",

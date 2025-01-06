@@ -45,7 +45,8 @@ public class Effects {
             new AerondightChargeEffect(StatusEffectCategory.BENEFICIAL, 0xbce5fe));
     public static final Entry AARD_INTENSITY =  new Entry("aard_intensity",
             new CustomEffect(StatusEffectCategory.BENEFICIAL, 0x3beeff));
-    public static final Entry AXII = new  Entry("axii",new CustomEffect(StatusEffectCategory.HARMFUL, 0x008000));
+    public static final Entry AXII = new  Entry("axii",
+            new CustomEffect(StatusEffectCategory.HARMFUL, 0x008000));
     public static final Entry AXII_INTENSITY = new Entry("axii_intensity",
             new CustomEffect(StatusEffectCategory.BENEFICIAL, 0x008000));
     public static final Entry AXII_PUPPET = new Entry("axii_puppet",
@@ -68,12 +69,14 @@ public class Effects {
             new CustomEffect(StatusEffectCategory.HARMFUL, 0xe717fe));
     public static final Entry ADRENALINE_GAIN = new Entry("adrenaline_gain",
             new CustomEffect(StatusEffectCategory.BENEFICIAL, 0xdd4e00));
-    public static final Entry ALTERNATE_SIGN = new Entry("alternate_sign",
-            new AlternateSignEffect(StatusEffectCategory.BENEFICIAL, 0xfffeca));
     public static final Entry BATTLE_TRANCE = new Entry("battle_trance",
             new CustomEffect(StatusEffectCategory.BENEFICIAL, 0xb3b3b3));
     public static final Entry STAGGER = new Entry("stagger",
             new CustomEffect(StatusEffectCategory.HARMFUL, 0xb3b3b3));
+    public static final Entry SIGN_INTENSITY = new Entry("sign_intensity",
+            new CustomEffect(StatusEffectCategory.BENEFICIAL, 0xfffeca));
+    public static final Entry ADRENALINE_BURST = new Entry("adrenaline_burst",
+            new CustomEffect(StatusEffectCategory.BENEFICIAL, 0xdd4e00));
 
     public static void register(){
         AERONDIGHT_CHARGE.effect.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE, AERONDIGHT_CHARGE.modifierId(),
@@ -118,6 +121,10 @@ public class Effects {
                         effectsConfig.value.stagger_attack_armor_speed_decrease, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
                 .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, STAGGER.modifierId(),
                 effectsConfig.value.stagger_attack_armor_speed_decrease, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+        SIGN_INTENSITY.effect.addAttributeModifier(WitcherAttributes.SIGN_INTENSITY, SIGN_INTENSITY.modifierId(),
+                effectsConfig.value.sign_school_intensity_increase_per_stack, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE);
+        ADRENALINE_BURST.effect.addAttributeModifier(WitcherAttributes.ADRENALINE_MODIFIER, ADRENALINE_BURST.modifierId(),
+                effectsConfig.value.adrenaline_burst_increase, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE);
 
 
 
@@ -133,20 +140,17 @@ public class Effects {
         Synchronized.configure(IGNI_INTENSITY.effect,true);
         Synchronized.configure(QUEN_INTENSITY.effect,true);
         Synchronized.configure(YRDEN_INTENSITY.effect,true);
-        Synchronized.configure(ALTERNATE_SIGN.effect,true);
         Synchronized.configure(QUEN_ACTIVE.effect,true);
         Synchronized.configure(BATTLE_TRANCE.effect,true);
         Synchronized.configure(STAGGER.effect,true);
-
+        Synchronized.configure(SIGN_INTENSITY.effect,true);
+        Synchronized.configure(ADRENALINE_BURST.effect,true);
 
         OnRemoval.configure(QUEN_SHIELD.effect, (context) -> {
             QuenShieldEffect.onRemove(context.entity());
         });
         OnRemoval.configure(QUEN_ACTIVE.effect, (context) -> {
             QuenActiveEffect.onRemove(context.entity());
-        });
-        OnRemoval.configure(ALTERNATE_SIGN.effect, (context) -> {
-            AlternateSignEffect.onRemove(context.entity());
         });
 
 

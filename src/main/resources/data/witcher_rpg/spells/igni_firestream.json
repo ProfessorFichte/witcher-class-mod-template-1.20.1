@@ -2,6 +2,7 @@
   "school": "IGNI",
   "range": 6.0,
   "learn": {
+    "enabled": false,
     "tier": 3
   },
   "cast": {
@@ -89,7 +90,6 @@
     "exhaust": 0.5,
     "cooldown_duration": 24.0,
     "cooldown_proportional": true,
-    "cooldown_haste_affected": true,
-    "effect_id": "witcher_rpg:alternate_sign"
+    "cooldown_haste_affected": true
   }
 }

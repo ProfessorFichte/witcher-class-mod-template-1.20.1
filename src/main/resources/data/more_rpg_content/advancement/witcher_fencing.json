@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "id": "witcher_rpg:witcher_combat_spell_book"
+      "id": "witcher_rpg:fencing_spell_book"
     },
     "title": {
       "translate": "advancements.more_rpg_content.witcher_fencing.title"
@@ -20,7 +20,7 @@
       "trigger": "spell_engine:spell_binding",
       "conditions": {
         "complete": true,
-        "spell_pool": "witcher_rpg:witcher_combat"
+        "spell_pool": "witcher_rpg:fencing"
       }
     }
   },

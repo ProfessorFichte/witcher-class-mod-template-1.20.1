@@ -2,7 +2,8 @@
   "range": 3,
   "school": "YRDEN",
   "learn": {
-    "tier": 4
+    "enabled": false,
+    "tier": 3
   },
   "cast": {
     "animation": "witcher_rpg:sign_cast_long",
@@ -48,7 +49,6 @@
   ],
   "cost": {
     "exhaust": 0.4,
-    "cooldown_duration": 40,
-    "effect_id": "witcher_rpg:alternate_sign"
+    "cooldown_duration": 40
   }
 }

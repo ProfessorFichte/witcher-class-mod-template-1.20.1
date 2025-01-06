@@ -2,6 +2,7 @@
   "school": "AXII",
   "range": 7,
   "learn": {
+    "enabled": false,
     "tier": 3
   },
   "cast": {
@@ -59,7 +60,6 @@
   "cost": {
     "exhaust": 0.4,
     "cooldown_duration": 16,
-    "cooldown_haste_affected": false,
-    "effect_id": "witcher_rpg:alternate_sign"
+    "cooldown_haste_affected": false
   }
 }

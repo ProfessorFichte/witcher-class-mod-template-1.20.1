@@ -1,3 +1,17 @@
+2.2.2 - 1.21
+- ### **Spell Scroll Update**
+- **Spell Allocation**
+- The Alternate Signs can be found via the new loot-able Spell Scrolls
+- The Alternate Signs can be added to the Master Witcher Spell Book
+- This can be done on the Spell Binding Table
+- The Master Witcher Spell Book can only contain 7 Spells
+- **BALANCING**
+- Whirl cast duration was reduced to 2.5 from 3.5
+- Witcher Reflexes cast duration was increased to 0.5 from 0.25
+- **GENERAL**
+- added the missing sign intensity & adrenaline burst effect (Attribute Boosting Effect)
+- renamed the spell book item ids
+
 2.2.1 - 1.21
 - fixed a issue with the wolven armor crafting recipe
 

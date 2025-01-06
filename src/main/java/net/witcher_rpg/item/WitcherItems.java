@@ -49,9 +49,9 @@ public class WitcherItems {
 
     public static void registerModItems(){
 
-        SpellBooks.createAndRegister(Identifier.of(MOD_ID,"witcher_signs"), WitcherGroup.WITCHER_KEY);
-        SpellBooks.createAndRegister(Identifier.of(MOD_ID,"witcher_combat"), WitcherGroup.WITCHER_KEY);
-        Registry.register(Registries.ITEM, Identifier.of(MOD_ID, "witcher_master_spell_book"), MASTER_BOOK);
+        SpellBooks.createAndRegister(Identifier.of(MOD_ID,"signs"), WitcherGroup.WITCHER_KEY);
+        SpellBooks.createAndRegister(Identifier.of(MOD_ID,"fencing"), WitcherGroup.WITCHER_KEY);
+        Registry.register(Registries.ITEM, Identifier.of(MOD_ID, "master_spell_book"), MASTER_BOOK);
 
         ItemGroupEvents.modifyEntriesEvent(WitcherGroup.WITCHER_KEY).register((content) -> {
             content.add(MASTER_BOOK);

@@ -7,7 +7,7 @@
   "cast": {
     "animation": "witcher_rpg:witcher_reflexes",
     "movement_speed": 0.8,
-    "duration": 0.25
+    "duration": 0.5
 
   },
   "release": {
