@@ -9,6 +9,10 @@
     {
       "id": "mythicmetals:steel_ingot",
       "required": false
+    },
+    {
+      "id": "techreborn:steel_ingot",
+      "required": false
     }
   ]
 }

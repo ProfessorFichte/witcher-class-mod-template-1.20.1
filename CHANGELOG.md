@@ -1,3 +1,6 @@
+2.2.3 - 1.21
+- Fix: Witcher Spell Books uncraftable since 2.2.2 #6
+
 2.2.2 - 1.21
 - ### **Spell Scroll Update**
 - **Spell Allocation**

@@ -29,6 +29,10 @@
     {
       "id": "iceandfire:silver_ingot",
       "required": false
+    },
+    {
+      "id": "techreborn:silver_ingot",
+      "required": false
     }
   ]
 }

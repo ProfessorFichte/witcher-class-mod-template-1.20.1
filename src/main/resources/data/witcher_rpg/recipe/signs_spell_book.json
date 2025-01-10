@@ -5,7 +5,7 @@
       "item": "more_rpg_classes:hardened_leather"
     },
     {
-      "tag": "witcher_rpg:steel_ingots"
+      "tag": "witcher_rpg:silver_ingots"
     },
     {
       "item": "minecraft:book"
@@ -15,6 +15,6 @@
     }
   ],
   "result": {
-    "id": "witcher_rpg:witcher_combat_spell_book"
+    "id": "witcher_rpg:signs_spell_book"
   }
 }
