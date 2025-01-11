@@ -1,3 +1,6 @@
+1.1.6 - 1.20.1
+-  Fix Regarding Witcher Ores
+
 1.1.5 - 1.20.1
 - **CONFIG** Your effects config got overwritten, use effects_v2 now
 - added sign intensity buff for the Loot & Explore Drink
