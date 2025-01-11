@@ -1,5 +1,5 @@
 {
-  "feature": "witcher_rpg:dark_iron_ore_small",
+  "feature": "witcher_rpg:meteorite_ore_buried",
   "placement": [
     {
       "type": "minecraft:count",
@@ -13,10 +13,10 @@
       "height": {
         "type": "minecraft:trapezoid",
         "max_inclusive": {
-          "above_bottom": 25
+          "above_bottom": 320
         },
         "min_inclusive": {
-          "above_bottom": -64
+          "above_bottom": 100
         }
       }
     },

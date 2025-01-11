@@ -1,3 +1,6 @@
+### 2.2.4 - 1.21
+- Fixed some errors regarding Witcher Ores
+
 2.2.3 - 1.21
 - Fix: Witcher Spell Books uncraftable since 2.2.2 #6
 
