@@ -1,5 +1,5 @@
 {
-  "feature": "witcher_rpg:meteorite_ore_small",
+  "feature": "witcher_rpg:silver_ore_small",
   "placement": [
     {
       "type": "minecraft:count",
@@ -13,10 +13,10 @@
       "height": {
         "type": "minecraft:trapezoid",
         "max_inclusive": {
-          "above_bottom": 480
+          "above_bottom": 42
         },
         "min_inclusive": {
-          "above_bottom": 50
+          "above_bottom": -30
         }
       }
     },
