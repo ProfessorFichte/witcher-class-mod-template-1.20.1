@@ -6,7 +6,7 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
-import net.spell_engine.api.spell.ParticleBatch;
+import net.spell_engine.api.spell.fx.ParticleBatch;
 import net.spell_engine.particle.ParticleHelper;
 
 import static net.more_rpg_classes.util.CustomMethods.clearNegativeEffects;

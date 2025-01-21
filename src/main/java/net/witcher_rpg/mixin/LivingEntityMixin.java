@@ -1,24 +1,17 @@
 package net.witcher_rpg.mixin;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
-import net.spell_engine.internals.SpellRegistry;
+import net.spell_engine.api.spell.Spell;
+import net.spell_engine.api.spell.registry.SpellRegistry;
 import net.spell_engine.internals.casting.SpellCasterEntity;
-import net.witcher_rpg.WitcherClassMod;
 import net.witcher_rpg.effect.Effects;
 import net.witcher_rpg.entity.attribute.WitcherAttributes;
-import net.witcher_rpg.util.tags.WitcherDamageTypes;
-import net.witcher_rpg.util.tags.WitcherEntityTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -27,8 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Objects;
 import java.util.Random;
 
-import static net.witcher_rpg.WitcherClassMod.MOD_ID;
-import static net.witcher_rpg.WitcherClassMod.tweaksConfig;
+import static net.witcher_rpg.WitcherClassMod.MOD_ID;;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
@@ -52,12 +44,17 @@ public abstract class LivingEntityMixin {
     private void witcherBlockingMechanics( final CallbackInfoReturnable<Boolean> info) {
         LivingEntity player2 = ((LivingEntity) (Object) this);
         if (player2 instanceof ServerPlayerEntity player && player instanceof SpellCasterEntity caster) {
-            if (SpellRegistry.getSpell(Identifier.of(MOD_ID, "defensive_witcher_mechanics")) != null
-                    && Objects.equals(caster.getCurrentSpell(), SpellRegistry.getSpell(Identifier.of(MOD_ID, "defensive_witcher_mechanics")))) {
+            var spellEntryDefensiveMechanics = SpellRegistry.from(player.getWorld()).getEntry(Identifier.of(MOD_ID, "defensive_witcher_mechanics")).orElse(null);
+            var spellDefensiveMechanics = spellEntryDefensiveMechanics.value();
+            var spellEntryWhirl = SpellRegistry.from(player.getWorld()).getEntry(Identifier.of(MOD_ID, "whirl")).orElse(null);
+            var spellWhirl = spellEntryWhirl.value();
+            Spell spell = caster.getCurrentSpell();
+            if (spell != null
+                    && Objects.equals(caster.getCurrentSpell(), spellDefensiveMechanics)) {
                 info.setReturnValue(true);
             }
-            if (SpellRegistry.getSpell(Identifier.of(MOD_ID, "whirl")) != null
-                    && Objects.equals(caster.getCurrentSpell(), SpellRegistry.getSpell(Identifier.of(MOD_ID, "whirl")))) {
+            if (spell != null
+                    && Objects.equals(caster.getCurrentSpell(), spellWhirl)) {
                 info.setReturnValue(true);
             }
         }
@@ -90,30 +87,5 @@ public abstract class LivingEntityMixin {
                 damagedTarget.removeStatusEffect(Effects.ADRENALINE_GAIN.registryEntry);
             }
         }
-    }
-
-
-    @Inject(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V"))
-    private void specificSignSchoolVulnerability(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        LivingEntity damagedTarget = ((LivingEntity) (Object) this);
-        EntityType<?> type = ((Entity) damagedTarget).getType();
-        DamageType damageType = source.getType();
-        float damageIncrease = tweaksConfig.value.sign_vulnerability_damage_increase;
-        if(type.isIn(WitcherEntityTags.AARD_VULNERABLE) && source.isIn(WitcherDamageTypes.AARD)){
-            amount = amount * damageIncrease;
-        }
-        if(type.isIn(WitcherEntityTags.AXII_VULNERABLE) && source.isIn(WitcherDamageTypes.AXII)){
-            amount = amount * damageIncrease;
-        }
-        if(type.isIn(WitcherEntityTags.IGNI_VULNERABLE) && source.isIn(WitcherDamageTypes.IGNI)){
-            amount = amount * damageIncrease;
-        }
-        if(type.isIn(WitcherEntityTags.YRDEN_VULNERABLE) && source.isIn(WitcherDamageTypes.YRDEN)){
-            amount = amount * damageIncrease;
-        }
-        if(type.isIn(WitcherEntityTags.QUEN_VULNERABLE) && source.isIn(WitcherDamageTypes.QUEN)){
-            amount = amount * damageIncrease;
-        }
-        return;
     }
 }

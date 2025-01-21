@@ -6,9 +6,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
-import net.spell_engine.api.spell.Spell;
+import net.spell_engine.api.spell.registry.SpellRegistry;
 import net.spell_engine.internals.SpellHelper;
-import net.spell_engine.internals.SpellRegistry;
 import net.spell_engine.internals.casting.SpellCast;
 import net.spell_engine.utils.TargetHelper;
 import net.spell_power.api.SpellSchool;
@@ -25,7 +24,6 @@ import java.util.Objects;
 
 import static java.lang.Math.round;
 import static net.more_rpg_classes.util.CustomMethods.applyStatusEffect;
-import static net.spell_engine.internals.SpellRegistry.getSpell;
 import static net.witcher_rpg.WitcherClassMod.MOD_ID;
 import static net.witcher_rpg.WitcherClassMod.effectsConfig;
 
@@ -38,7 +36,8 @@ public abstract class SpellHelperMixin {
             boolean quen_check = false;
             float quen_intensity = (float) player.getAttributeValue(WitcherAttributes.QUEN_INTENSITY);
             int amplifier = round(quen_intensity * effectsConfig.value.quen_active_shield_quen_intensity_amplifier_multiplier);
-            Spell spell = getSpell(spellId);
+            var spellEntry = SpellRegistry.from(player.getWorld()).getEntry(spellId).orElse(null);
+            var spell = spellEntry.value();
             if (spell != null) {
                 if(action == SpellCast.Action.CHANNEL &&
                         Objects.equals(spellId, Identifier.of(MOD_ID, "quen_active_shield"))){
@@ -58,8 +57,9 @@ public abstract class SpellHelperMixin {
     @Inject(at = @At("HEAD"), method = "performSpell", cancellable = true)
     private static void damagingSignAdrenalineGain(World world, PlayerEntity player, Identifier spellId, TargetHelper.SpellTargetResult targetResult, SpellCast.Action action, float progress, CallbackInfo callbackInfo) {
         if (!player.isSpectator()) {
-            Spell spell = SpellRegistry.getSpell(spellId);
-            SpellSchool school = getSpell(spellId).school;
+            var spellEntry = SpellRegistry.from(player.getWorld()).getEntry(spellId).orElse(null);
+            var spell = spellEntry.value();
+            SpellSchool school = spell.school;
 
             List<Entity> entities = targetResult.entities();
 

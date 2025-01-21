@@ -1,3 +1,9 @@
+# 2.3.0 - 1.21.1
+**- Spell Engine 1.4 Update!**
+- AzureLib Armor 3.0 Update!
+- Rend & Whirl range now matching the melee weapon distance
+- Buffed the Range for the Axii Puppet spell
+
 ### 2.2.4 - 1.21
 - Fixed some errors regarding Witcher Ores
 

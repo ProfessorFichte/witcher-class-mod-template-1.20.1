@@ -9,6 +9,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -18,14 +19,15 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.more_rpg_classes.MRPGCMod;
 import net.spell_engine.api.entity.SpellSpawnedEntity;
-import net.spell_engine.api.spell.ParticleBatch;
+import net.spell_engine.api.spell.fx.ParticleBatch;
 import net.spell_engine.api.spell.Spell;
-import net.spell_engine.internals.SpellRegistry;
+import net.spell_engine.api.spell.registry.SpellRegistry;
 import net.spell_engine.particle.ParticleHelper;
 import net.spell_engine.utils.TargetHelper;
 import net.witcher_rpg.custom.WitcherSpellSchools;
 import net.witcher_rpg.effect.Effects;
 import net.witcher_rpg.entity.attribute.WitcherAttributes;
+import net.witcher_rpg.util.tags.WitcherEntityTags;
 
 import static net.more_rpg_classes.util.CustomMethods.spellSchoolDamageCalculation;
 
@@ -92,8 +94,9 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
 
     @Override
     public EntityDimensions getDimensions(EntityPose pose) {
-        var spell = getSpell();
-        if (spell != null) {
+        var spellEntry = getSpellEntry();
+        if (spellEntry == null) {
+            var spell = spellEntry.value();
             var width = spell.range * 2;
             var height = spell.range;
             return EntityDimensions.changing(width, height);
@@ -175,8 +178,8 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
             yrden_intensity = (float) owner.getAttributeValue((RegistryEntry<EntityAttribute>) WitcherAttributes.YRDEN_INTENSITY);
         }
         super.tick();
-        var spell = getSpell();
-        if (spell == null) {
+        var spellEntry = getSpellEntry();
+        if (spellEntry == null) {
             return;
         }
         var world = this.getWorld();
@@ -187,9 +190,9 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
                 this.kill();
             }
             if (this.age % checkInterval == 0) {
-                var entities = getWorld().getOtherEntities(this, this.getBoundingBox().expand(0.1F));
+                var entities = getWorld().getOtherEntities(this, this.getBoundingBox().expand(3.5F));
                 for (var entity : entities) {
-                    if(entity instanceof ProjectileEntity projectile){
+                    if(entity instanceof PersistentProjectileEntity projectile){
                         if (!isProtected(projectile.getOwner())) {
                             entity.playSound(yrdenSound,1F,1F);
                             ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_circle});
@@ -200,7 +203,12 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
                     if (entity instanceof LivingEntity livingEntity) {
                         if (!isProtected(livingEntity)) {
                             if(this.age % checkDamageInterval == 0){
-                                spellSchoolDamageCalculation(WitcherSpellSchools.YRDEN,0.75F,livingEntity, (PlayerEntity) owner);
+                                float yrden_rap_damage_multiplicator = 0.75F;
+                                EntityType<?> type = ((Entity) livingEntity).getType();
+                                if(type.isIn(WitcherEntityTags.YRDEN_VULNERABLE)){
+                                    yrden_rap_damage_multiplicator = 1.05F;
+                                }
+                                spellSchoolDamageCalculation(WitcherSpellSchools.YRDEN,yrden_rap_damage_multiplicator,livingEntity, (PlayerEntity) owner);
                                 livingEntity.addStatusEffect(new StatusEffectInstance(Effects.YRDEN_GLYPH.registryEntry,150, (int) (0 * (yrden_intensity +1 )),false,false,true));
                                 livingEntity.playSound(yrdenSound,1F,1F);
                                 ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_circle});
@@ -230,8 +238,8 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
         return false;
     }
 
-    public Spell getSpell() {
-        return SpellRegistry.getSpell(spellId);
+    @Nullable public RegistryEntry<Spell> getSpellEntry() {
+        return SpellRegistry.from(this.getWorld()).getEntry(this.spellId).orElse(null);
     }
 
     private LivingEntity cachedOwner = null;

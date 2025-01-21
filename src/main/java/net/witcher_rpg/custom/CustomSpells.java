@@ -7,9 +7,9 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.more_rpg_classes.effect.MRPGCEffects;
-import net.spell_engine.api.spell.CustomSpellHandler;
+import net.spell_engine.api.spell.event.CustomSpellHandler;
 import net.spell_engine.api.spell.Spell;
-import net.spell_engine.api.spell.SpellInfo;
+import net.spell_engine.api.spell.registry.SpellRegistry;
 import net.spell_engine.internals.SpellHelper;
 import net.spell_engine.utils.TargetHelper;
 import net.spell_power.api.SpellSchool;
@@ -20,29 +20,30 @@ import java.util.function.Predicate;
 
 import static net.more_rpg_classes.util.CustomMethods.spellSchoolDamageCalculation;
 import static net.witcher_rpg.WitcherClassMod.MOD_ID;
-import static net.spell_engine.internals.SpellRegistry.getSpell;
 
 public class CustomSpells {
     public static void register() {
         ///////WITCHER_SPELLS
         /// AARD
         CustomSpellHandler.register(Identifier.of(MOD_ID, "aard"), (data) -> {
-            SpellInfo spellinfo = new SpellInfo(getSpell(Identifier.of(MOD_ID, "aard")),Identifier.of(MOD_ID));
-            Spell.Impact[] impacts = getSpell(Identifier.of(MOD_ID, "aard")).impact;
             CustomSpellHandler.Data data1 = (CustomSpellHandler.Data) data;
+            var spellEntry = SpellRegistry.from(data1.caster().getWorld()).getEntry(Identifier.of(MOD_ID, "aard")).orElse(null);
+            var spell = spellEntry.value();
+            Spell.Impact[] impacts = spell.impact;
+
             Predicate<Entity> selectionPredicate = (target2) -> {
                 return (TargetHelper.actionAllowed(TargetHelper.TargetingMode.DIRECT, TargetHelper.Intent.HARMFUL, data1.caster(), target2)
                 );
             };
             if (!data1.caster().getWorld().isClient) {
-                List<Entity> list = data1.caster().getWorld().getOtherEntities(data1.caster(), data1.caster().getBoundingBox().expand(getSpell(Identifier.of(MOD_ID, "aard")).range), selectionPredicate);
-                float knockback= getSpell(Identifier.of(MOD_ID, "aard")).impact[0].action.damage.knockback;
+                List<Entity> list = data1.caster().getWorld().getOtherEntities(data1.caster(), data1.caster().getBoundingBox().expand(spell.range), selectionPredicate);
+                float knockback= spell.impact[0].action.damage.knockback;
                 for (Entity entity : list) {
                     if(entity instanceof PersistentProjectileEntity arrow){
                         Vec3d vec3d = arrow.getPos().subtract(arrow.getX(), arrow.getY(), arrow.getZ());
                         arrow.setVelocity(vec3d);
                     }else if (entity.isLiving()){
-                        SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, spellinfo,impacts ,data1.impactContext());
+                        SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, spellEntry,impacts ,data1.impactContext());
                         LivingEntity livingEntity = (LivingEntity) entity;
                         Vec3d currentMovement = entity.getVelocity();
                         entity.setVelocity(currentMovement.x , currentMovement.y + 0.5, currentMovement.z);
@@ -56,22 +57,24 @@ public class CustomSpells {
         });
         /// AARD_SWEEP
         CustomSpellHandler.register(Identifier.of(MOD_ID, "aard_sweep"), (data) -> {
-            SpellInfo spellinfo = new SpellInfo(getSpell(Identifier.of(MOD_ID, "aard_sweep")),Identifier.of(MOD_ID));
-            Spell.Impact[] impacts = getSpell(Identifier.of(MOD_ID, "aard_sweep")).impact;
             CustomSpellHandler.Data data1 = (CustomSpellHandler.Data) data;
+            var spellEntry = SpellRegistry.from(data1.caster().getWorld()).getEntry(Identifier.of(MOD_ID, "aard_sweep")).orElse(null);
+            var spell = spellEntry.value();
+            Spell.Impact[] impacts = spell.impact;
+
             Predicate<Entity> selectionPredicate = (target2) -> {
                 return (TargetHelper.actionAllowed(TargetHelper.TargetingMode.DIRECT, TargetHelper.Intent.HARMFUL, data1.caster(), target2)
                 );
             };
-            float knockback= getSpell(Identifier.of(MOD_ID, "aard_sweep")).impact[0].action.damage.knockback;
+            float knockback= spell.impact[0].action.damage.knockback;
             if (!data1.caster().getWorld().isClient) {
-                List<Entity> list = data1.caster().getWorld().getOtherEntities(data1.caster(), data1.caster().getBoundingBox().expand(getSpell(Identifier.of(MOD_ID, "aard_sweep")).range), selectionPredicate);
+                List<Entity> list = data1.caster().getWorld().getOtherEntities(data1.caster(), data1.caster().getBoundingBox().expand(spell.range), selectionPredicate);
                 for (Entity entity : list) {
                     if(entity instanceof PersistentProjectileEntity arrow){
                         Vec3d vec3d = arrow.getPos().subtract(arrow.getX(), arrow.getY(), arrow.getZ());
                         arrow.setVelocity(vec3d);
                     }else if (entity.isLiving()){
-                        SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, spellinfo, impacts,data1.impactContext());
+                        SpellHelper.performImpacts(entity.getWorld(), data1.caster(), entity, entity, spellEntry, impacts,data1.impactContext());
                         LivingEntity livingEntity = (LivingEntity) entity;
                         Vec3d currentMovement = entity.getVelocity();
                         entity.setVelocity(currentMovement.x , currentMovement.y + 0.5, currentMovement.z);
@@ -97,9 +100,11 @@ public class CustomSpells {
         /// REND
         CustomSpellHandler.register(Identifier.of(MOD_ID, "rend"), (data) -> {
             CustomSpellHandler.Data data1 = (CustomSpellHandler.Data) data;
+            var spellEntry = SpellRegistry.from(data1.caster().getWorld()).getEntry(Identifier.of(MOD_ID, "rend")).orElse(null);
+            var spell = spellEntry.value();
             for (Entity entity : data1.targets()) {
-                SpellSchool school = getSpell(Identifier.of(MOD_ID, "rend")).school;
-                float spell_power_coefficient = getSpell(Identifier.of(MOD_ID, "rend")).impact[0].action.damage.spell_power_coefficient;
+                SpellSchool school = spell.school;
+                float spell_power_coefficient =spell.impact[0].action.damage.spell_power_coefficient;
                 if(data1.caster().hasStatusEffect(Effects.ADRENALINE_GAIN.registryEntry)){
                     int amplifier = data1.caster().getStatusEffect(Effects.ADRENALINE_GAIN.registryEntry).getAmplifier()+1;
                     spell_power_coefficient = spell_power_coefficient * ((float) amplifier / 10);

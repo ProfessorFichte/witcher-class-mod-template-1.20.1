@@ -1,8 +1,6 @@
 package net.witcher_rpg.config;
 
 public class TweaksConfig {
-    public float sign_vulnerability_damage_increase = 1.15F;
-
     public float steel_swords_bleed_chance = 0.20F;
     public int steel_swords_bleed_duration_seconds = 5;
     public float silver_swords_silver_damage_attack_damage_multiplier = 0.20F;

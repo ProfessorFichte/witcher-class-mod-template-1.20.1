@@ -6,7 +6,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.util.math.Vec3d;
-import net.spell_engine.api.spell.ParticleBatch;
+import net.spell_engine.api.spell.fx.ParticleBatch;
 import net.spell_engine.particle.ParticleHelper;
 import net.witcher_rpg.util.tags.WitcherEntityTags;
 

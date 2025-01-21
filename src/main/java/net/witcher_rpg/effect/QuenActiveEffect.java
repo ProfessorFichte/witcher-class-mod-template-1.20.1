@@ -8,8 +8,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.more_rpg_classes.effect.MRPGCEffects;
-import net.spell_engine.api.spell.ParticleBatch;
-import net.spell_engine.internals.casting.SpellCast;
+import net.spell_engine.api.spell.fx.ParticleBatch;
 import net.spell_engine.internals.casting.SpellCasterEntity;
 import net.spell_engine.particle.ParticleHelper;
 
