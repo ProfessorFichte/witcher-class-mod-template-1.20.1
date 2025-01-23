@@ -61,22 +61,18 @@ dependencies {
 	// Uncomment the following line to enable the deprecated Fabric API modules. 
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
 
-	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 	include(implementation("com.github.LlamaLad7:MixinExtras:${project.mixin_extras_version}"))
 	annotationProcessor("com.github.LlamaLad7:MixinExtras:${project.mixin_extras_version}")
 	implementation include("com.github.ZsoltMolnarrr:TinyConfig:${project.tiny_config_version}")
 
 	modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:${project.player_anim_version}")
-	//modImplementation("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}")
 	modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
 	modImplementation("dev.emi:trinkets:${project.trinkets_version}")
 	modImplementation("maven.modrinth:spell-power:${project.spell_power_version}-fabric")
-//    modImplementation(files("../fabric/run/mods/dev/spell_power-fabric-${project.spell_power_version}.jar"))
 	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.2.0-rc.4")))
-	modImplementation("maven.modrinth:spell-engine:${project.spell_engine_version}")
 	modImplementation("maven.modrinth:spell-engine:${project.spell_engine_version}")
 	modImplementation("maven.modrinth:more-rpg-classes:${project.more_rpg_classes_version}")
 	modImplementation("mod.azure.azurelibarmor:azurelibarmor-fabric-${project.azure_mc_version}:${project.azure_lib_version}")

@@ -1,3 +1,9 @@
+1.2.0 - 1.20.1
+- Netherite Armor (Superior Armor backport)
+- rebalanced Armor Attributes
+- You can upgrade your normal Witcher Armor directly to the Superior Armor Tier
+- On this version there are no Witcher Armor Diagrams, recipes function with the Netherite Upgrade Template
+
 1.1.6 - 1.20.1
 -  Fix Regarding Witcher Ores
 

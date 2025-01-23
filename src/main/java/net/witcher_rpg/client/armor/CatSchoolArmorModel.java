@@ -5,6 +5,8 @@ import net.minecraft.util.Identifier;
 import net.witcher_rpg.item.armor.CatSchoolArmor;
 import net.witcher_rpg.WitcherClassMod;
 
+import static net.witcher_rpg.WitcherClassMod.MOD_ID;
+
 public class CatSchoolArmorModel extends GeoModel<CatSchoolArmor> {
     @Override
     public Identifier getModelResource(CatSchoolArmor object) {
@@ -13,7 +15,8 @@ public class CatSchoolArmorModel extends GeoModel<CatSchoolArmor> {
 
     @Override
     public Identifier getTextureResource(CatSchoolArmor armor) {
-        return new Identifier(WitcherClassMod.MOD_ID, "textures/armor/feline_armor.png");
+        var texture = armor.customMaterial.name();
+        return new Identifier(MOD_ID, "textures/armor/" + texture +".png");
     }
 
     @Override
