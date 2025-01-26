@@ -1,5 +1,6 @@
 1.2.1 - 1.20.1
 - Fixed Kaer Morhen Armor Texture not working
+- Fix Kaer Morhen boots recipe
 
 1.2.0 - 1.20.1
 - Netherite Armor (Superior Armor backport)
