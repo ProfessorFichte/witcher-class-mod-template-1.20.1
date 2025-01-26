@@ -13,7 +13,7 @@ public class WitcherArmorModel extends GeoModel<WitcherArmor> {
 
     @Override
     public Identifier getTextureResource(WitcherArmor armor) {
-        return new Identifier(WitcherClassMod.MOD_ID, "textures/armor/witcher_armor.png");
+        return new Identifier(WitcherClassMod.MOD_ID, "textures/armor/witcher.png");
     }
 
     @Override
