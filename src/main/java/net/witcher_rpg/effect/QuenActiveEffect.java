@@ -22,7 +22,7 @@ public class QuenActiveEffect extends StatusEffect {
     public static final ParticleBatch quen_break = new ParticleBatch(
             "spell_engine:electric_arc_a",
             ParticleBatch.Shape.SPHERE, ParticleBatch.Origin.CENTER,
-            null, 8, 0.03F, 0.7F, 360);
+            null, 8, 0.03F, 0.7F,360 ,3);
 
 
 

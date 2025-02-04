@@ -19,7 +19,7 @@ public class QuenShieldEffect extends StatusEffect {
     public static final ParticleBatch quen_break = new ParticleBatch(
             "spell_engine:electric_arc_a",
             ParticleBatch.Shape.SPHERE, ParticleBatch.Origin.CENTER,
-            null, 4, 0.01F, 0.1F, 0);
+            null, 4, 0.01F, 0.1F, 0,3);
 
 
     public QuenShieldEffect(StatusEffectCategory category, int color) {

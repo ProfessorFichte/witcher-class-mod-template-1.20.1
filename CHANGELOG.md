@@ -1,3 +1,6 @@
+# 2.3.1 - 1.21.1
+- fixed crash -> forgot ServerWorld Check on Yrden particle effect spawner
+
 # 2.3.0 - 1.21.1
 **- Spell Engine 1.4 Update!**
 - AzureLib Armor 3.0 Update!

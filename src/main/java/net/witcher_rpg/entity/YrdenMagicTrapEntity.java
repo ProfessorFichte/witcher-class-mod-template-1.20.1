@@ -10,7 +10,6 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundCategory;
@@ -195,8 +194,10 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
                     if(entity instanceof PersistentProjectileEntity projectile){
                         if (!isProtected(projectile.getOwner())) {
                             entity.playSound(yrdenSound,1F,1F);
-                            ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_circle});
-                            ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_spehre});
+                            if(!entity.getWorld().isClient()){
+                                ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_circle});
+                                ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_spehre});
+                            }
                             projectile.kill();
                         }
                     }
@@ -211,8 +212,10 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
                                 spellSchoolDamageCalculation(WitcherSpellSchools.YRDEN,yrden_rap_damage_multiplicator,livingEntity, (PlayerEntity) owner);
                                 livingEntity.addStatusEffect(new StatusEffectInstance(Effects.YRDEN_GLYPH.registryEntry,150, (int) (0 * (yrden_intensity +1 )),false,false,true));
                                 livingEntity.playSound(yrdenSound,1F,1F);
-                                ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_circle});
-                                ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_spehre});
+                                if(!entity.getWorld().isClient()){
+                                    ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_circle});
+                                    ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_spehre});
+                                }
                             }
                         }
                     }

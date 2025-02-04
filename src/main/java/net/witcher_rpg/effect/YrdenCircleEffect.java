@@ -29,7 +29,7 @@ public class YrdenCircleEffect extends StatusEffect {
     public boolean applyUpdateEffect(LivingEntity entity, int pAmplifier) {
         EntityType<?> type = ((Entity) entity).getType();
         if(type.isIn(WitcherEntityTags.YRDEN_VULNERABLE)){
-            if (entity.getWorld().isClient()) {
+            if (!entity.getWorld().isClient()) {
                 ParticleHelper.sendBatches(entity, new ParticleBatch[]{yrden_damage_spehre});
             }
             entity.setVelocity(Vec3d.ZERO);
