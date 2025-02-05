@@ -8,6 +8,7 @@ import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.more_rpg_classes.entity.attribute.MRPGCEntityAttributes;
 import net.witcher_rpg.effect.Effects;
 import net.witcher_rpg.entity.attribute.WitcherAttributes;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,6 +23,8 @@ import static net.witcher_rpg.WitcherClassMod.effectsConfig;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
 
+
+    /*
     @Inject(method = "createPlayerAttributes()Lnet/minecraft/entity/attribute/DefaultAttributeContainer$Builder;", require = 1, allow = 1, at = @At("RETURN"))
     private static void witcherEntityAttributes$addAttributes(final CallbackInfoReturnable<DefaultAttributeContainer.Builder> info) {
         info.getReturnValue().add(WitcherAttributes.AARD_INTENSITY);
@@ -32,6 +35,8 @@ public abstract class PlayerEntityMixin {
         info.getReturnValue().add(WitcherAttributes.YRDEN_INTENSITY);
         info.getReturnValue().add(WitcherAttributes.SIGN_INTENSITY);
     }
+
+     */
 
     @Inject(at = @At("HEAD"), method = "attack")
     public void witcherStackAdrenaline(Entity target, CallbackInfo ci) {

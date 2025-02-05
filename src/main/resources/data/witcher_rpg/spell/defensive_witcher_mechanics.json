@@ -4,21 +4,27 @@
   "learn": {
     "tier": 2
   },
-  "cast": {
-    "animation": "witcher_rpg:witcher_reflexes",
-    "movement_speed": 0.8,
-    "duration": 0.5
 
-  },
-  "release": {
-    "target": {
-      "type": "AREA",
-      "area": {
-        "distance_dropoff": "SQUARED",
-        "angle_degrees": 360.0
-      }
+  "active": {
+    "cast": {
+      "animation": "witcher_rpg:witcher_reflexes",
+      "movement_speed": 0.8,
+      "duration": 0.5
+
     }
   },
+
+  "target": {
+    "type": "AREA",
+    "area": {
+      "distance_dropoff": "SQUARED",
+      "angle_degrees": 360.0
+    }
+  },
+
+  "release": {
+  },
+
   "impact": [
     {
       "action": {
@@ -33,9 +39,11 @@
       }
     }
   ],
+
   "cost": {
-    "exhaust": 0.5,
-    "cooldown_duration": 10.0,
-    "cooldown_proportional": false
+    "exhaust" : 0.5,
+    "cooldown":{
+      "duration": 10
+    }
   }
 }

@@ -5,37 +5,43 @@
     "enabled": false,
     "tier": 3
   },
-  "cast": {
-    "animation": "witcher_rpg:sign_cast_long",
-    "duration": 0.5,
-    "particles": [
-      {
-        "particle_id": "witcher_rpg:yrden_sign_cast",
-        "shape": "CIRCLE",
-        "origin": "CENTER",
-        "count": 1.0,
-        "min_speed": 0.001,
-        "max_speed": 0.006
-      },
-      {
-        "particle_id": "witcher_rpg:yrden_sign_cast",
-        "shape": "PILLAR",
-        "origin": "CENTER",
-        "count": 1.0,
-        "min_speed": 0.01,
-        "max_speed": 0.06
-      }
-    ]
+
+  "active": {
+    "cast": {
+      "animation": "witcher_rpg:sign_cast_long",
+      "duration": 0.5,
+      "particles": [
+        {
+          "particle_id": "witcher_rpg:yrden_sign_cast",
+          "shape": "CIRCLE",
+          "origin": "CENTER",
+          "count": 1.0,
+          "min_speed": 0.001,
+          "max_speed": 0.006
+        },
+        {
+          "particle_id": "witcher_rpg:yrden_sign_cast",
+          "shape": "PILLAR",
+          "origin": "CENTER",
+          "count": 1.0,
+          "min_speed": 0.01,
+          "max_speed": 0.06
+        }
+      ]
+    }
   },
+
+  "target": {
+    "type": "CASTER"
+  },
+
   "release": {
-    "target": {
-      "type": "SELF"
-    },
     "animation": "witcher_rpg:sign_cast_ground",
     "sound": {
       "id": "witcher_rpg:yrden_sign"
     }
   },
+
   "impact": [
     {
       "action": {
@@ -47,8 +53,11 @@
       }
     }
   ],
+
   "cost": {
-    "exhaust": 0.4,
-    "cooldown_duration": 40
+    "exhaust" : 0.4,
+    "cooldown":{
+      "duration": 40
+    }
   }
 }

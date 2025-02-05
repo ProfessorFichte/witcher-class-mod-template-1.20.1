@@ -7,7 +7,6 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.more_rpg_classes.effect.MRPGCEffects;
-import net.spell_engine.api.spell.event.CustomSpellHandler;
 import net.spell_engine.api.spell.Spell;
 import net.spell_engine.api.spell.registry.SpellRegistry;
 import net.spell_engine.internals.SpellHelper;
@@ -23,6 +22,7 @@ import static net.witcher_rpg.WitcherClassMod.MOD_ID;
 
 public class CustomSpells {
     public static void register() {
+        /*
         ///////WITCHER_SPELLS
         /// AARD
         CustomSpellHandler.register(Identifier.of(MOD_ID, "aard"), (data) -> {
@@ -122,5 +122,7 @@ public class CustomSpells {
             return true;
         });
 
+
+         */
     }
 }

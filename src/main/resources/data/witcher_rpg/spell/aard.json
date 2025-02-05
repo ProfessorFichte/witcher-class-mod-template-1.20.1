@@ -5,18 +5,22 @@
   "learn": {
     "tier": 2
   },
-  "cast": {
-    "movement_speed": 0.75,
-    "duration": 0
+
+  "active": {
+    "cast": {
+      "movement_speed": 0.75,
+      "duration": 0
+    }
   },
+
+  "target": {
+    "type": "AREA",
+    "area": {
+      "angle_degrees": 90
+    }
+  },
+
   "release": {
-    "custom_impact": true,
-    "target": {
-      "type": "AREA",
-      "area": {
-        "angle_degrees": 90
-      }
-    },
     "animation": "witcher_rpg:sign_cast_short",
     "sound": {
       "id": "witcher_rpg:aard_sign"
@@ -51,12 +55,13 @@
       }
     ]
   },
+
   "impact": [
     {
       "action": {
         "type": "DAMAGE",
         "damage": {
-          "knockback": 8.0,
+          "knockback": 5.0,
           "spell_power_coefficient": 0.75
         }
       },
@@ -81,9 +86,11 @@
       ]
     }
   ],
+
   "cost": {
-    "exhaust": 0.4,
-    "cooldown_duration": 18,
-    "cooldown_haste_affected": "true"
+    "exhaust" : 0.4,
+    "cooldown":{
+      "duration": 18
+    }
   }
 }

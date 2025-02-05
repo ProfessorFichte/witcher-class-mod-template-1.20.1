@@ -4,15 +4,21 @@
   "learn": {
     "tier": 3
   },
-  "cast": {
-    "movement_speed": 0.75,
-    "duration": 0
-  },
-  "release": {
-    "target": {
-      "type": "SELF"
+
+  "active": {
+    "cast": {
+      "movement_speed": 0.75,
+      "duration": 0
     }
   },
+
+  "target": {
+    "type": "CASTER"
+  },
+
+  "release": {
+  },
+
   "impact": [
     {
       "action": {
@@ -27,9 +33,11 @@
       }
     }
   ],
+
   "cost": {
-    "exhaust": 0.8,
-    "cooldown_duration": 42,
-    "cooldown_haste_affected": false
+    "exhaust" : 0.8,
+    "cooldown":{
+      "duration": 42
+    }
   }
 }

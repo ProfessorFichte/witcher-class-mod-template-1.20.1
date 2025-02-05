@@ -5,25 +5,35 @@
     "enabled": false,
     "tier": 3
   },
-  "cast": {
-    "movement_speed": 0.1,
-    "duration": 0,
-    "particles": [
-      {
-        "particle_id": "witcher_rpg:aard_sign_cast",
-        "shape": "PIPE",
-        "origin": "LAUNCH_POINT",
-        "count": 0.2,
-        "min_speed": 0.01,
-        "max_speed": 0.1
+
+  "active": {
+    "cast": {
+      "movement_speed": 0.1,
+      "duration": 0,
+      "particles": [
+        {
+          "particle_id": "witcher_rpg:aard_sign_cast",
+          "shape": "PIPE",
+          "origin": "LAUNCH_POINT",
+          "count": 0.2,
+          "min_speed": 0.01,
+          "max_speed": 0.1
+        }
+      ],
+      "start_sound": {
+        "id": "witcher_rpg:aard_sign"
       }
-    ],
-    "start_sound": {
-      "id": "witcher_rpg:aard_sign"
     }
   },
+
+  "target": {
+    "type": "AREA",
+    "area": {
+      "angle_degrees": 360
+    }
+  },
+
   "release": {
-    "custom_impact": true,
     "animation": "witcher_rpg:sign_cast_ground",
     "particles": [
       {
@@ -57,16 +67,11 @@
         "pre_spawn_travel": 1
       }
     ],
-    "target": {
-      "type": "AREA",
-      "area": {
-        "angle_degrees": 360
-      }
-    },
     "sound": {
       "id": "witcher_rpg:aard_sign"
     }
   },
+
   "impact": [
     {
       "action": {
@@ -97,9 +102,12 @@
       ]
     }
   ],
+
+
   "cost": {
-    "exhaust": 0.5,
-    "cooldown_duration": 26,
-    "cooldown_haste_affected": false
+    "exhaust" : 0.5,
+    "cooldown":{
+      "duration": 26
+    }
   }
 }

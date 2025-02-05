@@ -5,14 +5,19 @@
   "learn": {
     "tier": 2
   },
-  "cast": {
-    "movement_speed": 0.75,
-    "duration": 0
+
+  "active": {
+    "cast": {
+      "movement_speed": 0.75,
+      "duration": 0
+    }
   },
+
+  "target": {
+    "type": "CASTER"
+  },
+
   "release": {
-    "target": {
-      "type": "SELF"
-    },
     "animation": "witcher_rpg:sign_cast_short",
     "sound": {
       "id": "witcher_rpg:quen_sign"
@@ -54,6 +59,7 @@
       }
     ]
   },
+
   "impact": [
     {
       "action": {
@@ -69,9 +75,11 @@
       }
     }
   ],
+
   "cost": {
-    "exhaust": 0.4,
-    "cooldown_duration": 36,
-    "cooldown_haste_affected": true
+    "exhaust" : 0.4,
+    "cooldown":{
+      "duration": 28
+    }
   }
 }

@@ -16,19 +16,19 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
-import net.more_rpg_classes.MRPGCMod;
 import net.spell_engine.api.entity.SpellSpawnedEntity;
 import net.spell_engine.api.spell.fx.ParticleBatch;
 import net.spell_engine.api.spell.Spell;
 import net.spell_engine.api.spell.registry.SpellRegistry;
+import net.spell_engine.internals.target.EntityRelations;
 import net.spell_engine.particle.ParticleHelper;
-import net.spell_engine.utils.TargetHelper;
 import net.witcher_rpg.custom.WitcherSpellSchools;
 import net.witcher_rpg.effect.Effects;
 import net.witcher_rpg.entity.attribute.WitcherAttributes;
 import net.witcher_rpg.util.tags.WitcherEntityTags;
 
 import static net.more_rpg_classes.util.CustomMethods.spellSchoolDamageCalculation;
+import static net.witcher_rpg.WitcherClassMod.MOD_ID;
 
 
 public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
@@ -56,7 +56,7 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
     private Identifier spellId;
     private int timeToLive = 20;
     private int ownerId;
-    public static final Identifier yrdenSoundId = Identifier.of(MRPGCMod.MOD_ID, "yrden_sign");
+    public static final Identifier yrdenSoundId = Identifier.of(MOD_ID, "yrden_sign");
     public static final SoundEvent yrdenSound = SoundEvent.of(yrdenSoundId);
 
     public YrdenMagicTrapEntity(EntityType<?> type, World world) {
@@ -163,7 +163,7 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
     }
 
     private static final int checkInterval = 4;
-    private static final int checkDamageInterval = 30;
+    private static final int checkDamageInterval = 20;
 
 
     @Override
@@ -229,7 +229,7 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
         if (owner == null) {
             return false;
         }
-        var relation = TargetHelper.getRelation(owner, other);
+        var relation = EntityRelations.getRelation(owner, other);
         switch (relation) {
             case ALLY, FRIENDLY -> {
                 return true;

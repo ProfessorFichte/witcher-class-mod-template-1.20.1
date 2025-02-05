@@ -1,3 +1,8 @@
+# 2.4.0 - 1.21.1
+- Spell Engine 1.5 Update
+- fix Attribute Registry
+- changed some cooldowns and casting times
+
 # 2.3.1 - 1.21.1
 - fixed crash -> forgot ServerWorld Check on Yrden particle effect spawner
 

@@ -4,11 +4,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import net.spell_engine.api.spell.Spell;
 import net.spell_engine.api.spell.registry.SpellRegistry;
 import net.spell_engine.internals.SpellHelper;
 import net.spell_engine.internals.casting.SpellCast;
+import net.spell_engine.internals.target.SpellTarget;
 import net.spell_engine.utils.TargetHelper;
 import net.spell_power.api.SpellSchool;
 import net.witcher_rpg.custom.WitcherSpellSchools;
@@ -31,23 +34,22 @@ import static net.witcher_rpg.WitcherClassMod.effectsConfig;
 public abstract class SpellHelperMixin {
 
     @Inject(at = @At("HEAD"), method = "performSpell", cancellable = true)
-    private static void witcherQuenActiveShield(World world, PlayerEntity player, Identifier spellId, TargetHelper.SpellTargetResult targetResult, SpellCast.Action action, float progress, CallbackInfo callbackInfo) {
+    private static void witcherQuenActiveShield(World world, PlayerEntity player, RegistryEntry<Spell> spellEntry, SpellTarget.SearchResult targetResult, SpellCast.Action action, float progress, CallbackInfo callbackInfo) {
         if (!player.isSpectator()) {
             boolean quen_check = false;
             float quen_intensity = (float) player.getAttributeValue(WitcherAttributes.QUEN_INTENSITY);
             int amplifier = round(quen_intensity * effectsConfig.value.quen_active_shield_quen_intensity_amplifier_multiplier);
-            var spellEntry = SpellRegistry.from(player.getWorld()).getEntry(spellId).orElse(null);
             var spell = spellEntry.value();
             if (spell != null) {
                 if(action == SpellCast.Action.CHANNEL &&
-                        Objects.equals(spellId, Identifier.of(MOD_ID, "quen_active_shield"))){
+                        Objects.equals(spell, Identifier.of(MOD_ID, "quen_active_shield"))){
                     if(!player.hasStatusEffect(Effects.QUEN_ACTIVE.registryEntry)){
                         player.addStatusEffect(new StatusEffectInstance(Effects.QUEN_ACTIVE.registryEntry,1000,amplifier,false,false,true));
 
                     }
                 }
 
-                if(action == SpellCast.Action.RELEASE && Objects.equals(spellId, Identifier.of(MOD_ID, "quen_active_shield"))){
+                if(action == SpellCast.Action.RELEASE && Objects.equals(spell, Identifier.of(MOD_ID, "quen_active_shield"))){
                     player.removeStatusEffect(Effects.QUEN_ACTIVE.registryEntry);
                 }
             }
@@ -55,9 +57,8 @@ public abstract class SpellHelperMixin {
     }
 
     @Inject(at = @At("HEAD"), method = "performSpell", cancellable = true)
-    private static void damagingSignAdrenalineGain(World world, PlayerEntity player, Identifier spellId, TargetHelper.SpellTargetResult targetResult, SpellCast.Action action, float progress, CallbackInfo callbackInfo) {
+    private static void damagingSignAdrenalineGain(World world, PlayerEntity player, RegistryEntry<Spell> spellEntry, SpellTarget.SearchResult targetResult, SpellCast.Action action, float progress, CallbackInfo callbackInfo) {
         if (!player.isSpectator()) {
-            var spellEntry = SpellRegistry.from(player.getWorld()).getEntry(spellId).orElse(null);
             var spell = spellEntry.value();
             SpellSchool school = spell.school;
 

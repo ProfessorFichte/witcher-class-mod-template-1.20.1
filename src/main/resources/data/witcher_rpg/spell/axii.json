@@ -5,26 +5,35 @@
   "learn": {
     "tier": 2
   },
-  "cast": {
-    "movement_speed": 0.75,
-    "duration": 0.5,
-    "animation": "witcher_rpg:sign_cast_long",
-    "particles": [
-      {
-        "particle_id": "witcher_rpg:axii_sign_cast",
-        "shape": "PIPE",
-        "origin": "LAUNCH_POINT",
-        "count": 0.2,
-        "min_speed": 0.01,
-        "max_speed": 0.1
-      }
-    ]
+
+  "active": {
+    "cast": {
+      "movement_speed": 0.75,
+      "duration": 0.5,
+      "animation": "witcher_rpg:sign_cast_long",
+      "particles": [
+        {
+          "particle_id": "witcher_rpg:axii_sign_cast",
+          "shape": "PIPE",
+          "origin": "LAUNCH_POINT",
+          "count": 0.2,
+          "min_speed": 0.01,
+          "max_speed": 0.1
+        }
+      ]
+    }
   },
+
+  "target": {
+    "type": "AIM",
+    "aim": {
+      "sticky": false,
+      "required": true
+    }
+  },
+
   "release": {
-    "target": {
-      "type": "CURSOR",
-      "animation": "witcher_rpg:sign_cast_short"
-    },
+    "animation": "witcher_rpg:sign_cast_short",
     "sound": {
       "id": "witcher_rpg:axii_sign"
     },
@@ -39,6 +48,7 @@
       }
     ]
   },
+
   "impact": [
     {
       "target_conditions": [
@@ -64,9 +74,12 @@
       }
     }
   ],
+
   "cost": {
-    "exhaust": 0.4,
-    "cooldown_duration": 16,
-    "cooldown_haste_affected": false
+    "exhaust" : 0.4,
+    "cooldown":{
+      "duration": 20,
+      "haste_affected": false
+    }
   }
 }

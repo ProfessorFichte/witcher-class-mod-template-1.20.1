@@ -9,7 +9,6 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.more_rpg_classes.effect.MRPGCEffects;
 import net.spell_engine.api.spell.fx.ParticleBatch;
-import net.spell_engine.internals.casting.SpellCasterEntity;
 import net.spell_engine.particle.ParticleHelper;
 
 import static net.more_rpg_classes.util.CustomMethods.clearNegativeEffects;
@@ -32,6 +31,12 @@ public class QuenActiveEffect extends StatusEffect {
     }
 
     public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
+        if (!entity.getWorld().isClient) {
+            float currentAbsorption = entity.getAbsorptionAmount();
+            if(currentAbsorption == 0 ){
+                entity.removeStatusEffect(Effects.QUEN_ACTIVE.registryEntry);
+            }
+        }
         return entity.getAbsorptionAmount() > 0.0F || entity.getWorld().isClient;
     }
 
@@ -47,15 +52,13 @@ public class QuenActiveEffect extends StatusEffect {
     }
 
     public static void onRemove(LivingEntity entity) {
+        float currentAbsorption = entity.getAbsorptionAmount();
+        if(currentAbsorption == 0 ){
+            entity.addStatusEffect(new StatusEffectInstance(MRPGCEffects.STUNNED.registryEntry,20,0,false,false,false));
+        }
         if (!entity.getWorld().isClient()) {
             entity.getWorld().playSoundFromEntity(null, entity, QUEN_BREAK, SoundCategory.PLAYERS, 1F, 1F);
             ParticleHelper.sendBatches(entity, new ParticleBatch[]{quen_break});
-            if(entity instanceof SpellCasterEntity){
-                SpellCasterEntity spellCasterEntity = (SpellCasterEntity) entity;
-                if(spellCasterEntity.isCastingSpell()){
-                    entity.addStatusEffect(new StatusEffectInstance(MRPGCEffects.STUNNED.registryEntry,10,0,false,false,false));
-                }
-            }
         }
     }
 }

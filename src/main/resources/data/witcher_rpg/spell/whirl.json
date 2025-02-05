@@ -5,26 +5,31 @@
   "learn": {
     "tier": 3
   },
-  "cast": {
-    "movement_speed": 1.3,
-    "duration": 2.5,
-    "animation": "witcher_rpg:witcher_whirl",
-    "sound": {
-      "id": "witcher_rpg:whirl",
-      "randomness": 1.1,
-      "volume": 0.6
-    },
-    "channel_ticks": 8
-  },
-  "release": {
-    "custom_impact": false,
-    "target": {
-      "type": "AREA",
-      "area": {
-        "angle_degrees": 360
-      }
+
+  "active": {
+    "cast": {
+      "movement_speed": 1.3,
+      "duration": 2.5,
+      "animation": "witcher_rpg:witcher_whirl",
+      "sound": {
+        "id": "witcher_rpg:whirl",
+        "randomness": 1.1,
+        "volume": 0.6
+      },
+      "channel_ticks": 8
     }
   },
+
+  "target": {
+    "type": "AREA",
+    "area": {
+      "angle_degrees": 360
+    }
+  },
+
+  "release": {
+  },
+
   "impact": [
     {
       "action": {
@@ -51,11 +56,12 @@
       }
     }
   ],
+
   "cost": {
-    "exhaust": 12.0,
-    "cooldown_duration": 32,
-    "durability": 5,
-    "cooldown_proportional": true,
-    "cooldown_haste_affected": false
+    "exhaust": 1.0,
+    "durability": 1,
+    "cooldown":{
+      "duration": 32
+    }
   }
 }

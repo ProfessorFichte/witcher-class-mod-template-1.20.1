@@ -25,7 +25,20 @@ import static net.witcher_rpg.WitcherClassMod.MOD_ID;;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
 
+    @Inject(method = "createLivingAttributes", at = @At("RETURN"))
+    private static void witcher$createLivingAttributes(CallbackInfoReturnable<DefaultAttributeContainer.Builder> cir) {
+        cir.getReturnValue()
+                .add(WitcherAttributes.AARD_INTENSITY)
+                .add(WitcherAttributes.ADRENALINE_MODIFIER)
+                .add(WitcherAttributes.AXII_INTENSITY)
+                .add(WitcherAttributes.IGNI_INTENSITY)
+                .add(WitcherAttributes.QUEN_INTENSITY)
+                .add(WitcherAttributes.YRDEN_INTENSITY)
+                .add(WitcherAttributes.SIGN_INTENSITY)
+        ;
+    }
 
+    /*
     @Inject(method = "createLivingAttributes()Lnet/minecraft/entity/attribute/DefaultAttributeContainer$Builder;",
             require = 1, allow = 1, at = @At("RETURN"))
     private static void witcherEntityAttributes$addAttributes
@@ -38,7 +51,7 @@ public abstract class LivingEntityMixin {
         info.getReturnValue().add(WitcherAttributes.YRDEN_INTENSITY);
         info.getReturnValue().add(WitcherAttributes.SIGN_INTENSITY);
     }
-
+    */
 
     @Inject(at = @At("HEAD"), method = "isBlocking", cancellable = true)
     private void witcherBlockingMechanics( final CallbackInfoReturnable<Boolean> info) {

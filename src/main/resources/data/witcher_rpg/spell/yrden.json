@@ -5,69 +5,75 @@
   "learn": {
     "tier": 2
   },
-  "cast": {
-    "movement_speed": 0.75,
-    "particles": [
-      {
-        "particle_id": "witcher_rpg:yrden_sign_cast",
-        "shape": "CIRCLE",
-        "origin": "CENTER",
-        "count": 1.0,
-        "min_speed": 0.001,
-        "max_speed": 0.006
-      },
-      {
-        "particle_id": "witcher_rpg:yrden_sign_cast",
-        "shape": "PILLAR",
-        "origin": "CENTER",
-        "count": 1.0,
-        "min_speed": 0.001,
-        "max_speed": 0.006
-      }
-    ]
+
+  "active": {
+    "cast": {
+      "movement_speed": 0.75,
+      "particles": [
+        {
+          "particle_id": "witcher_rpg:yrden_sign_cast",
+          "shape": "CIRCLE",
+          "origin": "CENTER",
+          "count": 1.0,
+          "min_speed": 0.001,
+          "max_speed": 0.006
+        },
+        {
+          "particle_id": "witcher_rpg:yrden_sign_cast",
+          "shape": "PILLAR",
+          "origin": "CENTER",
+          "count": 1.0,
+          "min_speed": 0.001,
+          "max_speed": 0.006
+        }
+      ]
+    }
   },
+
+  "deliver": {
+    "type": "CLOUD",
+    "cloud": {
+      "volume": {
+        "radius": 3.0,
+        "area": {
+          "vertical_range_multiplier": 2.5
+        }
+      },
+      "impact_tick_interval": 10,
+      "time_to_live_seconds": 10,
+      "client_data": {
+        "light_level": 14,
+        "model": {
+          "model_id": "witcher_rpg:effect/yrden_circle",
+          "scale": 3,
+          "rotate_degrees_per_tick": 0,
+          "light_emission": "RADIATE"
+        },
+        "particles": [
+          {
+            "particle_id": "witcher_rpg:yrden_cloud",
+            "shape": "PILLAR",
+            "origin": "FEET",
+            "count": 2.0,
+            "min_speed": 0.0,
+            "max_speed": 0.0
+          }
+        ]
+      },
+      "placement": {
+        "force_onto_ground": true,
+        "location_offset_y": 0
+      }
+    }
+  },
+
   "release": {
     "animation": "witcher_rpg:sign_cast_ground",
     "sound": {
       "id": "witcher_rpg:yrden_sign"
-    },
-    "target": {
-      "type": "CLOUD",
-      "cloud": {
-        "volume": {
-          "radius": 3.0,
-          "area": {
-            "vertical_range_multiplier": 2.5
-          }
-        },
-        "impact_tick_interval": 10,
-        "time_to_live_seconds": 10,
-        "client_data": {
-          "light_level": 14,
-          "model": {
-            "model_id": "witcher_rpg:effect/yrden_circle",
-            "scale": 3,
-            "rotate_degrees_per_tick": 0,
-            "light_emission": "RADIATE"
-          },
-          "particles": [
-            {
-              "particle_id": "witcher_rpg:yrden_cloud",
-              "shape": "PILLAR",
-              "origin": "FEET",
-              "count": 2.0,
-              "min_speed": 0.0,
-              "max_speed": 0.0
-            }
-          ]
-        },
-        "placement": {
-          "force_onto_ground": true,
-          "location_offset_y": 0
-        }
-      }
     }
   },
+
   "impact": [
     {
       "action": {
@@ -108,9 +114,11 @@
       }
     }
   ],
+
   "cost": {
-    "exhaust": 0.4,
-    "cooldown_duration": 18,
-    "cooldown_haste_affected": true
+    "exhaust" : 0.4,
+    "cooldown":{
+      "duration": 18
+    }
   }
 }
