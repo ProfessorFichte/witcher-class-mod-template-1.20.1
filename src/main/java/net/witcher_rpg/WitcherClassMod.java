@@ -38,7 +38,6 @@ public class WitcherClassMod implements ModInitializer {
 	public static final String MOD_ID = "witcher_rpg";
     public static final Logger LOGGER = LoggerFactory.getLogger("witcher_rpg");
 
-
 	public static ConfigManager<ItemConfig> itemConfig = new ConfigManager<ItemConfig>
 			("items_v5", Default.itemConfig)
 			.builder()

@@ -2,6 +2,12 @@
 - Spell Engine 1.5 Update
 - fix Attribute Registry
 - changed some cooldowns and casting times
+- Add Dark Oak Forest Witcher Grave Structure
+- Igni & Aard are now Tier 1 Spells
+- Yrden, Axii & Quen stay at Tier 2
+- New Fencing Spell Tier-list: 1.Witcher Reflexes 2.Battle Trance 3.Rend 4.Whirl
+- added Witcher Related Spell Scrolls to the Witcher Grave-Loot Tables
+- Reduce Rend Cooldown & Cast Duration
 
 # 2.3.1 - 1.21.1
 - fixed crash -> forgot ServerWorld Check on Yrden particle effect spawner
