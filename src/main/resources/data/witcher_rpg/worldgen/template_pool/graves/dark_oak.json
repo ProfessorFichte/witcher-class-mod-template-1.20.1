@@ -1,0 +1,15 @@
+{
+  "name": "witcher_rpg:graves/dark_oak",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "witcher_rpg:witcher_graves/dark_oak",
+        "projection": "rigid",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}
