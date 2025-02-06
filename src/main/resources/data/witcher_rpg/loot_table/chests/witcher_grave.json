@@ -19,7 +19,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 1,
-                "max": 5
+                "max": 3
               },
               "add": false
             }
@@ -51,7 +51,7 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 1,
-                "max": 3
+                "max": 2
               },
               "add": false
             }
@@ -67,11 +67,26 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 1,
-                "max": 3
+                "max": 2
               },
               "add": false
             }
           ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "witcher_rpg:spell_scrolls/beginner",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "witcher_rpg:spell_scrolls/expert",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "witcher_rpg:spell_scrolls/master",
+          "weight": 1
         }
       ]
     },
