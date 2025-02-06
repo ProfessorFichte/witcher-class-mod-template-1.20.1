@@ -1,14 +1,18 @@
 {
   "structures": [
     {
-      "structure": "witcher_rpg:witcher_grave",
+      "structure": "witcher_rpg:witcher_grave_cave",
+      "weight": 1
+    },
+    {
+      "structure": "witcher_rpg:witcher_grave_dark_oak",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 15,
-    "separation": 5,
+    "spacing": 25,
+    "separation": 10,
     "salt": 40684830
   }
 }
