@@ -3,14 +3,14 @@
   "range": 0,
   "range_melee": true,
   "learn": {
-    "tier": 4
+    "tier": 3
   },
 
   "active": {
     "cast": {
       "animation": "witcher_rpg:rend_cast",
       "movement_speed": 0.1,
-      "duration": 0.7
+      "duration": 0.3
     }
   },
 
@@ -86,7 +86,7 @@
     "exhaust": 1.0,
     "durability": 1,
     "cooldown":{
-      "duration": 30
+      "duration": 18
     }
   }
 }
