@@ -38,21 +38,6 @@ public abstract class LivingEntityMixin {
         ;
     }
 
-    /*
-    @Inject(method = "createLivingAttributes()Lnet/minecraft/entity/attribute/DefaultAttributeContainer$Builder;",
-            require = 1, allow = 1, at = @At("RETURN"))
-    private static void witcherEntityAttributes$addAttributes
-            (CallbackInfoReturnable<DefaultAttributeContainer.Builder> info){
-        info.getReturnValue().add(WitcherAttributes.AARD_INTENSITY);
-        info.getReturnValue().add(WitcherAttributes.ADRENALINE_MODIFIER);
-        info.getReturnValue().add(WitcherAttributes.AXII_INTENSITY);
-        info.getReturnValue().add(WitcherAttributes.IGNI_INTENSITY);
-        info.getReturnValue().add(WitcherAttributes.QUEN_INTENSITY);
-        info.getReturnValue().add(WitcherAttributes.YRDEN_INTENSITY);
-        info.getReturnValue().add(WitcherAttributes.SIGN_INTENSITY);
-    }
-    */
-
     @Inject(at = @At("HEAD"), method = "isBlocking", cancellable = true)
     private void witcherBlockingMechanics( final CallbackInfoReturnable<Boolean> info) {
         LivingEntity player2 = ((LivingEntity) (Object) this);
