@@ -8,6 +8,11 @@
 - New Fencing Spell Tier-list: 1.Witcher Reflexes 2.Battle Trance 3.Rend 4.Whirl
 - added Witcher Related Spell Scrolls to the Witcher Grave-Loot Tables
 - Reduce Rend Cooldown & Cast Duration
+- Update to Fabric Loom 1.9
+- Add Particles To the Axii Puppet Effect
+- Fixed Axii Puppet effect, that the affected mob targets other mobs
+- remove aards ability to block arrows
+
 
 # 2.3.1 - 1.21.1
 - fixed crash -> forgot ServerWorld Check on Yrden particle effect spawner

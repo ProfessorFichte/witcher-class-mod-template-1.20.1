@@ -10,6 +10,7 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.more_rpg_classes.entity.attribute.MRPGCEntityAttributes;
 import net.spell_engine.api.effect.*;
+import net.spell_engine.api.entity.SpellEngineAttributes;
 import net.spell_power.api.SpellPowerMechanics;
 import net.witcher_rpg.entity.attribute.WitcherAttributes;
 
@@ -124,6 +125,10 @@ public class Effects {
                 effectsConfig.value.sign_school_intensity_increase_per_stack, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE);
         ADRENALINE_BURST.effect.addAttributeModifier(WitcherAttributes.ADRENALINE_MODIFIER, ADRENALINE_BURST.modifierId(),
                 effectsConfig.value.adrenaline_burst_increase, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE);
+        AXII.effect.addAttributeModifier(
+                SpellEngineAttributes.DAMAGE_TAKEN.entry, AXII.modifierId(),
+                effectsConfig.value.axii_damage_increase, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
+        );
 
 
 
@@ -158,7 +163,6 @@ public class Effects {
         ActionImpairing.configure(AXII.effect, EntityActionsAllowed.STUN);
         ActionImpairing.configure(STAGGER.effect, EntityActionsAllowed.INCAPACITATE);
 
-        HealthImpacting.configureDamageTaken(AXII.effect, effectsConfig.value.axii_damage_increase);
 
         for (var entry: entries) {
             entry.register();

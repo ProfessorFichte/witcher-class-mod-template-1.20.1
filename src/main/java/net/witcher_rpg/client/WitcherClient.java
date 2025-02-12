@@ -47,6 +47,7 @@ public class WitcherClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(Particles.YRDEN_CLOUD, DragonBreathParticle.Factory::new);
 
         CustomParticleStatusEffect.register(Effects.AXII.effect, new AxiiParticles(1));
+        CustomParticleStatusEffect.register(Effects.AXII_PUPPET.effect, new AxiiParticles(3));
 
         CustomModelStatusEffect.register(Effects.QUEN_ACTIVE.effect, new QuenActiveShieldRenderer());
 

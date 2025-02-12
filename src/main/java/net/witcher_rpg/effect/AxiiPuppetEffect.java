@@ -6,7 +6,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.util.math.Box;
 import net.witcher_rpg.util.tags.WitcherEntityTags;
@@ -28,7 +30,7 @@ public class AxiiPuppetEffect extends StatusEffect {
                         mobEntity.getZ() - range);
                 for(Entity entities : mobEntity.getEntityWorld().getOtherEntities(mobEntity, radius, EntityPredicates.VALID_LIVING_ENTITY)){
                     if (entities != null) {
-                        if(entities instanceof MobEntity otherMobEntity){
+                        if(entities instanceof HostileEntity otherMobEntity){
                             mobEntity.setTarget(otherMobEntity);
                         }
                     }
