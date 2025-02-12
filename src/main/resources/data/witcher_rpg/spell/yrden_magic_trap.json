@@ -1,10 +1,7 @@
 {
   "range": 3,
   "school": "YRDEN",
-  "learn": {
-    "enabled": false,
-    "tier": 3
-  },
+  "tier": 3,
 
   "active": {
     "cast": {
@@ -28,7 +25,8 @@
           "max_speed": 0.06
         }
       ]
-    }
+    },
+    "scroll": {}
   },
 
   "target": {
@@ -42,7 +40,7 @@
     }
   },
 
-  "impact": [
+  "impacts": [
     {
       "action": {
         "type": "SPAWN",

@@ -1,16 +1,15 @@
 {
   "school": "AARD",
-  "group": "aard",
   "range": 7.5,
-  "learn": {
-    "tier": 1
-  },
+  "tier": 1,
+  "learn": {},
 
   "active": {
     "cast": {
       "movement_speed": 0.75,
       "duration": 0
-    }
+    },
+    "scroll": {}
   },
 
   "target": {
@@ -56,7 +55,7 @@
     ]
   },
 
-  "impact": [
+  "impacts": [
     {
       "action": {
         "type": "DAMAGE",

@@ -1,17 +1,16 @@
 {
   "school": "WITCHER_MELEE",
-  "range": 0,
-  "range_melee": true,
-  "learn": {
-    "tier": 3
-  },
+  "range_mechanic": "MELEE",
+  "tier": 3,
+  "learn": {},
 
   "active": {
     "cast": {
       "animation": "witcher_rpg:rend_cast",
       "movement_speed": 0.1,
       "duration": 0.3
-    }
+    },
+    "scroll": {}
   },
 
   "target": {
@@ -50,7 +49,7 @@
     }
   },
 
-  "impact": [
+  "impacts": [
     {
       "action": {
         "type": "DAMAGE",

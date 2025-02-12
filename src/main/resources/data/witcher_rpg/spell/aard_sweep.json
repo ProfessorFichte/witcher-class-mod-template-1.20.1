@@ -1,10 +1,7 @@
 {
   "school": "AARD",
   "range": 4.0,
-  "learn": {
-    "enabled": false,
-    "tier": 3
-  },
+  "tier": 3,
 
   "active": {
     "cast": {
@@ -23,7 +20,8 @@
       "start_sound": {
         "id": "witcher_rpg:aard_sign"
       }
-    }
+    },
+    "scroll": {}
   },
 
   "target": {
@@ -72,7 +70,7 @@
     }
   },
 
-  "impact": [
+  "impacts": [
     {
       "action": {
         "type": "DAMAGE",
@@ -107,7 +105,7 @@
   "cost": {
     "exhaust" : 0.5,
     "cooldown":{
-      "duration": 26
+      "duration": 0
     }
   }
 }

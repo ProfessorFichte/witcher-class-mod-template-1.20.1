@@ -1,10 +1,8 @@
 {
   "school": "AXII",
-  "group": "axii",
   "range": 10,
-  "learn": {
-    "tier": 2
-  },
+  "tier": 2,
+  "learn": {},
 
   "active": {
     "cast": {
@@ -21,7 +19,8 @@
           "max_speed": 0.1
         }
       ]
-    }
+    },
+    "scroll": {}
   },
 
   "target": {
@@ -49,7 +48,7 @@
     ]
   },
 
-  "impact": [
+  "impacts": [
     {
       "target_conditions": [
         {

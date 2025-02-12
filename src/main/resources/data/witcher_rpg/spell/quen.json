@@ -1,16 +1,15 @@
 {
   "school": "QUEN",
-  "group": "quen",
   "range": 0,
-  "learn": {
-    "tier": 2
-  },
+  "tier": 2,
+  "learn": {},
 
   "active": {
     "cast": {
       "movement_speed": 0.75,
       "duration": 0
-    }
+    },
+    "scroll": {}
   },
 
   "target": {
@@ -60,7 +59,7 @@
     ]
   },
 
-  "impact": [
+  "impacts": [
     {
       "action": {
         "type": "STATUS_EFFECT",

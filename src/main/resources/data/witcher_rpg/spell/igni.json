@@ -1,10 +1,8 @@
 {
   "school": "IGNI",
-  "group": "igni",
   "range": 4.0,
-  "learn": {
-    "tier": 1
-  },
+  "tier": 1,
+  "learn": {},
 
   "active": {
     "cast": {
@@ -46,7 +44,8 @@
         }
       ],
       "channel_ticks": 8
-    }
+    },
+    "scroll": {}
   },
 
   "target": {
@@ -61,7 +60,7 @@
   "release": {
   },
 
-  "impact": [
+  "impacts": [
     {
       "target_conditions": [
         {

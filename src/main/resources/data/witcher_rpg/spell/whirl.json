@@ -1,10 +1,8 @@
 {
   "school": "WITCHER_MELEE",
-  "range": 0,
-  "range_melee": true,
-  "learn": {
-    "tier": 4
-  },
+  "range_mechanic": "MELEE",
+  "tier": 4,
+  "learn": {},
 
   "active": {
     "cast": {
@@ -17,7 +15,8 @@
         "volume": 0.6
       },
       "channel_ticks": 8
-    }
+    },
+    "scroll": {}
   },
 
   "target": {
@@ -30,7 +29,7 @@
   "release": {
   },
 
-  "impact": [
+  "impacts": [
     {
       "action": {
         "type": "DAMAGE",

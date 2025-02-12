@@ -1,17 +1,16 @@
 {
   "school": "WITCHER_MELEE",
   "range": 3.0,
-  "learn": {
-    "tier": 1
-  },
+  "tier": 1,
+  "learn": {},
 
   "active": {
     "cast": {
       "animation": "witcher_rpg:witcher_reflexes",
       "movement_speed": 0.8,
       "duration": 0.5
-
-    }
+    },
+    "scroll": {}
   },
 
   "target": {
@@ -25,7 +24,7 @@
   "release": {
   },
 
-  "impact": [
+  "impacts": [
     {
       "action": {
         "type": "STATUS_EFFECT",
