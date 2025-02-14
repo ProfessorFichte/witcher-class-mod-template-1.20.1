@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 import net.witcher_rpg.WitcherClassMod;
 import net.witcher_rpg.item.armor.Armors;
 import net.witcher_rpg.item.weapon.WeaponsRegister;
-import net.spell_engine.api.item.trinket.SpellBooks;
+import net.spell_engine.api.item.SpellBooks;
 
 import java.util.HashMap;
 

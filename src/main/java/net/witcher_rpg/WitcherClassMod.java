@@ -11,6 +11,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.spell_engine.api.config.ConfigFile;
 import net.witcher_rpg.client.particle.Particles;
 import net.witcher_rpg.config.EffectsConfig;
 import net.witcher_rpg.config.TweaksConfig;
@@ -22,7 +23,6 @@ import net.witcher_rpg.sounds.Sounds;
 import net.witcher_rpg.worldgen.OreGen;
 import net.witcher_rpg.blocks.WitcherBlocks;
 import net.witcher_rpg.item.armor.Armors;
-import net.spell_engine.api.item.ItemConfig;
 import net.tinyconfig.ConfigManager;
 import net.witcher_rpg.config.Default;
 import net.witcher_rpg.custom.CustomSpells;
@@ -38,8 +38,8 @@ public class WitcherClassMod implements ModInitializer {
 	public static final String MOD_ID = "witcher_rpg";
     public static final Logger LOGGER = LoggerFactory.getLogger("witcher_rpg");
 
-	public static ConfigManager<ItemConfig> itemConfig = new ConfigManager<ItemConfig>
-			("items_v5", Default.itemConfig)
+	public static ConfigManager<ConfigFile.Equipment> itemConfig = new ConfigManager<>
+			("equipment", Default.itemConfig)
 			.builder()
 			.setDirectory(MOD_ID)
 			.sanitize(true)

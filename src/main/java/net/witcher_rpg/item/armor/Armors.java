@@ -10,9 +10,10 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.spell_engine.api.config.ArmorSetConfig;
+import net.spell_engine.api.config.AttributeModifier;
 import net.spell_power.api.SpellPowerMechanics;
 import net.witcher_rpg.item.WitcherGroup;
-import net.spell_engine.api.item.ItemConfig;
 import net.spell_engine.api.item.armor.Armor;
 import net.witcher_rpg.item.WitcherItems;
 
@@ -57,7 +58,7 @@ public class Armors {
         return Registry.registerReference(Registries.ARMOR_MATERIAL, Identifier.of(MOD_ID, name), material);
     }
     public static final ArrayList<Armor.Entry> entries = new ArrayList<>();
-    private static Armor.Entry create(RegistryEntry<ArmorMaterial> material, Identifier id, int durability, Armor.Set.ItemFactory factory, ItemConfig.ArmorSet defaults) {
+    private static Armor.Entry create(RegistryEntry<ArmorMaterial> material, Identifier id, int durability, Armor.Set.ItemFactory factory, ArmorSetConfig defaults) {
         var entry = Armor.Entry.create(
                 material,
                 id,
@@ -190,373 +191,373 @@ public class Armors {
     public static final Armor.Set witcherArmorSet =
             create(
                     material_witcher, Identifier.of(MOD_ID, "witcher"), 20, WitcherArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_witcher.value().getProtection(ArmorItem.Type.HELMET))
+                    ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_witcher.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,witcherSign),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,witcherAdrenaline),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,witcherAttackDamage)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,witcherSign),
+                                            AttributeModifier.multiply(ADRENALINE,witcherAdrenaline),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,witcherAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_witcher.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_witcher.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,witcherSign),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,witcherAdrenaline),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,witcherAttackDamage)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,witcherSign),
+                                            AttributeModifier.multiply(ADRENALINE,witcherAdrenaline),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,witcherAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_witcher.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_witcher.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,witcherSign),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,witcherAdrenaline),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,witcherAttackDamage)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,witcherSign),
+                                            AttributeModifier.multiply(ADRENALINE,witcherAdrenaline),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,witcherAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_witcher.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_witcher.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,witcherSign),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,witcherAdrenaline),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,witcherAttackDamage)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,witcherSign),
+                                            AttributeModifier.multiply(ADRENALINE,witcherAdrenaline),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,witcherAttackDamage)
                                     )))).armorSet();
 
     //FELINE SCHOOL ARMOR
     public static final Armor.Set felineSchoolArmorSet =
             create(
                     material_feline, Identifier.of(MOD_ID, "feline"), 15, CatSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_feline.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_feline.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenaline),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeed)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenaline),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeed)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_feline.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_feline.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenaline),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeed)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenaline),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeed)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_feline.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_feline.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenaline),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeed)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenaline),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeed)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_feline.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_feline.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenaline),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeed)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenaline),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeed)
                                     )))).armorSet();
 
     public static final Armor.Set enhancedFelineSchoolArmorSet =
             create(
                     material_enhanced_feline, Identifier.of(MOD_ID, "enhanced_feline"), 20, CatSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeedT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamageT2)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenalineT2),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeedT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,felineAttackDamageT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeedT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamageT2)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenalineT2),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeedT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,felineAttackDamageT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeedT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamageT2)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenalineT2),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeedT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,felineAttackDamageT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_enhanced_feline.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeedT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamageT2)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenalineT2),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeedT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,felineAttackDamageT2)
                                     )))).armorSet();
 
     public static final Armor.Set superiorFelineSchoolArmorSet =
             create(
                     material_superior_feline, Identifier.of(MOD_ID, "superior_feline"), 25, CatSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeedT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamageT3),
-                                            ItemConfig.Attribute.multiply(COMBATROLL_RECHARGE,felineRollRechargeT3)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenalineT3),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeedT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,felineAttackDamageT3),
+                                            AttributeModifier.multiply(COMBATROLL_RECHARGE,felineRollRechargeT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeedT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamageT3),
-                                            ItemConfig.Attribute.multiply(COMBATROLL_RECHARGE,felineRollRechargeT3)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenalineT3),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeedT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,felineAttackDamageT3),
+                                            AttributeModifier.multiply(COMBATROLL_RECHARGE,felineRollRechargeT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeedT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamageT3),
-                                            ItemConfig.Attribute.multiply(COMBATROLL_RECHARGE,felineRollRechargeT3)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenalineT3),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeedT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,felineAttackDamageT3),
+                                            AttributeModifier.multiply(COMBATROLL_RECHARGE,felineRollRechargeT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_superior_feline.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,felineAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_SPEED,felineAttackSpeedT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,felineAttackDamageT3),
-                                            ItemConfig.Attribute.multiply(COMBATROLL_RECHARGE,felineRollRechargeT3)
+                                            AttributeModifier.multiply(ADRENALINE,felineAdrenalineT3),
+                                            AttributeModifier.multiply(ATTACK_SPEED,felineAttackSpeedT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,felineAttackDamageT3),
+                                            AttributeModifier.multiply(COMBATROLL_RECHARGE,felineRollRechargeT3)
                                     )))).armorSet();
     //GRIFFIN SCHOOL ARMOR
     public static final Armor.Set griffinArmorSet =
             create(
                     material_griffin, Identifier.of(MOD_ID, "griffin"), 15, GriffinSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_griffin.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_griffin.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSign),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenaline)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSign),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenaline)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_griffin.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_griffin.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSign),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenaline)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSign),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenaline)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_griffin.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_griffin.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSign),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenaline)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSign),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenaline)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_griffin.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_griffin.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSign),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenaline)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSign),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenaline)
                                     )))).armorSet();
 
     public static final Armor.Set enhancedGriffinArmorSet =
             create(
                     material_enhanced_griffin, Identifier.of(MOD_ID, "enhanced_griffin"), 20, GriffinSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSignT2),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT2)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSignT2),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenalineT2),
+                                            AttributeModifier.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSignT2),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT2)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSignT2),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenalineT2),
+                                            AttributeModifier.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSignT2),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id, griffinHasteT2)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSignT2),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenalineT2),
+                                            AttributeModifier.multiply(SpellPowerMechanics.HASTE.id, griffinHasteT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_enhanced_griffin.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSignT2),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT2)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSignT2),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenalineT2),
+                                            AttributeModifier.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT2)
                                     )))).armorSet();
 
     public static final Armor.Set superiorGriffinArmorSet =
             create(
                     material_superior_griffin, Identifier.of(MOD_ID, "superior_griffin"), 25, GriffinSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSignT3),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT3)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSignT3),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenalineT3),
+                                            AttributeModifier.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSignT3),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT3)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSignT3),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenalineT3),
+                                            AttributeModifier.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSignT3),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT3)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSignT3),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenalineT3),
+                                            AttributeModifier.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_superior_griffin.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,griffinSignT3),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,griffinAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT3)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,griffinSignT3),
+                                            AttributeModifier.multiply(ADRENALINE,griffinAdrenalineT3),
+                                            AttributeModifier.multiply(SpellPowerMechanics.HASTE.id,griffinHasteT3)
                                     )))).armorSet();
 
     //WOLVEN SCHOOL ARMOR
     public static final Armor.Set wolvenArmorSet =
             create(
                     material_wolven, Identifier.of(MOD_ID, "wolven"), 15, WolfSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_wolven.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_wolven.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSign),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamage)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSign),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_wolven.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_wolven.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSign),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamage)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSign),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_wolven.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_wolven.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSign),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamage)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSign),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamage)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_wolven.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_wolven.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSign),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamage)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSign),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamage)
                                     )))).armorSet();
     public static final Armor.Set enhancedWolvenArmorSet =
             create(
                     material_enhanced_wolven, Identifier.of(MOD_ID, "enhanced_wolven"), 20, WolfSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSignT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamageT2),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,wolvenAdrenalineT2)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSignT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamageT2),
+                                            AttributeModifier.multiply(ADRENALINE,wolvenAdrenalineT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSignT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamageT2),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,wolvenAdrenalineT2)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSignT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamageT2),
+                                            AttributeModifier.multiply(ADRENALINE,wolvenAdrenalineT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSignT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamageT2),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,wolvenAdrenalineT2)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSignT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamageT2),
+                                            AttributeModifier.multiply(ADRENALINE,wolvenAdrenalineT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_enhanced_wolven.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSignT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamageT2),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,wolvenAdrenalineT2)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSignT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamageT2),
+                                            AttributeModifier.multiply(ADRENALINE,wolvenAdrenalineT2)
                                     )))).armorSet();
     public static final Armor.Set superiorWolvenArmorSet =
             create(
                     material_superior_wolven, Identifier.of(MOD_ID, "superior_wolven"), 25, WolfSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSignT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamageT3),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,wolvenAdrenalineT3)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSignT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamageT3),
+                                            AttributeModifier.multiply(ADRENALINE,wolvenAdrenalineT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSignT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamageT3),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,wolvenAdrenalineT3)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSignT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamageT3),
+                                            AttributeModifier.multiply(ADRENALINE,wolvenAdrenalineT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSignT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamageT3),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,wolvenAdrenalineT3)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSignT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamageT3),
+                                            AttributeModifier.multiply(ADRENALINE,wolvenAdrenalineT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_superior_wolven.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(SIGN_INTENSITY,wolvenSignT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,wolvenAttackDamageT3),
-                                            ItemConfig.Attribute.multiply(ADRENALINE,wolvenAdrenalineT3)
+                                            AttributeModifier.multiply(SIGN_INTENSITY,wolvenSignT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,wolvenAttackDamageT3),
+                                            AttributeModifier.multiply(ADRENALINE,wolvenAdrenalineT3)
                                     )))).armorSet();
 
     //URSINE SCHOOL ARMOR
     public static final Armor.Set ursineArmorSet =
             create(
                     material_ursine, Identifier.of(MOD_ID, "ursine"), 15, BearSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_ursine.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_ursine.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenaline),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResi)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenaline),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResi)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_ursine.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_ursine.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenaline),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResi)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenaline),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResi)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_ursine.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_ursine.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenaline),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResi)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenaline),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResi)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_ursine.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_ursine.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenaline),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResi)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenaline),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResi)
                                     )))).armorSet();
     public static final Armor.Set enhancedUrsineArmorSet =
             create(
                     material_enhanced_ursine, Identifier.of(MOD_ID, "enhanced_ursine"), 20, BearSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamageT2)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenalineT2),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,ursineAttackDamageT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamageT2)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenalineT2),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,ursineAttackDamageT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamageT2)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenalineT2),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,ursineAttackDamageT2)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_enhanced_ursine.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenalineT2),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT2),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamageT2)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenalineT2),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT2),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,ursineAttackDamageT2)
                                     )))).armorSet();
     public static final Armor.Set superiorUrsineArmorSet =
             create(
                     material_superior_ursine, Identifier.of(MOD_ID, "superior_ursine"), 25, BearSchoolArmor::new,
-                    ItemConfig.ArmorSet.with(
-                            new ItemConfig.ArmorSet.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.HELMET))
+                     ArmorSetConfig.with(
+                            new  ArmorSetConfig.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.HELMET))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamageT3),
-                                            ItemConfig.Attribute.bonus(ARMOR_TOUGHNESS,ursineArmorToughnessT3)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenalineT3),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,ursineAttackDamageT3),
+                                            AttributeModifier.bonus(ARMOR_TOUGHNESS,ursineArmorToughnessT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.CHESTPLATE))
+                            new  ArmorSetConfig.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.CHESTPLATE))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamageT3),
-                                            ItemConfig.Attribute.bonus(ARMOR_TOUGHNESS,ursineArmorToughnessT3)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenalineT3),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,ursineAttackDamageT3),
+                                            AttributeModifier.bonus(ARMOR_TOUGHNESS,ursineArmorToughnessT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.LEGGINGS))
+                            new  ArmorSetConfig.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.LEGGINGS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamageT3),
-                                            ItemConfig.Attribute.bonus(ARMOR_TOUGHNESS,ursineArmorToughnessT3)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenalineT3),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,ursineAttackDamageT3),
+                                            AttributeModifier.bonus(ARMOR_TOUGHNESS,ursineArmorToughnessT3)
                                     )),
-                            new ItemConfig.ArmorSet.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.BOOTS))
+                            new  ArmorSetConfig.Piece(material_superior_ursine.value().getProtection(ArmorItem.Type.BOOTS))
                                     .addAll(List.of(
-                                            ItemConfig.Attribute.multiply(ADRENALINE,ursineAdrenalineT3),
-                                            ItemConfig.Attribute.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT3),
-                                            ItemConfig.Attribute.multiply(ATTACK_DAMAGE,ursineAttackDamageT3),
-                                            ItemConfig.Attribute.bonus(ARMOR_TOUGHNESS,ursineArmorToughnessT3)
+                                            AttributeModifier.multiply(ADRENALINE,ursineAdrenalineT3),
+                                            AttributeModifier.multiply(KNOCKBACK_RESISTANCE,ursineKnockBackResiT3),
+                                            AttributeModifier.multiply(ATTACK_DAMAGE,ursineAttackDamageT3),
+                                            AttributeModifier.bonus(ARMOR_TOUGHNESS,ursineArmorToughnessT3)
                                     )))).armorSet();
 
 
-    public static void register(Map<String, ItemConfig.ArmorSet> configs) {
+    public static void register(Map<String,  ArmorSetConfig> configs) {
         Armor.register(configs, entries, WitcherGroup.WITCHER_KEY);
     }
 }
