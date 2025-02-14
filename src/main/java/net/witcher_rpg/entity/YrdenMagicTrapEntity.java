@@ -165,7 +165,7 @@ public class YrdenMagicTrapEntity extends Entity implements SpellEntity.Spawned 
     }
 
     private static final int checkInterval = 4;
-    private static final int checkDamageInterval = 20;
+    private static final int checkDamageInterval = 40;
 
 
     @Override

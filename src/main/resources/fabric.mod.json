@@ -36,9 +36,9 @@
 		"java": ">=17",
 		"fabric-api": "*",
 		"azurelibarmor": "*",
-		"spell_engine": ">=1.0.0",
-		"spell_power": ">=0.10.0",
-		"more_rpg_classes": ">=2.0.0"
+		"spell_engine": ">=1.5.0",
+		"spell_power": ">=1.2.0",
+		"more_rpg_classes": ">=2.2.0"
 	},
 	"suggests": {
 		"better_combat": "*"

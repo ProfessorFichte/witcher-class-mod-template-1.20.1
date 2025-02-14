@@ -11,7 +11,7 @@
 - Update to Fabric Loom 1.9
 - Add Particles To the Axii Puppet Effect
 - Fixed Axii Puppet effect, that the affected mob targets other mobs
-- remove aards ability to block arrows
+- remove Aard-Spells ability to block arrows
 
 
 # 2.3.1 - 1.21.1
