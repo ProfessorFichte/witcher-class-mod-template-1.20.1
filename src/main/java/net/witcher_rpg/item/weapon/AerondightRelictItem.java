@@ -30,6 +30,7 @@ public class AerondightRelictItem extends WitcherSword {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+
         //GENERAL SILVER SWORD PASSIVE
         EntityType<?> type = ((Entity) target).getType();
         if(type.isIn(WitcherEntityTags.SILVER_VULNERABLE)){

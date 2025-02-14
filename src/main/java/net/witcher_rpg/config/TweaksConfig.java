@@ -1,6 +1,7 @@
 package net.witcher_rpg.config;
 
 public class TweaksConfig {
+    public boolean ignore_items_required_mods = false;
     public float steel_swords_bleed_chance = 0.20F;
     public int steel_swords_bleed_duration_seconds = 5;
     public float silver_swords_silver_damage_attack_damage_multiplier = 0.20F;

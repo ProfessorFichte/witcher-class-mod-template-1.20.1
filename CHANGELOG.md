@@ -1,3 +1,7 @@
+# 2.4.1 - 1.21.1
+- Add TweaksConfig, so special Weapons can also be used without Better End & Nether and the Aether
+- Fix fabric.mod.json
+
 # 2.4.0 - 1.21.1
 - Spell Engine 1.5 Update
 - fix Attribute Registry

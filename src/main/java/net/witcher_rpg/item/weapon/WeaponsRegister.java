@@ -12,6 +12,7 @@ import net.spell_engine.api.config.WeaponConfig;
 import net.spell_engine.api.item.weapon.Weapon;
 import net.spell_power.api.SpellPowerMechanics;
 
+import net.witcher_rpg.WitcherClassMod;
 import net.witcher_rpg.item.WitcherGroup;
 import net.witcher_rpg.item.WitcherItems;
 
@@ -150,7 +151,7 @@ public static final Weapon.Entry ultimatum = ultimatum("","ultimatum_sword",
     private static final String AETHER = "aether";
     //Registration
     public static void register(Map<String, WeaponConfig> configs) {
-        if(FabricLoader.getInstance().isModLoaded(BETTER_NETHER)){
+        if(FabricLoader.getInstance().isModLoaded(BETTER_NETHER) || WitcherClassMod.tweaksConfig.value.ignore_items_required_mods){
             var repair = ingredient("betternether:nether_ruby", FabricLoader.getInstance().isModLoaded(BETTER_NETHER), Items.NETHERITE_INGOT);
             witcherswords(BETTER_NETHER, "ruby_witcher_sword",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, repair),7.0F, true)
@@ -158,14 +159,14 @@ public static final Weapon.Entry ultimatum = ultimatum("","ultimatum_sword",
                     .attribute(AttributeModifier.multiply(ADRENALINE,0.1F));
 
         }
-        if(FabricLoader.getInstance().isModLoaded(BETTER_END)){
+        if(FabricLoader.getInstance().isModLoaded(BETTER_END)|| WitcherClassMod.tweaksConfig.value.ignore_items_required_mods){
             var repair = ingredient("betterend:aeternium_ingot", FabricLoader.getInstance().isModLoaded(BETTER_NETHER), Items.NETHERITE_INGOT);
             witcherswords(BETTER_END, "aeternium_witcher_sword",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, repair),7.0F, true)
                     .attribute(AttributeModifier.bonus(SIGN_INTENSITY,4.0F))
                     .attribute(AttributeModifier.multiply(ADRENALINE,0.1F));
         }
-        if(FabricLoader.getInstance().isModLoaded(AETHER)){
+        if(FabricLoader.getInstance().isModLoaded(AETHER)|| WitcherClassMod.tweaksConfig.value.ignore_items_required_mods){
             var repair = ingredient("aether:ambrosium_shard", FabricLoader.getInstance().isModLoaded(AETHER), Items.NETHERITE_INGOT);
             witcherswords(AETHER, "aether_witcher_sword",
                     Weapon.CustomMaterial.matching(ToolMaterials.NETHERITE, repair),7.0F, true)
