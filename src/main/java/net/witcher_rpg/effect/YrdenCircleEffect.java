@@ -7,7 +7,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.util.math.Vec3d;
 import net.spell_engine.api.spell.fx.ParticleBatch;
-import net.spell_engine.particle.ParticleHelper;
+import net.spell_engine.fx.ParticleHelper;
 import net.witcher_rpg.util.tags.WitcherEntityTags;
 
 public class YrdenCircleEffect extends StatusEffect {

@@ -46,7 +46,7 @@ public class Effects {
     public static final Entry AARD_INTENSITY =  new Entry("aard_intensity",
             new CustomEffect(StatusEffectCategory.BENEFICIAL, 0x3beeff));
     public static final Entry AXII = new  Entry("axii",
-            new CustomEffect(StatusEffectCategory.HARMFUL, 0x008000));
+            new AxiiEffect(StatusEffectCategory.HARMFUL, 0x008000));
     public static final Entry AXII_INTENSITY = new Entry("axii_intensity",
             new CustomEffect(StatusEffectCategory.BENEFICIAL, 0x008000));
     public static final Entry AXII_PUPPET = new Entry("axii_puppet",

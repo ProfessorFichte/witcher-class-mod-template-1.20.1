@@ -9,7 +9,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.more_rpg_classes.effect.MRPGCEffects;
 import net.spell_engine.api.spell.fx.ParticleBatch;
-import net.spell_engine.particle.ParticleHelper;
+import net.spell_engine.fx.ParticleHelper;
 
 import static net.more_rpg_classes.util.CustomMethods.clearNegativeEffects;
 import static net.witcher_rpg.WitcherClassMod.MOD_ID;
