@@ -29,10 +29,6 @@
     "scroll": {}
   },
 
-  "target": {
-    "type": "CASTER"
-  },
-
   "release": {
     "animation": "witcher_rpg:sign_cast_ground",
     "sound": {
@@ -44,10 +40,12 @@
     {
       "action": {
         "type": "SPAWN",
-        "spawn": {
-          "entity_type_id": "witcher_rpg:yrden_magical_trap",
-          "time_to_live_seconds": 20
-        }
+        "spawns": [
+          {
+            "entity_type_id": "witcher_rpg:yrden_magical_trap",
+            "time_to_live_seconds": 20
+          }
+        ]
       }
     }
   ],

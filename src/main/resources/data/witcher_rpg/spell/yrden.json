@@ -31,11 +31,12 @@
 
   "deliver": {
     "type": "CLOUD",
-    "cloud": {
+    "clouds": [
+    {
       "volume": {
         "radius": 3.0,
         "area": {
-          "vertical_range_multiplier": 2.5
+          "vertical_range_multiplier": 1.5
         }
       },
       "impact_tick_interval": 10,
@@ -64,6 +65,7 @@
         "location_offset_y": 0
       }
     }
+    ]
   },
 
   "release": {
