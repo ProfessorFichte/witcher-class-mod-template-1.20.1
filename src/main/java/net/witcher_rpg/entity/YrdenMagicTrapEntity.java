@@ -16,12 +16,12 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
-import net.spell_engine.api.entity.SpellSpawnedEntity;
+import net.spell_engine.api.entity.SpellEntity;
 import net.spell_engine.api.spell.fx.ParticleBatch;
 import net.spell_engine.api.spell.Spell;
 import net.spell_engine.api.spell.registry.SpellRegistry;
 import net.spell_engine.internals.target.EntityRelations;
-import net.spell_engine.particle.ParticleHelper;
+import net.spell_engine.fx.ParticleHelper;
 import net.witcher_rpg.custom.WitcherSpellSchools;
 import net.witcher_rpg.effect.Effects;
 import net.witcher_rpg.entity.attribute.WitcherAttributes;
@@ -31,7 +31,7 @@ import static net.more_rpg_classes.util.CustomMethods.spellSchoolDamageCalculati
 import static net.witcher_rpg.WitcherClassMod.MOD_ID;
 
 
-public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
+public class YrdenMagicTrapEntity extends Entity implements SpellEntity.Spawned {
     public static EntityType<YrdenMagicTrapEntity > ENTITY_TYPE;
     public static final ParticleBatch yrden_damage_circle = new ParticleBatch(
             "witcher_rpg:yrden_cloud",
@@ -64,14 +64,16 @@ public class YrdenMagicTrapEntity extends Entity implements SpellSpawnedEntity {
     }
 
     @Override
-    public void onCreatedFromSpell(LivingEntity owner, Identifier spellId, Spell.Impact.Action.Spawn spawn) {
+    public void onSpawnedBySpell(Args args) {
+        var owner = args.owner();
+        var spellId = args.spell().getKey().get().getValue();
+        var spawn = args.spawnData();
         this.spellId = spellId;
         this.getDataTracker().set(SPELL_ID_TRACKER, this.spellId.toString());
         this.ownerId = owner.getId();
         this.getDataTracker().set(OWNER_ID_TRACKER, this.ownerId);
         this.timeToLive = spawn.time_to_live_seconds * 20;
         this.getDataTracker().set(TIME_TO_LIVE_TRACKER, this.timeToLive);
-
     }
 
     @Override
